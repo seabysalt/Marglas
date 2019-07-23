@@ -9,6 +9,7 @@ export default class Login extends Component {
     email: "",
     loginUsername: "",
     loginPassword: "",
+    error: ""
   };
 
   handleChange = event => {
@@ -44,7 +45,7 @@ export default class Login extends Component {
         this.props.history.push("/projects");
       })
       .catch(err => {
-        console.log(err);
+        this.setState({error: err.response.data.message});
       });
   };
 
@@ -87,6 +88,9 @@ signupPopup = e => {
           <input type="email" className="input" placeholder="Email" />
           <input type="password" className="input" name="signupPassword" id="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
         </div>
+        {this.state.error && (
+          <p className="warning">{this.state.error} </p>
+        )}
         <button className="submit-btn" onClick={this.handleSubmit2}>Sign up</button>
       </div>
  

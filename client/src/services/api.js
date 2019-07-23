@@ -11,6 +11,6 @@ const signup = (username, password) =>
     .then(response => response.data);
 
 const logout = () =>
-  axios.post("/api/auth/login").then(response => response.data);
+  axios.post("/api/auth/logout").then(response => response.data);
 
 export { login, logout, signup };
