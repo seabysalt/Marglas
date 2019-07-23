@@ -6,10 +6,9 @@ const passport = require("passport");
 const User = require("../models/User");
 
 router.post("/signup", (req, res, next) => {
-  const { username, password, email } = req.body;
-  console.log(req.body)
+  const { username, password } = req.body;
 
-  if (!password || !username || !email) {
+  if (!password || !username) {
     return res.status(400).json({ message: "Both fields are required" });
   } else if (password.length < 8) {
     return res
@@ -32,7 +31,9 @@ router.post("/signup", (req, res, next) => {
       }).then(newUser => {
         req.login(newUser, err => {
           if (err) {
-            return res.json({ message: "Error while attempting to login" });
+            return res
+              .status(500)
+              .json({ message: "Error while attempting to login" });
           }
 
           res.status(200).json(newUser);
@@ -47,13 +48,15 @@ router.post("/signup", (req, res, next) => {
 router.post("/login", (req, res) => {
   passport.authenticate("local", (err, user) => {
     if (err) {
-      return res.json({ message: "Error while authenticating" });
+      return res.status(500).json({ message: "Error while authenticating" });
     } else if (!user) {
-      return res.json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Invalid credentials" });
     }
     req.login(user, err => {
       if (err) {
-        return res.json({ message: "Error while attempting to login" });
+        return res
+          .status(500)
+          .json({ message: "Error while attempting to login" });
       }
 
       return res.status(200).json(user);
