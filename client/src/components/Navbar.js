@@ -18,9 +18,6 @@ const CustomNavbar = props => {
       {props.user ? (
         <>
           <Navbar.Brand>
-            <Link to="/projects">Projects</Link>
-          </Navbar.Brand>
-          <Navbar.Brand>
             <Link onClick={() => handleLogout(props)} to="/">
               Logout
             </Link>

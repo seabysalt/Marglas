@@ -23,7 +23,7 @@ export default class Signup extends Component {
     signup(username, password)
       .then(data => {
         this.props.setUser(data);
-        this.props.history.push("/projects");
+        // this.props.history.push("/projects");
       })
       .catch(err => {
         console.log(err);
