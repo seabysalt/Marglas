@@ -24,8 +24,8 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* <Navbar setUser={this.setUser} user={this.state.user} /> */}
-        <Index />
         <Switch>
+          <Route exact path="/" component={Index} />
           { <Route
             exact
             path="/signup"

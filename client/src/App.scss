@@ -92,11 +92,22 @@ body, html {
 	height: 3vw;
 	position: relative;
 	z-index: 10;
+	animation: circleMove 4s;
+}
+
+@keyframes circleMove {
+from{transform: translateX(0)}
+	to{transform: translate(10vw, 80vh)}
 }
 
 .bars {
 	position: relative;
 	top: 20vh;
+}
+
+@keyframes barMove {
+	from{transform: translateX(0)}
+	to{transform: translateX(700px)}
 }
 
 .bar {
@@ -126,9 +137,11 @@ font-family: 'Intro Inline';
 
 .index-links {
 	text-decoration: none;
+	display: flex;
+	text-direction: row;
 }
 
-.index-links a {
+.index-links p {
 	padding: 0 2vw;
 	text-decoration: none;
 	color: map-get($colors, purpleD);

@@ -1,6 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 export default class Index extends Component {
+
+handleClick=(x) =>{
+  console.log("haaaalo")
+  document.querySelector('.bars').style.cssText = "animation: barMove 2s;"
+  setTimeout(() => {
+  this.props.history.push(x)
+  }, 1000);
+console.log(document.querySelector('.bars').style)
+}
+
   render() {
     return (
       <div id="index">
@@ -20,8 +31,8 @@ export default class Index extends Component {
         <div className="index-content">
         <h1 className="header">Marglas</h1>
 <div className="index-links">
-        <a href="/login">login</a>
-        <a href="/signup">signup</a>
+  <p onClick={()=>this.handleClick("/login")} className="index-link">login</p>
+   <p onClick={()=>this.handleClick("/signup")} className="index-link">signup</p>
         </div>
         </div>
       </div>
