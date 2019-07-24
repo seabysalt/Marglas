@@ -1,11 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Index from "./components/Index";
+import Index from "./containers/Index";
 import "bootstrap/dist/css/bootstrap.css";
 
 import "./App.scss";
-
 
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
@@ -27,7 +25,6 @@ class App extends React.Component {
       <div className="App">
         {/* <Navbar setUser={this.setUser} user={this.state.user} /> */}
         <Index />
-        {/* <p>Hello</p> */}
         <Switch>
           { <Route
             exact

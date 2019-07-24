@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Urban Inline';
+    src: url('UrbanInline.woff2') format('woff2'),
+        url('UrbanInline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

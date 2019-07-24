@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Intro';
+    src: url('Intro.woff2') format('woff2'),
+        url('Intro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Intro Inline';
+    src: url('Intro-Inline.woff2') format('woff2'),
+        url('Intro-Inline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
