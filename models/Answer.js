@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const questionSchema = new Schema({
-  ObjectId: String,
+const answerSchema = new Schema({
+  // ObjectId: String,
   userId: String,
   username: { type: String, required: true },
   date: { type: Date, required: true, default: Date.now },
@@ -11,5 +11,5 @@ const questionSchema = new Schema({
   answer: { type: String, maxlength: 50 }
 });
 
-const Question = mongoose.model("Question", questionSchema);
-module.exports = Question;
+const Answer = mongoose.model("Answer", answerSchema);
+module.exports = Answer;
