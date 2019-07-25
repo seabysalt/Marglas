@@ -5,230 +5,302 @@
 ====================================================================================================== */
 
 $colors: (
-	orangeD: #F37400,
-	orangeL: #F7924B,
-	blueD: #0E58A3,
-	blueL: #1673B7,
-	lightblueD: #A4C1D8,
-	lightblueL: #BAD2E5,
-	pinkD: #BC0053,
-	pinkL: #BC0053,
-	purpleD: #690833,
-	purpleL: #D775A1,
+  orangeD: #f37400,
+  orangeL: #f7924b,
+  blueD: #0e58a3,
+  blueL: #1673b7,
+  lightblueD: #a4c1d8,
+  lightblueL: #bad2e5,
+  pinkD: #bc0053,
+  pinkL: #bc0053,
+  purpleD: #690833,
+  purpleL: #d775a1
 );
 
 /* =========================================== General Settings ================================================= */
 
 @font-face {
-    font-family: 'PhosphateSolid';
-    src: url('PhosphateSolid.woff2') format('woff2'),
-        url('PhosphateSolid.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
+  font-family: "PhosphateSolid";
+  src: url("PhosphateSolid.woff2") format("woff2"),
+    url("PhosphateSolid.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'PhosphateInline';
-    src: url('PhosphateInline.woff2') format('woff2'),
-        url('PhosphateInline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "PhosphateInline";
+  src: url("PhosphateInline.woff2") format("woff2"),
+    url("PhosphateInline.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Urban Inline';
-    src: url('UrbanInline.woff2') format('woff2'),
-        url('UrbanInline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Urban Inline";
+  src: url("UrbanInline.woff2") format("woff2"),
+    url("UrbanInline.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Intro';
-    src: url('Intro.woff2') format('woff2'),
-        url('Intro.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Intro";
+  src: url("Intro.woff2") format("woff2"), url("Intro.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Intro Inline';
-    src: url('Intro-Inline.woff2') format('woff2'),
-        url('Intro-Inline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Intro Inline";
+  src: url("Intro-Inline.woff2") format("woff2"),
+    url("Intro-Inline.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-body, html {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
-};
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
 
 /* =========================================== Home/Start Screen ================================================= */
 
-#index {
-
-};
-
 .circles {
-	position: relative;
-	top: 20vh;
-	width: 50vw;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  position: relative;
+  top: 20vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .circle {
-	border-radius: 50%;
-	background-color: map-get($colors, orangeD);
-	width: 3vw;
-	height: 3vw;
-	position: relative;
-	z-index: 10;
-	animation: circleMove 4s;
+  border-radius: 50%;
+  background-color: map-get($colors, orangeD);
+  width: 3vw;
+  height: 3vw;
+  position: relative;
+  z-index: 10;
+  animation: circleMove 4s;
 }
 
 @keyframes circleMove {
-from{transform: translateX(0)}
-	to{transform: translate(10vw, 80vh)}
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(10vw, 80vh);
+  }
 }
 
 .bars {
-	position: relative;
-	top: 20vh;
+  position: relative;
+  top: 20vh;
 }
 
 @keyframes barMove {
-	from{transform: translateX(0)}
-	to{transform: translateX(700px)}
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(700px);
+  }
 }
 
 .bar {
- width: 50vw;
- height: 0.5vh;
- background-color: map-get($colors, purpleD);
- margin: 3vh 0;
- padding: 0;
+  width: 50vw;
+  height: 0.5vh;
+  background-color: map-get($colors, purpleD);
+  margin: 3vh 0;
+  padding: 0;
 }
 
 .index-content {
-	color: map-get($colors, purpleD);
-	display: flex;
-	justify-content: start;
-	align-items: flex-end;
-	flex-direction: column;
-	position: relative;
-	top: 40vh;
-	padding: 0 10px 0 0;
+  color: map-get($colors, purpleD);
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  flex-direction: column;
+  position: relative;
+  top: 40vh;
+  padding: 0 10px 0 0;
 }
 
 .index-content h1 {
-font-family: 'Intro Inline';
-	font-size: 5vh;
-	font-weight: 100;
+  font-family: "Intro Inline";
+  font-size: 5vh;
+  font-weight: 100;
 }
 
 .index-links {
-	text-decoration: none;
-	display: flex;
-	text-direction: row;
+  text-decoration: none;
+  display: flex;
 }
 
 .index-links p {
-	padding: 0 2vw;
-	text-decoration: none;
-	color: map-get($colors, purpleD);
-	font-size: 2.5vh;
+  padding: 0 2vw;
+  text-decoration: none;
+  color: map-get($colors, purpleD);
+  font-size: 2.5vh;
 }
 
 /* ========================================== Login Page ====================================================== */
 
-
-
 /* ========================================= Signup Page ====================================================== */
-
-
 
 /* ============================================= Questions ===================================================== */
 
 .questions {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		width: 65%;
-		z-index: 5;
-		-webkit-transition: all .3s ease;
-		
-		.form-title {
-			color: #382f2f;
-			font-size: 1.7em;
-			text-align: center;
-			
-			span {
-				color: rgba(0,0,0,0.4);
-				opacity: 0;
-				visibility: hidden;
-				-webkit-transition: all .3s ease;
-			}
-		}
-		
-		.form-holder {
-			border-radius: 10px;
-			background-color: #fff;
-			overflow: hidden;
-			margin-top: 50px;
-			opacity: 1;
-			visibility: visible;
-			-webkit-transition: all .3s ease;
-			
-			.input {
-				border: 0;
-				outline: none;
-				box-shadow: none;
-				display: block;
-				height: 40px;
-				line-height: 30px;
-				padding: 8px 15px;
-				border-bottom: 1px solid #eee;
-				width: 100%;
-				font-size: 14px;
-				
-				&:last-child {
-					border-bottom: 0;
-				}
-				&::-webkit-input-placeholder {
-					color: rgba(0,0,0,0.4);
-				}
-			}
-		}
-		
-		.submit-btn {
-			background-color: rgba(0,0,0,0.4);
-			color: rgba(256,256,256,0.7);
-			border:0;
-			border-radius: 10px;
-			display: block;
-			margin: 15px auto; 
-			padding: 15px 45px;
-			width: 100%;
-			font-size: 15px;
-			font-weight: bold;
-			cursor: pointer;
-			opacity: 1;
-			visibility: visible;
-			-webkit-transition: all .3s ease;
-			
-			&:hover {
-				transition: all .3s ease;
-				background-color: rgba(0,0,0,0.8);
-			}
-		}
-	}
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  width: 65%;
+  z-index: 5;
+  -webkit-transition: all 0.3s ease;
+
+  .form-title {
+    color: #382f2f;
+    font-size: 1.7em;
+    text-align: center;
+
+    span {
+      color: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: all 0.3s ease;
+    }
+  }
+
+  .form-holder {
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+
+    .input {
+      border: 0;
+      outline: none;
+      box-shadow: none;
+      display: block;
+      height: 40px;
+      line-height: 30px;
+      padding: 8px 15px;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      font-size: 14px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+      &::-webkit-input-placeholder {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .submit-btn {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(256, 256, 256, 0.7);
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+
+    &:hover {
+      transition: all 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+/* ========================================== Skala Page ====================================================== */
+.submitDailyMood {
+  background-color: #690833;
+  color: white;
+}
+
+.moodTracker {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.moodMessage {
+  margin: 5%;
+}
+
+input[type="range"] {
+  outline: 0;
+  border: 0;
+  border-radius: 500px;
+  width: 400px;
+  max-width: 100%;
+  margin: 24px 0;
+  transition: box-shadow 0.2s ease-in-out;
+
+  // Chrome
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    & {
+      overflow: hidden;
+      height: 40px;
+      -webkit-appearance: none;
+      background-color: #ddd;
+    }
+    &::-webkit-slider-runnable-track {
+      height: 40px;
+      -webkit-appearance: none;
+      color: #444;
+      margin-top: -1px;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    &::-webkit-slider-thumb {
+      width: 40px;
+      -webkit-appearance: none;
+      height: 40px;
+      cursor: ew-resize;
+      background: #fff;
+      box-shadow: -340px 0 0 320px #f37400, inset 0 0 0 40px #0e58a3;
+      border-radius: 50%;
+      transition: box-shadow 0.2s ease-in-out;
+      position: relative;
+      // top: 1px;
+    }
+    &:active::-webkit-slider-thumb {
+      background: #fff;
+      box-shadow: -340px 0 0 320px #bc0053, inset 0 0 0 3px #d775a1;
+    }
+  }
+  // Firefox
+  &::-moz-range-progress {
+    background-color: #43e5f7;
+  }
+  &::-moz-range-track {
+    background-color: #9a905d;
+  }
+  // IE
+  &::-ms-fill-lower {
+    background-color: #43e5f7;
+  }
+  &::-ms-fill-upper {
+    background-color: #9a905d;
+  }
+}

@@ -4,6 +4,7 @@ import Profile from "../components/HomeRoute/Profile";
 import BoardCard from "../components/HomeRoute/BoardCard";
 import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
+import Mood from "../components/Mood";
 
 export class Home extends Component {
   render() {
@@ -22,6 +23,7 @@ export class Home extends Component {
         <Link to="/factsCard" component={FactsCard}>
           Facts
         </Link>
+        <Link to="/mood">Mood</Link>
       </div>
     );
   }

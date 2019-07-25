@@ -9,6 +9,7 @@ import Signup from "./components/SignupRoute/Signup";
 import Login from "./components/Login";
 import Home from "./containers/Home";
 import Welcome from "./components/SignupRoute/Welcome";
+import Mood from "./components/Mood";
 
 class App extends React.Component {
   state = {
@@ -42,6 +43,7 @@ class App extends React.Component {
           />
           <Route exact path="/welcome" component={Welcome} />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/mood" component={Mood} />
         </Switch>
       </div>
     );
