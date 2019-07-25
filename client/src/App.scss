@@ -20,30 +20,6 @@ $colors: (
 /* =========================================== General Settings ================================================= */
 
 @font-face {
-    font-family: 'PhosphateSolid';
-    src: url('PhosphateSolid.woff2') format('woff2'),
-        url('PhosphateSolid.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'PhosphateInline';
-    src: url('PhosphateInline.woff2') format('woff2'),
-        url('PhosphateInline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Urban Inline';
-    src: url('UrbanInline.woff2') format('woff2'),
-        url('UrbanInline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Intro';
     src: url('Intro.woff2') format('woff2'),
         url('Intro.woff') format('woff');
