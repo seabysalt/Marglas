@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
-import { signup } from "../services/api";
+import { signup } from "../../services/api";
 
 export default class Signup extends Component {
   state = {
@@ -23,7 +23,7 @@ export default class Signup extends Component {
     signup(username, password)
       .then(data => {
         this.props.setUser(data);
-        // this.props.history.push("/projects");
+        this.props.history.push("/welcome");
       })
       .catch(err => {
         console.log(err);

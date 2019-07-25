@@ -5,9 +5,10 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import "./App.scss";
 
-import Signup from "./containers/Signup";
-import Login from "./containers/Login";
-import Questions from "./containers/Questions"
+import Signup from "./components/SignupRoute/Signup";
+import Login from "./components/Login";
+import Home from "./containers/Home";
+import Welcome from "./components/SignupRoute/Welcome";
 
 class App extends React.Component {
   state = {
@@ -23,16 +24,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Navbar setUser={this.setUser} user={this.state.user} /> */}
         <Switch>
           <Route exact path="/" component={Index} />
-          { <Route
+          <Route
             exact
             path="/signup"
             render={props => {
               return <Signup setUser={this.setUser} {...props} />;
             }}
-          /> }
+          />
           <Route
             exact
             path="/login"
@@ -40,16 +40,8 @@ class App extends React.Component {
               return <Login setUser={this.setUser} {...props} />;
             }}
           />
-          <Route
-            exact
-            path="/question"
-            render={props => {
-              return <Questions setUser={this.setUser} {...props} />;
-            }}
-          />
-          {/* <Route exact path="/projects" component={Projects} />
-          <Route exact path="/projects/:id" component={ProjectDetails} />
-          <Route exact path="/tasks/:id" component={TaskDetails} /> */}
+          <Route exact path="/welcome" component={Welcome} />
+          <Route exact path="/home" component={Home} />
         </Switch>
       </div>
     );
