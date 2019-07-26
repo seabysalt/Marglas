@@ -45,7 +45,7 @@ body, html {
 	font-family: 'Roboto', sans-serif;
 };
 
-/* =========================================== Home/Start Screen ================================================= */
+/* =========================================== Index Screen ================================================= */
 
 #index {
 
@@ -129,7 +129,163 @@ font-family: 'Intro Inline';
 
 /* ========================================= Signup Page ====================================================== */
 
+/* =========================================== Index Screen ================================================= */
+.home {
+	width: 100%;
+	height: auto;
+}
 
+#home-bar-wrapper {
+	height: 12vh;
+	display: flex;
+	flex-direction: row;
+	margin: 10vh 0;
+	padding: 0;
+	justify-content: space-between;
+
+	.bars {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: -20vw;
+	}
+
+.bar {
+width: 40vw;
+left: -10vw;
+ height: 0.5vh;
+ background-color: map-get($colors, orangeD);
+ margin: 1vh 0vh 1vh 0vh;
+ padding: 0;
+}
+
+@keyframes homeBar {
+	from{transform: translateX(0)}
+	to{transform: translateX(20vw)}
+}
+
+.marglas {
+	color: map-get($colors, purpleD);
+	font-family: "Intro Inline";
+	font-size: 200%;
+	padding-top: 10vh;
+}
+
+}
+
+.home-header {
+	font-size: 100%;
+	height: auto;
+	color: map-get($colors, orangeD);
+	font-family: 'Intro Inline';
+}
+
+#boards {
+
+	margin: 0 2% 0 2%;
+
+.home-header {
+	font-size: 100%;
+	height: auto;
+	color: map-get($colors, orangeD);
+	font-family: "Intro Inline";
+}
+
+.home-carousel {
+	display: flex;
+	flex-direction: row;
+	overflow-x: scroll;
+	margin-left: 1vw;
+	justify-content: flex-start;
+	align-items: space-between;
+}
+
+.carousel-box{
+ margin: 1vh 0.5vh;
+}
+
+.rectangle {
+	border: 0.5vh solid map-get($colors, purpleD);
+	background-color: map-get($colors, orangeL);
+	height: 10vh;
+	width: 30vw;
+	text-align: center;
+	object-fit: contain;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	margin-bottom: 1vh;
+}
+
+.boardHeader {
+font-size: 100%;
+color: map-get($colors, purpleD);
+margin: 0;
+padding: 0;
+}
+
+.bar {
+width: 30vw;
+ height: 0.5vh;
+ background-color: map-get($colors, orangeD);
+ padding: 0;
+}
+}
+
+.tracker-wrapper {
+	margin: 1vh 1vh;
+	width: 100vw;
+
+#tracker {
+		width: 100vw;
+		height: 20vh;
+	}
+}
+
+#facts-wrapper {
+	margin: 2vh 1vh 1vh 1vh;
+	width: 100vw;
+}
+
+#home-carousel {
+	display: flex;
+	flex-direction: row;
+	overflow-x: scroll;
+	margin-left: 1vw;
+	justify-content: flex-start;
+	align-items: space-between;
+
+
+.carousel-box{
+ margin: 1vh 1vh;
+ width: 50vw;
+ height: auto;
+}
+
+.boardHeader {
+font-size: 100%;
+color: map-get($colors, purpleD);
+}
+.carousel-box .fact-img img {
+	object-fit: contain;
+	width: 20vw;
+	height: 20vw;
+	margin-bottom: 2vh;
+}
+
+img {
+	width: 70%;
+}
+
+.scienceDescription {
+	font-size: 80%;
+	color: map-get($colors, orangeD);
+}
+
+}
 
 /* ============================================= Questions ===================================================== */
 
