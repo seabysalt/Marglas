@@ -42,7 +42,11 @@ class App extends React.Component {
             }}
           />
           <Route exact path="/welcome" component={Welcome} />
-          <Route exact path="/home" component={Home} />
+          <Route
+            exact
+            path="/home"
+            render={() => <Home user={this.state.user} />}
+          />
           <Route exact path="/mood" component={Mood} />
         </Switch>
       </div>

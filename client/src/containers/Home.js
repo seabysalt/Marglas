@@ -11,6 +11,7 @@ import Mood from "../components/Mood";
 
 export class Home extends Component {
   state = {
+    pending: [],
     categories: [
       "Happiness",
       "Gratefulness",
@@ -27,15 +28,18 @@ export class Home extends Component {
     ]
   };
 
+  stateUp = () => {
+    axios.get("/question/pending").then(response => {
+      this.setState({ pending: response.data });
+    });
+  };
   handleClick() {
     document.querySelector(".bars").style.cssText =
       "animation: homeBar 2s forwards;";
   }
 
   componentDidMount() {
-    axios.get("/question/pending").then(response => {
-      console.log(response);
-    });
+    this.stateUp();
   }
 
   render() {
@@ -53,7 +57,6 @@ export class Home extends Component {
             <h1 className="marglas">Marglas</h1>
           </div>
         </div>
-
         {/* <Link to="/profile" component={Profile}>
 
       <div id="home">
@@ -62,7 +65,6 @@ export class Home extends Component {
 
           Profile
         </Link> */}
-
         <Link to="/boardCard" component={BoardCard}>
           <div id="boards">
             <h2 className="home-header">my boards</h2>
@@ -79,14 +81,12 @@ export class Home extends Component {
             </div>
           </div>
         </Link>
-
         <Link to="/tracker" component={Tracker}>
           <div className="tracker-wrapper">
             <h2 className="home-header">my tracker</h2>
             <div id="tracker" />
           </div>
         </Link>
-
         <Link to="/factsCard" component={FactsCard}>
           <div id="facts-wrapper">
             <h2 className="home-header">my science</h2>
@@ -109,10 +109,15 @@ export class Home extends Component {
             })}
           </div>
         </Link>
-
         {/* if there is a pending question, show the popup component with the question */}
-        <QuestionPopup question={"how are you"} />
-
+        if (this.state.pending.length > 0)
+        {
+          <QuestionPopup
+            stateUp={this.stateUp}
+            pending={this.state.pending}
+            user={this.props.user}
+          />
+        }
         <Link to="/mood">Mood</Link>
       </div>
     );
