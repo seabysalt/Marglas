@@ -46,8 +46,8 @@ export default class Signup extends Component {
 
         <h2 className="form-title">Sign up</h2>
         <div className="form-holder">
-          <input type="text" className="input" name="username" id="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" />
-          <input type="password" className="input" name="signupPassword" id="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" />
+          <input type="text" className="input" name="username" id="username" value={this.state.username} onChange={this.handleChange} placeholder="your username" />
+          <input type="password" className="input" name="password" id="password" value={this.state.password} onChange={this.handleChange} placeholder="your password" />
         </div>
         {this.state.error && (
           <p className="warning">{this.state.error} </p>

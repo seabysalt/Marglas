@@ -159,6 +159,15 @@ font-family: 'Intro Inline';
 .form-structor {
 	position: relative;
 	top: 35vh;
+	width: 100vw;
+
+}
+
+.form-title {
+	font-family: 'Intro Inline';
+	font-size: 250%;
+	text-align: right;
+	color: map-get($colors, purpleD)
 }
 
 }
