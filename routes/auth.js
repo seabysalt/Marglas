@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const passport = require("passport");
-
 const User = require("../models/User");
+const Question = require("../models/Question");
 
 router.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
@@ -24,21 +24,27 @@ router.post("/signup", (req, res, next) => {
 
       const salt = bcrypt.genSaltSync();
       const hash = bcrypt.hashSync(password, salt);
+      return Question.aggregate([{ $sample: { size: 1 } }]).then(
+        randomQuestion => {
+          const randomQuestionId = randomQuestion[0]._id;
 
-      return User.create({
-        username,
-        password: hash
-      }).then(newUser => {
-        req.login(newUser, err => {
-          if (err) {
-            return res
-              .status(500)
-              .json({ message: "Error while attempting to login" });
-          }
+          return User.create({
+            username,
+            password: hash,
+            pending: [randomQuestionId]
+          }).then(newUser => {
+            req.login(newUser, err => {
+              if (err) {
+                return res
+                  .status(500)
+                  .json({ message: "Error while attempting to login" });
+              }
 
-          res.status(200).json(newUser);
-        });
-      });
+              res.status(200).json(newUser);
+            });
+          });
+        }
+      );
     })
     .catch(err => {
       res.status(500).json({ message: "Error at signup" });
