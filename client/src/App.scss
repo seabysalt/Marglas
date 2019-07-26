@@ -49,8 +49,6 @@ body, html {
 
 #index {
 
-};
-
 .circles {
 	position: relative;
 	top: 20vh;
@@ -80,9 +78,9 @@ from{transform: translateX(0)}
 	top: 20vh;
 }
 
-@keyframes barMove {
+@keyframes barMoveIndex {
 	from{transform: translateX(0)}
-	to{transform: translateX(700px)}
+	to{transform: translateX(100vw)}
 }
 
 .bar {
@@ -122,6 +120,8 @@ font-family: 'Intro Inline';
 	color: map-get($colors, purpleD);
 	font-size: 2.5vh;
 }
+
+};
 
 /* ========================================== Login Page ====================================================== */
 
@@ -163,7 +163,7 @@ font-family: 'Intro Inline';
 
 }
 
-/* =========================================== Index Screen ================================================= */
+/* =========================================== Home Screen ================================================= */
 .home {
 	width: 100%;
 	height: auto;
@@ -184,17 +184,16 @@ font-family: 'Intro Inline';
 	margin: 0;
 	padding: 0;
 	top: 0;
-	left: -20vw;
+	margin-left: -20vw;
 	width: 50vw;
-	z-index: 5;
 	}
 
-	.menu-home {
+	.bar-pre-move1 {
 	display: flex;
 	flex-direction: row;
-	margin: 0;
-	padding: 0;
-	top: 0;
+	width: 100vw;
+	justify-content: flex-start;
+	left: -10vw;
 	}
 
 .bar1 {
@@ -206,14 +205,29 @@ left: -10vw;
  padding: 0;
 }
 
+.bar-pre-move2 {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	justify-content: flex-start;
+	left: -10vw;
+	}
+
 .bar2 {
 width: 40vw;
-left: -10vw;
  height: 0.5vh;
  background-color: map-get($colors, orangeD);
  margin: 1vh 0vh 1vh 0vh;
  padding: 0;
 }
+
+.bar-pre-move3 {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	justify-content: flex-start;
+	left: -10vw;
+	}
 
 .bar3 {
 width: 40vw;
@@ -225,15 +239,15 @@ left: -10vw;
 }
 
 .animate-bar1 {
-	animation: bar1 2s forwards;
+	animation: bar1 1s forwards;
 }
 
 .animate-bar2 {
-	animation: bar2 2s forwards;
+	animation: bar2 1s forwards;
 }
 
 .animate-bar3 {
-	animation: bar3 2s forwards;
+	animation: bar3 1s forwards;
 }
 
 @keyframes bar1 {
@@ -251,28 +265,20 @@ left: -10vw;
 	to{transform: translateX(1vw)}
 }
 
-/* .menu-links {
-	color: map-get($colors, purpleD);
-	font-size: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	z-index: 10;
-	left: -20vw;
-	height: 8vh;
-	display: none;
-} */
-
-.animate-menu-link {
-	display: flex;
-	flex-direction: column;
-}
-
 .menu-link {
 	color: map-get($colors, purpleD);
 	font-size: 80%;
 	display: none;
+	padding-left: 1%;
 }
+
+.animate-menu-link {
+	display: flex;
+	flex-direction: column;
+	color: map-get($colors, purpleD);
+	font-size: 80%;
+}
+
 
 }
 

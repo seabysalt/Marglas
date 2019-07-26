@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default class Index extends Component {
 
 handleClick=(x) =>{
-  document.querySelector('.bars').style.cssText = "animation: barMove 2s forwards;"
+  document.querySelector('.bars').style.cssText = "animation: barMoveIndex 2s;"
   setTimeout(() => {
   this.props.history.push(x)
   }, 1000);
