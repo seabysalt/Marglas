@@ -6,7 +6,7 @@ import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
-// import Questions from "../co"
+import Aboutus from "../components/Aboutus";
 
 export class Home extends Component {
 
@@ -16,7 +16,21 @@ state = {
 };
 
 handleClick() {
-  document.querySelector('.bars').style.cssText = "animation: homeBar 2s forwards;"
+  if ([...document.querySelector('.bar1').classList].includes('animate-bar1') === false) {
+document.querySelector('.bar1').classList.add('animate-bar1')
+document.querySelector('.bar2').classList.add('animate-bar2')
+  document.querySelector('.bar3').classList.add('animate-bar3')
+  } else if ([...document.querySelector('.bar1').classList].includes('animate-bar1') === true) {
+    document.querySelector('.bar1').classList.remove('animate-bar1')
+document.querySelector('.bar2').classList.remove('animate-bar2')
+  document.querySelector('.bar3').classList.remove('animate-bar3')
+  }
+  
+  if ([...document.querySelector('.menu-link').classList].includes('animate-menu-link') === false) {
+    document.querySelector('.menu-link').classList.add('animate-menu-link')
+  } else if ([...document.querySelector('.menu-link').classList].includes('animate-menu-link') === true) {
+    document.querySelector('.menu-link').classList.remove('animate-menu-link')
+  }
 }
 
   componentDidMount() {
@@ -30,42 +44,68 @@ handleClick() {
     const myScience = this.state.science;
     return (
       <div className="home">
-        <div id = "home-bar-wrapper">
-          <div className="bars" onClick={this.handleClick}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+
+        {/* <div id = "home-bar-wrapper"> */}
+          <div id = "home-bar-wrapper" className="menu-home" onClick={this.handleClick}>
+          
+          <div className="bars">  
+          <div>
+<div className="bar1"></div>
+<Link to="/profile" component={Profile} className="menu-link">
+          profile
+        </Link>
+          </div>
+          <div>
+        <div className="bar2"></div>
+                <Link to="/aboutus" component={Aboutus}  className="menu-link">
+          about us
+        </Link>
+          </div>
+          <div>
+       <div className="bar3"></div>
+               <Link to="/logout"  className="menu-link">
+          sign out
+        </Link>
+          </div>
+        {/* <div className="bar1"></div>
+        <div className="bar2"></div>
+        <div className="bar3"></div> */}
         </div>
-        <div>
+
+{/*         <div className="menu-links"> 
+          <Link to="/profile" component={Profile} className="menu-link">
+          profile
+        </Link>
+        <Link to="/aboutus" component={Aboutus}  className="menu-link">
+          about us
+        </Link>
+        <Link to="/logout"  className="menu-link">
+          sign out
+        </Link>
+        </div> */}
+
+        </div>
+
+        <div className="marglas-div">
           <h1 className="marglas">Marglas</h1>
         </div>
-        </div>
-
-        {/* <Link to="/profile" component={Profile}>
-
-      <div id="home">
-        <h1>HOME</h1>
-        <Link to="/profile" component={Profile}>
-
-          Profile
-        </Link> */}
-
-        <Link to="/boardCard" component={BoardCard}>
+        {/* </div> */}
           <div id='boards'>
             <h2 className="home-header">my boards</h2>
             <div className="home-carousel">
       {myCategories.map(eachCategory => {
               return (
+        <Link to={"/boardCard/" + eachCategory }>
             <div className="carousel-box">
                <div className="rectangle">
            <h3 className="boardHeader">{eachCategory}</h3>
             </div>
             </div>
+        </Link>
             )
             })}
             </div>
           </div>
-        </Link>
 
         <Link to="/tracker" component={Tracker}>
           <div className="tracker-wrapper">

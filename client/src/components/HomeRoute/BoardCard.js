@@ -1,9 +1,21 @@
 import React, { Component } from "react";
 
-export class BoardCard extends Component {
+export default class BoardCard extends Component {
+
+  /* how to access my category:
+  this.props.location.match 
+  = category --> wiki countries 
+  
+  componentDidMount() {
+    axios.get()
+  }
+  */
+
   render() {
-    return <div>here we display our different boards</div>;
+    return (
+    <div id="boardCard-wrapper">
+      <p>here we display our different boards</p>
+    </div>
+    )
   }
 }
-
-export default BoardCard;

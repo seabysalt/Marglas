@@ -129,6 +129,40 @@ font-family: 'Intro Inline';
 
 /* ========================================= Signup Page ====================================================== */
 
+#signup-body {
+	position: absolute;
+	height: 100vh;
+	width: 100vh;
+	display: flex;
+	flex-direction: column;
+
+.bars {
+	position: relative;
+	left: -20vw;
+	top: 20vh;
+	animation: barMove 2s forwards;
+}
+
+@keyframes barMove {
+	from{transform: translateX(-20vw)}
+	to{transform: translateX(20vw)}
+}
+
+.bar {
+ width: 20vw;
+ height: 0.5vh;
+ background-color: map-get($colors, purpleD);
+ margin: 3vh 0;
+ padding: 0;
+}
+
+.form-structor {
+	position: relative;
+	top: 35vh;
+}
+
+}
+
 /* =========================================== Index Screen ================================================= */
 .home {
 	width: 100%;
@@ -139,9 +173,10 @@ font-family: 'Intro Inline';
 	height: 12vh;
 	display: flex;
 	flex-direction: row;
-	margin: 10vh 0;
+	margin-top: 10vh;
 	padding: 0;
-	justify-content: space-between;
+	justify-content: flex-start;
+	width: 100vw;
 
 	.bars {
 	display: flex;
@@ -150,9 +185,19 @@ font-family: 'Intro Inline';
 	padding: 0;
 	top: 0;
 	left: -20vw;
+	width: 50vw;
+	z-index: 5;
 	}
 
-.bar {
+	.menu-home {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	}
+
+.bar1 {
 width: 40vw;
 left: -10vw;
  height: 0.5vh;
@@ -161,18 +206,87 @@ left: -10vw;
  padding: 0;
 }
 
-@keyframes homeBar {
+.bar2 {
+width: 40vw;
+left: -10vw;
+ height: 0.5vh;
+ background-color: map-get($colors, orangeD);
+ margin: 1vh 0vh 1vh 0vh;
+ padding: 0;
+}
+
+.bar3 {
+width: 40vw;
+left: -10vw;
+ height: 0.5vh;
+ background-color: map-get($colors, orangeD);
+ margin: 1vh 0vh 1vh 0vh;
+ padding: 0;
+}
+
+.animate-bar1 {
+	animation: bar1 2s forwards;
+}
+
+.animate-bar2 {
+	animation: bar2 2s forwards;
+}
+
+.animate-bar3 {
+	animation: bar3 2s forwards;
+}
+
+@keyframes bar1 {
 	from{transform: translateX(0)}
 	to{transform: translateX(20vw)}
 }
 
-.marglas {
+@keyframes bar2 {
+	from{transform: translateX(0)}
+	to{transform: translateX(10vw)}
+}
+
+@keyframes bar3 {
+	from{transform: translateX(0)}
+	to{transform: translateX(1vw)}
+}
+
+/* .menu-links {
+	color: map-get($colors, purpleD);
+	font-size: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: 10;
+	left: -20vw;
+	height: 8vh;
+	display: none;
+} */
+
+.animate-menu-link {
+	display: flex;
+	flex-direction: column;
+}
+
+.menu-link {
+	color: map-get($colors, purpleD);
+	font-size: 80%;
+	display: none;
+}
+
+}
+
+.home .marglas-div {
+	display: flex;
+	justify-content: flex-end;
+	padding: 1vh;
+}
+
+.home .marglas {
 	color: map-get($colors, purpleD);
 	font-family: "Intro Inline";
 	font-size: 200%;
-	padding-top: 10vh;
-}
-
+	margin: 5vh 0;
 }
 
 .home-header {
@@ -285,6 +399,12 @@ img {
 	color: map-get($colors, orangeD);
 }
 
+}
+
+/* ============================================= BoardCard ===================================================== */
+
+#boardCard-wrapper {
+	color: map-get($colors, orangeD)
 }
 
 /* ============================================= Questions ===================================================== */
