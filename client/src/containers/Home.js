@@ -7,17 +7,30 @@ import Tracker from "../components/HomeRoute/Tracker";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 // import Questions from "../co"
+import Mood from "../components/Mood";
 
 export class Home extends Component {
+  state = {
+    categories: [
+      "Happiness",
+      "Gratefulness",
+      "Strengths",
+      "Potential",
+      "Energy",
+      "Accomplishments"
+    ],
+    science: [
+      "Positive Psychology",
+      "Psychological Capital",
+      "Why gratefulness works",
+      "Why Bibi loves animals"
+    ]
+  };
 
-state = {
-  categories: ["Happiness", "Gratefulness", "Strengths", "Potential", "Energy", "Accomplishments"],
-  science: ["Positive Psychology", "Psychological Capital", "Why gratefulness works", "Why Bibi loves animals"],
-};
-
-handleClick() {
-  document.querySelector('.bars').style.cssText = "animation: homeBar 2s forwards;"
-}
+  handleClick() {
+    document.querySelector(".bars").style.cssText =
+      "animation: homeBar 2s forwards;";
+  }
 
   componentDidMount() {
     axios.get("/question/pending").then(response => {
@@ -30,15 +43,15 @@ handleClick() {
     const myScience = this.state.science;
     return (
       <div className="home">
-        <div id = "home-bar-wrapper">
+        <div id="home-bar-wrapper">
           <div className="bars" onClick={this.handleClick}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        </div>
-        <div>
-          <h1 className="marglas">Marglas</h1>
-        </div>
+            <div className="bar" />
+            <div className="bar" />
+            <div className="bar" />
+          </div>
+          <div>
+            <h1 className="marglas">Marglas</h1>
+          </div>
         </div>
 
         {/* <Link to="/profile" component={Profile}>
@@ -51,18 +64,18 @@ handleClick() {
         </Link> */}
 
         <Link to="/boardCard" component={BoardCard}>
-          <div id='boards'>
+          <div id="boards">
             <h2 className="home-header">my boards</h2>
             <div className="home-carousel">
-      {myCategories.map(eachCategory => {
-              return (
-            <div className="carousel-box">
-               <div className="rectangle">
-           <h3 className="boardHeader">{eachCategory}</h3>
-            </div>
-            </div>
-            )
-            })}
+              {myCategories.map(eachCategory => {
+                return (
+                  <div className="carousel-box">
+                    <div className="rectangle">
+                      <h3 className="boardHeader">{eachCategory}</h3>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </Link>
@@ -70,9 +83,7 @@ handleClick() {
         <Link to="/tracker" component={Tracker}>
           <div className="tracker-wrapper">
             <h2 className="home-header">my tracker</h2>
-            <div id="tracker">
-
-            </div>
+            <div id="tracker" />
           </div>
         </Link>
 
@@ -81,26 +92,28 @@ handleClick() {
             <h2 className="home-header">my science</h2>
           </div>
           <div id="home-carousel">
-      {myScience.map(eachScience => {
+            {myScience.map(eachScience => {
               return (
-            <div className="carousel-box">
-               <div className="fact-img">
-                 <img src="/img/img1.png" alt="some graphic"/>
-            </div>
-            <div>
-              <h3 className="boardHeader">{eachScience}</h3>
-              <p className="scienceDescription">this is a short description about the article</p>
-            </div>
-            </div>
-            )
+                <div className="carousel-box">
+                  <div className="fact-img">
+                    <img src="/img/img1.png" alt="some graphic" />
+                  </div>
+                  <div>
+                    <h3 className="boardHeader">{eachScience}</h3>
+                    <p className="scienceDescription">
+                      this is a short description about the article
+                    </p>
+                  </div>
+                </div>
+              );
             })}
           </div>
         </Link>
 
-
         {/* if there is a pending question, show the popup component with the question */}
         <QuestionPopup question={"how are you"} />
 
+        <Link to="/mood">Mood</Link>
       </div>
     );
   }

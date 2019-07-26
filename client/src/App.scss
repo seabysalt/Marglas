@@ -5,361 +5,436 @@
 ====================================================================================================== */
 
 $colors: (
-	orangeD: #F37400,
-	orangeL: #F7924B,
-	blueD: #0E58A3,
-	blueL: #1673B7,
-	lightblueD: #A4C1D8,
-	lightblueL: #BAD2E5,
-	pinkD: #BC0053,
-	pinkL: #BC0053,
-	purpleD: #690833,
-	purpleL: #D775A1,
+  orangeD: #f37400,
+  orangeL: #f7924b,
+  blueD: #0e58a3,
+  blueL: #1673b7,
+  lightblueD: #a4c1d8,
+  lightblueL: #bad2e5,
+  pinkD: #bc0053,
+  pinkL: #bc0053,
+  purpleD: #690833,
+  purpleL: #d775a1
 );
 
 /* =========================================== General Settings ================================================= */
 
 @font-face {
-    font-family: 'Intro';
-    src: url('Intro.woff2') format('woff2'),
-        url('Intro.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Intro";
+  src: url("Intro.woff2") format("woff2"), url("Intro.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Intro Inline';
-    src: url('Intro-Inline.woff2') format('woff2'),
-        url('Intro-Inline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Intro Inline";
+  src: url("Intro-Inline.woff2") format("woff2"),
+    url("Intro-Inline.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-body, html {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
-};
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
 
 /* =========================================== Index Screen ================================================= */
 
-#index {
-
-};
-
 .circles {
-	position: relative;
-	top: 20vh;
-	width: 50vw;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  position: relative;
+  top: 20vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .circle {
-	border-radius: 50%;
-	background-color: map-get($colors, orangeD);
-	width: 3vw;
-	height: 3vw;
-	position: relative;
-	z-index: 10;
-	animation: circleMove 4s;
+  border-radius: 50%;
+  background-color: map-get($colors, orangeD);
+  width: 3vw;
+  height: 3vw;
+  position: relative;
+  z-index: 10;
+  animation: circleMove 4s;
 }
 
 @keyframes circleMove {
-from{transform: translateX(0)}
-	to{transform: translate(10vw, 80vh)}
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translate(10vw, 80vh);
+  }
 }
 
 .bars {
-	position: relative;
-	top: 20vh;
+  position: relative;
+  top: 20vh;
 }
 
 @keyframes barMove {
-	from{transform: translateX(0)}
-	to{transform: translateX(700px)}
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(700px);
+  }
 }
 
 .bar {
- width: 50vw;
- height: 0.5vh;
- background-color: map-get($colors, purpleD);
- margin: 3vh 0;
- padding: 0;
+  width: 50vw;
+  height: 0.5vh;
+  background-color: map-get($colors, purpleD);
+  margin: 3vh 0;
+  padding: 0;
 }
 
 .index-content {
-	color: map-get($colors, purpleD);
-	display: flex;
-	justify-content: start;
-	align-items: flex-end;
-	flex-direction: column;
-	position: relative;
-	top: 40vh;
-	padding: 0 10px 0 0;
+  color: map-get($colors, purpleD);
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  flex-direction: column;
+  position: relative;
+  top: 40vh;
+  padding: 0 10px 0 0;
 }
 
 .index-content h1 {
-font-family: 'Intro Inline';
-	font-size: 5vh;
-	font-weight: 100;
+  font-family: "Intro Inline";
+  font-size: 5vh;
+  font-weight: 100;
 }
 
 .index-links {
-	text-decoration: none;
-	display: flex;
-	text-direction: row;
+  text-decoration: none;
+  display: flex;
 }
 
 .index-links p {
-	padding: 0 2vw;
-	text-decoration: none;
-	color: map-get($colors, purpleD);
-	font-size: 2.5vh;
+  padding: 0 2vw;
+  text-decoration: none;
+  color: map-get($colors, purpleD);
+  font-size: 2.5vh;
 }
 
 /* ========================================== Login Page ====================================================== */
 
-
-
 /* ========================================= Signup Page ====================================================== */
-
-/* =========================================== Index Screen ================================================= */
-.home {
-	width: 100%;
-	height: auto;
-}
-
-#home-bar-wrapper {
-	height: 12vh;
-	display: flex;
-	flex-direction: row;
-	margin: 10vh 0;
-	padding: 0;
-	justify-content: space-between;
-
-	.bars {
-	display: flex;
-	flex-direction: column;
-	margin: 0;
-	padding: 0;
-	top: 0;
-	left: -20vw;
-	}
-
-.bar {
-width: 40vw;
-left: -10vw;
- height: 0.5vh;
- background-color: map-get($colors, orangeD);
- margin: 1vh 0vh 1vh 0vh;
- padding: 0;
-}
-
-@keyframes homeBar {
-	from{transform: translateX(0)}
-	to{transform: translateX(20vw)}
-}
-
-.marglas {
-	color: map-get($colors, purpleD);
-	font-family: "Intro Inline";
-	font-size: 200%;
-	padding-top: 10vh;
-}
-
-}
-
-.home-header {
-	font-size: 100%;
-	height: auto;
-	color: map-get($colors, orangeD);
-	font-family: 'Intro Inline';
-}
-
-#boards {
-
-	margin: 0 2% 0 2%;
-
-.home-header {
-	font-size: 100%;
-	height: auto;
-	color: map-get($colors, orangeD);
-	font-family: "Intro Inline";
-}
-
-.home-carousel {
-	display: flex;
-	flex-direction: row;
-	overflow-x: scroll;
-	margin-left: 1vw;
-	justify-content: flex-start;
-	align-items: space-between;
-}
-
-.carousel-box{
- margin: 1vh 0.5vh;
-}
-
-.rectangle {
-	border: 0.5vh solid map-get($colors, purpleD);
-	background-color: map-get($colors, orangeL);
-	height: 10vh;
-	width: 30vw;
-	text-align: center;
-	object-fit: contain;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	margin-bottom: 1vh;
-}
-
-.boardHeader {
-font-size: 100%;
-color: map-get($colors, purpleD);
-margin: 0;
-padding: 0;
-}
-
-.bar {
-width: 30vw;
- height: 0.5vh;
- background-color: map-get($colors, orangeD);
- padding: 0;
-}
-}
-
-.tracker-wrapper {
-	margin: 1vh 1vh;
-	width: 100vw;
-
-#tracker {
-		width: 100vw;
-		height: 20vh;
-	}
-}
-
-#facts-wrapper {
-	margin: 2vh 1vh 1vh 1vh;
-	width: 100vw;
-}
-
-#home-carousel {
-	display: flex;
-	flex-direction: row;
-	overflow-x: scroll;
-	margin-left: 1vw;
-	justify-content: flex-start;
-	align-items: space-between;
-
-
-.carousel-box{
- margin: 1vh 1vh;
- width: 50vw;
- height: auto;
-}
-
-.boardHeader {
-font-size: 100%;
-color: map-get($colors, purpleD);
-}
-.carousel-box .fact-img img {
-	object-fit: contain;
-	width: 20vw;
-	height: 20vw;
-	margin-bottom: 2vh;
-}
-
-img {
-	width: 70%;
-}
-
-.scienceDescription {
-	font-size: 80%;
-	color: map-get($colors, orangeD);
-}
-
-}
 
 /* ============================================= Questions ===================================================== */
 
 .questions {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		width: 65%;
-		z-index: 5;
-		-webkit-transition: all .3s ease;
-		
-		.form-title {
-			color: #382f2f;
-			font-size: 1.7em;
-			text-align: center;
-			
-			span {
-				color: rgba(0,0,0,0.4);
-				opacity: 0;
-				visibility: hidden;
-				-webkit-transition: all .3s ease;
-			}
-		}
-		
-		.form-holder {
-			border-radius: 10px;
-			background-color: #fff;
-			overflow: hidden;
-			margin-top: 50px;
-			opacity: 1;
-			visibility: visible;
-			-webkit-transition: all .3s ease;
-			
-			.input {
-				border: 0;
-				outline: none;
-				box-shadow: none;
-				display: block;
-				height: 40px;
-				line-height: 30px;
-				padding: 8px 15px;
-				border-bottom: 1px solid #eee;
-				width: 100%;
-				font-size: 14px;
-				
-				&:last-child {
-					border-bottom: 0;
-				}
-				&::-webkit-input-placeholder {
-					color: rgba(0,0,0,0.4);
-				}
-			}
-		}
-		
-		.submit-btn {
-			background-color: rgba(0,0,0,0.4);
-			color: rgba(256,256,256,0.7);
-			border:0;
-			border-radius: 10px;
-			display: block;
-			margin: 15px auto; 
-			padding: 15px 45px;
-			width: 100%;
-			font-size: 15px;
-			font-weight: bold;
-			cursor: pointer;
-			opacity: 1;
-			visibility: visible;
-			-webkit-transition: all .3s ease;
-			
-			&:hover {
-				transition: all .3s ease;
-				background-color: rgba(0,0,0,0.8);
-			}
-		}
-	}
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  width: 65%;
+  z-index: 5;
+  -webkit-transition: all 0.3s ease;
+
+  .form-title {
+    color: #382f2f;
+    font-size: 1.7em;
+    text-align: center;
+
+    span {
+      color: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: all 0.3s ease;
+    }
+  }
+
+  .form-holder {
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+
+    .input {
+      border: 0;
+      outline: none;
+      box-shadow: none;
+      display: block;
+      height: 40px;
+      line-height: 30px;
+      padding: 8px 15px;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      font-size: 14px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+      &::-webkit-input-placeholder {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .submit-btn {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(256, 256, 256, 0.7);
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+
+    &:hover {
+      transition: all 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+/* =========================================== Index Screen ================================================= */
+.home {
+  width: 100%;
+  height: auto;
+}
+
+#home-bar-wrapper {
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  margin: 10vh 0;
+  padding: 0;
+  justify-content: space-between;
+
+  .bars {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: -20vw;
+  }
+
+  .bar {
+    width: 40vw;
+    left: -10vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+  }
+
+  @keyframes homeBar {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(20vw);
+    }
+  }
+
+  .marglas {
+    color: map-get($colors, purpleD);
+    font-family: "Intro Inline";
+    font-size: 200%;
+    padding-top: 10vh;
+  }
+}
+
+.home-header {
+  font-size: 100%;
+  height: auto;
+  color: map-get($colors, orangeD);
+  font-family: "Intro Inline";
+}
+
+#boards {
+  margin: 0 2% 0 2%;
+
+  .home-header {
+    font-size: 100%;
+    height: auto;
+    color: map-get($colors, orangeD);
+    font-family: "Intro Inline";
+  }
+
+  .home-carousel {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-left: 1vw;
+    justify-content: flex-start;
+    align-items: space-between;
+  }
+
+  .carousel-box {
+    margin: 1vh 0.5vh;
+  }
+
+  .rectangle {
+    border: 0.5vh solid map-get($colors, purpleD);
+    background-color: map-get($colors, orangeL);
+    height: 10vh;
+    width: 30vw;
+    text-align: center;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 1vh;
+  }
+
+  .boardHeader {
+    font-size: 100%;
+    color: map-get($colors, purpleD);
+    margin: 0;
+    padding: 0;
+  }
+
+  .bar {
+    width: 30vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    padding: 0;
+  }
+}
+
+.tracker-wrapper {
+  margin: 1vh 1vh;
+  width: 100vw;
+
+  #tracker {
+    width: 100vw;
+    height: 20vh;
+  }
+}
+
+#facts-wrapper {
+  margin: 2vh 1vh 1vh 1vh;
+  width: 100vw;
+}
+
+#home-carousel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  margin-left: 1vw;
+  justify-content: flex-start;
+  align-items: space-between;
+
+  .carousel-box {
+    margin: 1vh 1vh;
+    width: 50vw;
+    height: auto;
+  }
+
+  .boardHeader {
+    font-size: 100%;
+    color: map-get($colors, purpleD);
+  }
+  .carousel-box .fact-img img {
+    object-fit: contain;
+    width: 20vw;
+    height: 20vw;
+    margin-bottom: 2vh;
+  }
+
+  img {
+    width: 70%;
+  }
+
+  .scienceDescription {
+    font-size: 80%;
+    color: map-get($colors, orangeD);
+  }
+}
+
+/* ========================================== Skala Page ====================================================== */
+.submitDailyMood {
+  background-color: #690833;
+  color: white;
+}
+
+.moodTracker {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.moodMessage {
+  margin: 5%;
+}
+
+input[type="range"] {
+  outline: 0;
+  border: 0;
+  border-radius: 500px;
+  width: 400px;
+  max-width: 100%;
+  margin: 24px 0;
+  transition: box-shadow 0.2s ease-in-out;
+
+  // Chrome
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    & {
+      overflow: hidden;
+      height: 40px;
+      -webkit-appearance: none;
+      background-color: #ddd;
+    }
+    &::-webkit-slider-runnable-track {
+      height: 40px;
+      -webkit-appearance: none;
+      color: #444;
+      margin-top: -1px;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    &::-webkit-slider-thumb {
+      width: 40px;
+      -webkit-appearance: none;
+      height: 40px;
+      cursor: ew-resize;
+      background: #fff;
+      box-shadow: -340px 0 0 320px #f37400, inset 0 0 0 40px #0e58a3;
+      border-radius: 50%;
+      transition: box-shadow 0.2s ease-in-out;
+      position: relative;
+      // top: 1px;
+    }
+    &:active::-webkit-slider-thumb {
+      background: #fff;
+      box-shadow: -340px 0 0 320px #bc0053, inset 0 0 0 3px #d775a1;
+    }
+  }
+  // Firefox
+  &::-moz-range-progress {
+    background-color: #43e5f7;
+  }
+  &::-moz-range-track {
+    background-color: #9a905d;
+  }
+  // IE
+  &::-ms-fill-lower {
+    background-color: #43e5f7;
+  }
+  &::-ms-fill-upper {
+    background-color: #9a905d;
+  }
+}
