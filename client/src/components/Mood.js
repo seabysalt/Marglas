@@ -19,6 +19,7 @@ export class Mood extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
+
     axios
       .post("/mood", {
         energyMood: this.state.energyMood,

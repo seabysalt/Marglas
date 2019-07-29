@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Home from "./containers/Home";
 import Welcome from "./components/SignupRoute/Welcome";
 import Mood from "./components/Mood";
+import Tracker from "./components/HomeRoute/Tracker";
 
 class App extends React.Component {
   state = {
@@ -44,6 +45,7 @@ class App extends React.Component {
           <Route exact path="/welcome" component={Welcome} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/mood" component={Mood} />
+          <Route exact path="/tracker" component={Tracker} />
         </Switch>
       </div>
     );

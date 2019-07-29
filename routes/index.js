@@ -12,16 +12,28 @@ router.get("/", (req, res, next) => {
 router.post("/mood", (req, res, next) => {
   const { energyMood, loveMood, gratefulMood } = req.body;
   console.log("iiiiii", energyMood, loveMood, gratefulMood);
-  const username = req.user.username;
+  const user = req.user._id;
   Tracker.create({
-    username: username,
+    user: user,
     energyMood: energyMood,
     loveMood: loveMood,
     gratefulMood: gratefulMood
   })
     .then(newTracker => {
-      console.log("nnnnn", newTracker);
+      newTracker.username = req.user.username;
+      //object assign => to use the username despite its not in my tracker model
+      //console.log("nnnnn", newTracker);
       res.json(newTracker);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+router.get("/tracker", (req, res) => {
+  Tracker.find()
+    .then(trackers => {
+      res.json(trackers);
     })
     .catch(err => {
       res.json(err);
