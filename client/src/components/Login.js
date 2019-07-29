@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { login } from "../services/api";
 import { Form, Button, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Index from "../containers/Index";
 
 export default class Login extends Component {
   state = {
@@ -34,34 +36,32 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group>
-          <Form.Label htmlFor="username">Username:</Form.Label>
-          <Form.Control
-            type="text"
-            name="username"
-            id="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="password">Password:</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            id="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </Form.Group>
 
+    <div id ="signup-body">
+
+    <div className="bars">
+    <Link to="/" component={Index} className="menu-link">
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          </Link>
+        </div>
+
+    <div id="form-structor">
+
+        <h2 className="form-title">Log in</h2>
+        <div className="form-holder">
+          <input type="text" className="input" name="username" id="username" value={this.state.username} onChange={this.handleChange} placeholder="username" />
+          <input type="password" className="input" name="password" id="password" value={this.state.password} onChange={this.handleChange} placeholder="password" />
+        </div>
         {this.state.error && (
-          <Alert variant="warning">{this.state.error}</Alert>
+          <p className="warning">{this.state.error} </p>
         )}
+        <button className="submit-btn" onClick={this.handleSubmit}>Log in</button>
+      </div>
 
-        <Button type="submit">Login</Button>
-      </Form>
-    );
+       </div>
+    )
   }
 }
+

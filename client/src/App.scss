@@ -110,14 +110,15 @@ html {
     font-size: 2.5vh;
   }
 }
-/* ========================================== Login Page ====================================================== */
-/* ========================================= Signup Page ====================================================== */
+
+/* ========================================= Login & Signup Page ====================================================== */
 #signup-body {
   position: absolute;
   height: 100vh;
   width: 100vh;
   display: flex;
   flex-direction: column;
+
   .bars {
     position: relative;
     left: -20vw;
@@ -139,16 +140,61 @@ html {
     margin: 3vh 0;
     padding: 0;
   }
-  .form-structor {
+  #form-structor {
     position: relative;
-    top: 35vh;
+    top: 30vh;
     width: 100vw;
+    padding: 1vh 1vh;
   }
   .form-title {
     font-family: "Intro Inline";
     font-size: 250%;
     text-align: right;
     color: map-get($colors, purpleD);
+  }
+
+  .form-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10vh;
+  }
+
+  .form-holder input {
+    border: 1px solid map-get($colors, purpleD);
+    border-radius: 3px;
+    background-color: none;
+    color: map-get($colors, purpleD);
+    font-size: 120%;
+    padding: 1vh 1vh;
+    margin: 1vh 0;
+  }
+
+  .form-holder input:placeholder {
+    border: 1px solid map-get($colors, purpleD);
+    border-radius: 3px;
+    background-color: none;
+    color: map-get($colors, purpleD);
+    font-size: 120%;
+    padding: 1vh 1vh;
+    margin: 1vh 0;
+  }
+
+  .submit-btn {
+    background-color: map-get($colors, purpleD);
+    color: white;
+    font-size: 100%;
+    border-radius: 3px;
+    padding: 1vh 1vh;
+    margin: 1vh 0;
+  }
+
+  .warning {
+    color: map-get($colors, purpleD);
+    font-size: 100%;
+    padding: 1vh 0vh;
+    margin: 1vh 0;
   }
 }
 /* =========================================== Home Screen ================================================= */
@@ -281,7 +327,7 @@ html {
   font-family: "Intro Inline";
 }
 #boards {
-  margin: 0 2% 0 2%;
+  margin: 1vh 1vh;
   .home-header {
     font-size: 100%;
     height: auto;
