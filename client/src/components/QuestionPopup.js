@@ -3,16 +3,18 @@ import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import axios from "axios";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
+// const customStyles = {
+//   content: {
+//     top: "50%",
+//     left: "50%",
+//     width: "80%",
+//     height: "70%",
+//     right: "auto",
+//     bottom: "auto",
+//     marginRight: "-50%",
+//     transform: "translate(-50%, -50%)",
+//   }
+// };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
@@ -66,31 +68,39 @@ class QuestionPopup extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="Modal">
         <Modal
+          class="Modal"
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
+          // style={customStyles}
           contentLabel="Example Modal"
         >
           {/* this component will get the question from the props */}
+          <div id="close">
+            <button onClick={this.closeModal}>X</button>
+          </div>
+          <div id="formBody">
+            <h3 id="questionStyle" ref={subtitle => (this.subtitle = subtitle)}>
+              {this.props.pending.length > 0 && this.props.pending[0].question}
+            </h3>
 
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>
-            {this.props.pending.length > 0 && this.props.pending[0].question}
-          </h2>
+            <form class="answerForm" onSubmit={this.handleSubmit}>
+              <input
+                onChange={this.handleInputChange}
+                type="text"
+                name="answer"
+                placeholder="answer here"
+                value={this.state.answer}
+              />
+              <button id="answerSubmitButton" type="submit">
+                submit
+              </button>
 
-          <button onClick={this.closeModal}>close</button>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              onChange={this.handleInputChange}
-              type="text"
-              name="answer"
-              placeholder="answer here"
-              value={this.state.answer}
-            />
-            <button type="submit">submit</button>
-          </form>
+              <p id="comment">(small moments are those that count!)</p>
+            </form>
+          </div>
         </Modal>
       </div>
     );

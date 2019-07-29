@@ -110,7 +110,6 @@ export class Home extends Component {
           </div>
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
-        if (this.state.pending.length > 0)
         {
           <QuestionPopup
             stateUp={this.stateUp}

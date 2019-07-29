@@ -440,3 +440,46 @@ input[type="range"] {
 }
 
 /* ========================================== PopUpWindow ====================================================== */
+.Modal {
+  top: "50%";
+  left: "50%";
+  width: "50%";
+  height: "50%";
+  right: "auto";
+  bottom: "auto";
+  margin-right: "-50%";
+  transform: "translate(-50%, -50%)";
+}
+#close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white;
+}
+#formBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#questionStyle {
+  font-family: "Intro Inline";
+  font-size: 200;
+  color: #690833;
+}
+
+#comment {
+  font-family: Helvetica;
+  font-size: 15px;
+}
+
+#answerSubmitButton {
+  border: 2px solid #f37400;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+#answerSubmitButton:hover {
+  color: #f37400;
+}
