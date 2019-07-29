@@ -63,6 +63,7 @@ export class Home extends Component {
       }
     });
   }
+  
   stateUp = () => {
     axios.get("/question/pending").then(response => {
       this.setState({ pending: response.data });

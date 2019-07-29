@@ -197,6 +197,129 @@ html {
     margin: 1vh 0;
   }
 }
+
+/* =========================================== Welcome Screen ================================================= */
+
+#welcome-slider {
+  background: #ffffff00;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.5s ease;
+  padding: 5vw;
+
+
+.btn {
+  border-radius: 2px;
+  padding: 8px 12px;
+  color: #D18B49;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+
+.card {
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 15vh auto;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-sizing: border-box;
+  padding: 7vw;
+  text-align: center;
+}
+
+.products {
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease;
+}
+.product.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.thumbnail {
+  margin: 0 0 48px;
+}
+
+.title {
+  margin: 0 0 12px;
+  color: #D18B49;
+  font-size: 24px;
+  transition: 0.5s ease;
+}
+
+.description {
+  margin: 0 0 48px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 -12px -12px;
+}
+
+[ripple] {
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+[ripple] .ripple {
+  position: absolute;
+  background: #FFFFFF;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: ripple 2s;
+          animation: ripple 2s;
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0.2;
+  }
+  100% {
+    -webkit-transform: scale(20);
+            transform: scale(20);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0.2;
+  }
+  100% {
+    -webkit-transform: scale(20);
+            transform: scale(20);
+    opacity: 0;
+  }
+}
+
+}
+
 /* =========================================== Home Screen ================================================= */
 .home {
   width: 100%;
@@ -413,6 +536,82 @@ html {
     color: map-get($colors, orangeD);
   }
 }
+
+/* =========================================== Profile ================================================= */
+
+#profile {
+  width: 100vw;
+  height: 100vh;
+}
+
+.profile-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh 1vw;
+  margin: 0 0 2vh 0;
+}
+
+.profile-heading {
+
+h1 {
+    font-family: "Intro Inline";
+    font-size: 200%;
+    color: map-get($colors, purpleD);
+    text-align: center;
+  }
+
+ h2 {
+   text-align: center;
+    font-size: 135%;
+    color: map-get($colors, purpleD);
+  }
+}
+
+.profilePic {
+  margin: 2vh 1vw 3vh 1vw;
+
+img {
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+  text-align: center;
+  object-fit: cover;
+}
+}
+
+.peer-heading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 3vh 0 1vh 0;
+
+  .circles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30vw;
+  }
+  .circle {
+    border-radius: 50%;
+    background-color: map-get($colors, orangeD);
+    width: 3vw;
+    height: 3vw;
+    position: relative;
+  }
+
+  .peer-center p {
+    text-align: center;
+    color: map-get($colors, purpleD);
+    font-size: 130%;
+    margin: 0;
+    padding: 0 2vw;
+  }
+}
+
+
 /* ============================================= BoardCard ===================================================== */
 #boardCard-wrapper {
   color: map-get($colors, orangeD);

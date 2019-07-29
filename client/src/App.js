@@ -52,7 +52,7 @@ class App extends React.Component {
           <Route exact path="/boardCard/:category" component={BoardCard} />
           <Route exact path="/factsCard/:fact" component={FactsCard} />
           <Route exact path="/tracker" component={Tracker} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile" component={Profile} user={this.state.user}/>
           <Route exact path="/aboutus" component={Aboutus} />
         </Switch>
       </div>
