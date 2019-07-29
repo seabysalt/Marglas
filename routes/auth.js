@@ -21,17 +21,15 @@ router.post("/signup", (req, res, next) => {
       if (user) {
         return res.status(409).json({ message: "Username is already taken" });
       }
-
       const salt = bcrypt.genSaltSync();
       const hash = bcrypt.hashSync(password, salt);
       return Question.aggregate([{ $sample: { size: 1 } }]).then(
         randomQuestion => {
-          const randomQuestionId = randomQuestion[0]._id;
-
+          // const randomQuestionId = {_id: randomQuestion[0]._id, date: randomQuestion[1]._id}
           return User.create({
             username,
             password: hash,
-            pending: [randomQuestionId]
+            pending: [{ id: randomQuestion[0]._id, date: Date.now() }] //& DATE
           }).then(newUser => {
             req.login(newUser, err => {
               if (err) {

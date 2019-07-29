@@ -7,7 +7,8 @@ import Tracker from "../components/HomeRoute/Tracker";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 import Aboutus from "../components/Aboutus";
-import Mood from "../components/Mood";
+import Mood from "../components/MoodTwo";
+import MoodPopup from "../components/MoodTwo";
 
 export class Home extends Component {
   state = {
@@ -56,6 +57,7 @@ export class Home extends Component {
   }
   stateUp = () => {
     axios.get("/question/pending").then(response => {
+      console.log(response.data);
       this.setState({ pending: response.data });
     });
   };
@@ -142,6 +144,7 @@ export class Home extends Component {
           </div>
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
+
         {
           <QuestionPopup
             stateUp={this.stateUp}
@@ -149,7 +152,8 @@ export class Home extends Component {
             user={this.props.user}
           />
         }
-        <Link to="/mood">Mood</Link>
+
+        {<MoodPopup />}
       </div>
     );
   }

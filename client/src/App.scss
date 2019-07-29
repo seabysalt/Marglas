@@ -488,16 +488,23 @@ html {
   color: #f37400;
 }
 
+#headerMood {
+  font-family: "Intro Inline";
+  font-size: 200;
+}
 /* ========================================== Mood Page ====================================================== */
 .submitDailyMood {
   background-color: #690833;
   color: white;
 }
 .moodTracker {
-  padding: 10%;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-top: 0%;
+  width: 90%;
 }
 .moodMessage {
   margin: 5%;
@@ -506,9 +513,8 @@ input[type="range"] {
   outline: 0;
   border: 0;
   border-radius: 500px;
-  width: 400px;
-  max-width: 100%;
-  margin: 24px 0;
+  width: 80%;
+  margin: 15px 0;
   transition: box-shadow 0.2s ease-in-out;
   // Chrome
   @media screen and (-webkit-min-device-pixel-ratio: 0) {

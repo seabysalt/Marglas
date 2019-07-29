@@ -7,7 +7,7 @@ import Signup from "./components/SignupRoute/Signup";
 import Login from "./components/Login";
 import Home from "./containers/Home";
 import Welcome from "./components/SignupRoute/Welcome";
-import Mood from "./components/Mood";
+import Mood from "./components/MoodTwo";
 import BoardCard from "./components/HomeRoute/BoardCard";
 import Profile from "./components/HomeRoute/Profile";
 import Tracker from "./components/HomeRoute/Tracker";
