@@ -6,7 +6,7 @@ import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
-// import Questions from "../co"
+import Aboutus from "../components/Aboutus";
 import Mood from "../components/Mood";
 
 export class Home extends Component {
@@ -27,60 +27,92 @@ export class Home extends Component {
       "Why Bibi loves animals"
     ]
   };
-
+  handleClick() {
+    if (
+      [...document.querySelector(".bar-pre-move1").classList].includes(
+        "animate-bar1"
+      ) === false
+    ) {
+      document.querySelector(".bar-pre-move1").classList.add("animate-bar1");
+      document.querySelector(".bar-pre-move2").classList.add("animate-bar2");
+      document.querySelector(".bar-pre-move3").classList.add("animate-bar3");
+    } else if (
+      [...document.querySelector(".bar-pre-move1").classList].includes(
+        "animate-bar1"
+      ) === true
+    ) {
+      document.querySelector(".bar-pre-move1").classList.remove("animate-bar1");
+      document.querySelector(".bar-pre-move2").classList.remove("animate-bar2");
+      document.querySelector(".bar-pre-move3").classList.remove("animate-bar3");
+    }
+    const menuLinks = document.querySelectorAll(".menu-link");
+    menuLinks.forEach(el => {
+      if ([...el.classList].includes("animate-menu-link") === false) {
+        el.classList.add("animate-menu-link");
+      } else if ([...el.classList].includes("animate-menu-link") === true) {
+        el.classList.remove("animate-menu-link");
+      }
+    });
+  }
   stateUp = () => {
     axios.get("/question/pending").then(response => {
       this.setState({ pending: response.data });
     });
   };
-  handleClick() {
-    document.querySelector(".bars").style.cssText =
-      "animation: homeBar 2s forwards;";
-  }
-
   componentDidMount() {
     this.stateUp();
   }
-
   render() {
     const myCategories = this.state.categories;
     const myScience = this.state.science;
     return (
       <div className="home">
-        <div id="home-bar-wrapper">
-          <div className="bars" onClick={this.handleClick}>
-            <div className="bar" />
-            <div className="bar" />
-            <div className="bar" />
-          </div>
-          <div>
-            <h1 className="marglas">Marglas</h1>
+        <div
+          id="home-bar-wrapper"
+          className="menu-home"
+          onClick={this.handleClick}
+        >
+          <div className="bars">
+            <div className="bar-pre-move1">
+              <div className="bar1" />
+              <Link to="/profile" component={Profile} className="menu-link">
+                profile
+              </Link>
+            </div>
+            <div className="bar-pre-move2">
+              <div className="bar2" />
+              <Link to="/aboutus" component={Aboutus} className="menu-link">
+                about us
+              </Link>
+            </div>
+            <div className="bar-pre-move3">
+              <div className="bar3" />
+              <Link to="/logout" className="menu-link">
+                sign out
+              </Link>
+            </div>
           </div>
         </div>
-        {/* <Link to="/profile" component={Profile}>
-
-      <div id="home">
-        <h1>HOME</h1>
-        <Link to="/profile" component={Profile}>
-
-          Profile
-        </Link> */}
-        <Link to="/boardCard" component={BoardCard}>
-          <div id="boards">
-            <h2 className="home-header">my boards</h2>
-            <div className="home-carousel">
-              {myCategories.map(eachCategory => {
-                return (
+        <div className="marglas-div">
+          <h1 className="marglas">Marglas</h1>
+        </div>
+        {/* </div> */}
+        <div id="boards">
+          <h2 className="home-header">my boards</h2>
+          <div className="home-carousel">
+            {myCategories.map(eachCategory => {
+              return (
+                <Link to={"/boardCard/" + eachCategory}>
                   <div className="carousel-box">
                     <div className="rectangle">
                       <h3 className="boardHeader">{eachCategory}</h3>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </Link>
+              );
+            })}
           </div>
-        </Link>
+        </div>
         <Link to="/tracker" component={Tracker}>
           <div className="tracker-wrapper">
             <h2 className="home-header">my tracker</h2>
@@ -122,5 +154,4 @@ export class Home extends Component {
     );
   }
 }
-
 export default Home;

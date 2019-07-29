@@ -6,28 +6,28 @@ mongoose.connect("mongodb://localhost/project3", {
 
 const QuestionsInput = [
   {
-    question: "The last time I felt joy, I was..",
+    question: "The last time I felt joy, I was",
     peerQuestion: "seems to be happy when she is",
     category: "Happiness",
     prompt1: "You should be",
     prompt2: ". This makes you happy!"
   },
   {
-    question: "The last time I felt energetic I was..",
+    question: "The last time I felt energetic I was",
     peerQuestion: "seems to be energetic when she is",
     category: "Energy",
     prompt1: "You should be",
     prompt2: ". This brings you energy!"
   },
   {
-    question: "Today, I am grateful for..",
+    question: "Today, I am grateful for",
     peerQuestion: "can be grateful for",
     category: "Gratefulness",
     prompt1: "You're life is full of amazing things! Aren't you grateful for",
     prompt2: ". We think you should and can be!"
   },
   {
-    question: "The last time I accomplished something I was..",
+    question: "The last time I accomplished something I was",
     peerQuestion: "was successful when she was",
     category: "Accomplishments",
     prompt1:
@@ -35,7 +35,7 @@ const QuestionsInput = [
     prompt2: ""
   },
   {
-    question: "I feel that someday I could be good in..",
+    question: "I feel that someday I could be good in",
     peerQuestion: "could be good in",
     category: "Potential",
     prompt1:
@@ -43,7 +43,7 @@ const QuestionsInput = [
     prompt2: ". Maybe you should try it out!"
   },
   {
-    question: "I feel like I am good in..",
+    question: "I feel like I am good in",
     peerQuestion: "is good in",
     category: "Strengths",
     prompt1: "We think you are better! You are amazing in",
