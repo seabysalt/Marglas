@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export class Mood extends Component {
-  state = {
-    energyMood: 0,
-    loveMood: 0,
-    gratefulMood: 0
-  };
-
   handleChange = event => {
     const { name, value } = event.target;
 
@@ -19,6 +13,7 @@ export class Mood extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
+
     axios
       .post("/mood", {
         energyMood: this.state.energyMood,

@@ -366,6 +366,7 @@ html {
 }
 
 /* ========================================== Skala Page ====================================================== */
+/* ========================================== Mood Page ====================================================== */
 .submitDailyMood {
   background-color: #690833;
   color: white;
@@ -437,4 +438,26 @@ input[type="range"] {
   &::-ms-fill-upper {
     background-color: #9a905d;
   }
+}
+
+/* ========================================== Tracker Page ====================================================== */
+
+.trackerGraph {
+  display: flex;
+  padding: 5%;
+}
+
+.trackerAll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+}
+
+.canvas.chartjs-render-monitor {
+  display: flex;
+  flex-direction: column;
+  padding: 20%;
+  margin: 20%;
 }
