@@ -487,3 +487,91 @@ html {
 #answerSubmitButton:hover {
   color: #f37400;
 }
+
+/* ========================================== Mood Page ====================================================== */
+.submitDailyMood {
+  background-color: #690833;
+  color: white;
+}
+.moodTracker {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.moodMessage {
+  margin: 5%;
+}
+input[type="range"] {
+  outline: 0;
+  border: 0;
+  border-radius: 500px;
+  width: 400px;
+  max-width: 100%;
+  margin: 24px 0;
+  transition: box-shadow 0.2s ease-in-out;
+  // Chrome
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    & {
+      overflow: hidden;
+      height: 40px;
+      -webkit-appearance: none;
+      background-color: #ddd;
+    }
+    &::-webkit-slider-runnable-track {
+      height: 40px;
+      -webkit-appearance: none;
+      color: #444;
+      margin-top: -1px;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    &::-webkit-slider-thumb {
+      width: 40px;
+      -webkit-appearance: none;
+      height: 40px;
+      cursor: ew-resize;
+      background: #fff;
+      box-shadow: -340px 0 0 320px #f37400, inset 0 0 0 40px #0e58a3;
+      border-radius: 50%;
+      transition: box-shadow 0.2s ease-in-out;
+      position: relative;
+      // top: 1px;
+    }
+    &:active::-webkit-slider-thumb {
+      background: #fff;
+      box-shadow: -340px 0 0 320px #bc0053, inset 0 0 0 3px #d775a1;
+    }
+  }
+  // Firefox
+  &::-moz-range-progress {
+    background-color: #43e5f7;
+  }
+  &::-moz-range-track {
+    background-color: #9a905d;
+  }
+  // IE
+  &::-ms-fill-lower {
+    background-color: #43e5f7;
+  }
+  &::-ms-fill-upper {
+    background-color: #9a905d;
+  }
+}
+/* ========================================== Tracker Page ====================================================== */
+.trackerGraph {
+  display: flex;
+  padding: 5%;
+}
+.trackerAll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+}
+.canvas.chartjs-render-monitor {
+  display: flex;
+  flex-direction: column;
+  padding: 20%;
+  margin: 20%;
+}

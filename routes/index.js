@@ -50,8 +50,18 @@ router.post("/mood", (req, res, next) => {
     gratefulMood: gratefulMood
   })
     .then(newTracker => {
-      console.log("nnnnn", newTracker);
+      newTracker.username = req.user.username;
       res.json(newTracker);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+router.get("/tracker", (req, res) => {
+  Tracker.find()
+    .then(trackers => {
+      res.json(trackers);
     })
     .catch(err => {
       res.json(err);
