@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-
 /* ===================================================================================================
                                 General Design Settings
 ====================================================================================================== */
-
 $colors: (
   orangeD: #f37400,
   orangeL: #f7924b,
@@ -16,16 +14,13 @@ $colors: (
   purpleD: #690833,
   purpleL: #d775a1
 );
-
 /* =========================================== General Settings ================================================= */
-
 @font-face {
   font-family: "Intro";
   src: url("Intro.woff2") format("woff2"), url("Intro.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: "Intro Inline";
   src: url("Intro-Inline.woff2") format("woff2"),
@@ -33,9 +28,7 @@ $colors: (
   font-weight: normal;
   font-style: normal;
 }
-
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-
 body,
 html {
   width: 100%;
@@ -44,94 +37,341 @@ html {
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
-
 /* =========================================== Index Screen ================================================= */
-
-.circles {
-  position: relative;
-  top: 20vh;
-  width: 50vw;
+#index {
+  .circles {
+    position: relative;
+    top: 20vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .circle {
+    border-radius: 50%;
+    background-color: map-get($colors, orangeD);
+    width: 3vw;
+    height: 3vw;
+    position: relative;
+    z-index: 10;
+    animation: circleMove 4s;
+  }
+  @keyframes circleMove {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translate(10vw, 80vh);
+    }
+  }
+  .bars {
+    position: relative;
+    top: 20vh;
+  }
+  @keyframes barMoveIndex {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100vw);
+    }
+  }
+  .bar {
+    width: 50vw;
+    height: 0.5vh;
+    background-color: map-get($colors, purpleD);
+    margin: 3vh 0;
+    padding: 0;
+  }
+  .index-content {
+    color: map-get($colors, purpleD);
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+    top: 40vh;
+    padding: 0 10px 0 0;
+  }
+  .index-content h1 {
+    font-family: "Intro Inline";
+    font-size: 5vh;
+    font-weight: 100;
+  }
+  .index-links {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+  }
+  .index-links p {
+    padding: 0 2vw;
+    text-decoration: none;
+    color: map-get($colors, purpleD);
+    font-size: 2.5vh;
+  }
+}
+/* ========================================== Login Page ====================================================== */
+/* ========================================= Signup Page ====================================================== */
+#signup-body {
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  .bars {
+    position: relative;
+    left: -20vw;
+    top: 20vh;
+    animation: barMove 2s forwards;
+  }
+  @keyframes barMove {
+    from {
+      transform: translateX(-20vw);
+    }
+    to {
+      transform: translateX(20vw);
+    }
+  }
+  .bar {
+    width: 20vw;
+    height: 0.5vh;
+    background-color: map-get($colors, purpleD);
+    margin: 3vh 0;
+    padding: 0;
+  }
+  .form-structor {
+    position: relative;
+    top: 35vh;
+    width: 100vw;
+  }
+  .form-title {
+    font-family: "Intro Inline";
+    font-size: 250%;
+    text-align: right;
+    color: map-get($colors, purpleD);
+  }
+}
+/* =========================================== Home Screen ================================================= */
+.home {
+  width: 100%;
+  height: auto;
+}
+#home-bar-wrapper {
+  height: 12vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
-
-.circle {
-  border-radius: 50%;
-  background-color: map-get($colors, orangeD);
-  width: 3vw;
-  height: 3vw;
-  position: relative;
-  z-index: 10;
-  animation: circleMove 4s;
-}
-
-@keyframes circleMove {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translate(10vw, 80vh);
-  }
-}
-
-.bars {
-  position: relative;
-  top: 20vh;
-}
-
-@keyframes barMove {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(700px);
-  }
-}
-
-.bar {
-  width: 50vw;
-  height: 0.5vh;
-  background-color: map-get($colors, purpleD);
-  margin: 3vh 0;
+  margin-top: 10vh;
   padding: 0;
+  justify-content: flex-start;
+  width: 100vw;
+  .bars {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    margin-left: -20vw;
+    width: 50vw;
+  }
+  .bar-pre-move1 {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
+    left: -10vw;
+  }
+  .bar1 {
+    width: 40vw;
+    left: -10vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+  }
+  .bar-pre-move2 {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
+    left: -10vw;
+  }
+  .bar2 {
+    width: 40vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+  }
+  .bar-pre-move3 {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
+    left: -10vw;
+  }
+  .bar3 {
+    width: 40vw;
+    left: -10vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+  }
+  .animate-bar1 {
+    animation: bar1 1s forwards;
+  }
+  .animate-bar2 {
+    animation: bar2 1s forwards;
+  }
+  .animate-bar3 {
+    animation: bar3 1s forwards;
+  }
+  @keyframes bar1 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(20vw);
+    }
+  }
+  @keyframes bar2 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(10vw);
+    }
+  }
+  @keyframes bar3 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(1vw);
+    }
+  }
+  .menu-link {
+    color: map-get($colors, purpleD);
+    font-size: 80%;
+    display: none;
+    padding-left: 1%;
+  }
+  .animate-menu-link {
+    display: flex;
+    flex-direction: column;
+    color: map-get($colors, purpleD);
+    font-size: 80%;
+  }
 }
-
-.index-content {
-  color: map-get($colors, purpleD);
+.home .marglas-div {
   display: flex;
-  justify-content: start;
-  align-items: flex-end;
-  flex-direction: column;
-  position: relative;
-  top: 40vh;
-  padding: 0 10px 0 0;
+  justify-content: flex-end;
+  padding: 1vh;
 }
-
-.index-content h1 {
+.home .marglas {
+  color: map-get($colors, purpleD);
   font-family: "Intro Inline";
-  font-size: 5vh;
-  font-weight: 100;
+  font-size: 200%;
+  margin: 5vh 0;
 }
-
-.index-links {
-  text-decoration: none;
+.home-header {
+  font-size: 100%;
+  height: auto;
+  color: map-get($colors, orangeD);
+  font-family: "Intro Inline";
+}
+#boards {
+  margin: 0 2% 0 2%;
+  .home-header {
+    font-size: 100%;
+    height: auto;
+    color: map-get($colors, orangeD);
+    font-family: "Intro Inline";
+  }
+  .home-carousel {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-left: 1vw;
+    justify-content: flex-start;
+    align-items: space-between;
+  }
+  .carousel-box {
+    margin: 1vh 0.5vh;
+  }
+  .rectangle {
+    border: 0.5vh solid map-get($colors, purpleD);
+    background-color: map-get($colors, orangeL);
+    height: 10vh;
+    width: 30vw;
+    text-align: center;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 1vh;
+  }
+  .boardHeader {
+    font-size: 100%;
+    color: map-get($colors, purpleD);
+    margin: 0;
+    padding: 0;
+  }
+  .bar {
+    width: 30vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    padding: 0;
+  }
+}
+.tracker-wrapper {
+  margin: 1vh 1vh;
+  width: 100vw;
+  #tracker {
+    width: 100vw;
+    height: 20vh;
+  }
+}
+#facts-wrapper {
+  margin: 2vh 1vh 1vh 1vh;
+  width: 100vw;
+}
+#home-carousel {
   display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  margin-left: 1vw;
+  justify-content: flex-start;
+  align-items: space-between;
+  .carousel-box {
+    margin: 1vh 1vh;
+    width: 50vw;
+    height: auto;
+  }
+  .boardHeader {
+    font-size: 100%;
+    color: map-get($colors, purpleD);
+  }
+  .carousel-box .fact-img img {
+    object-fit: contain;
+    width: 20vw;
+    height: 20vw;
+    margin-bottom: 2vh;
+  }
+  img {
+    width: 70%;
+  }
+  .scienceDescription {
+    font-size: 80%;
+    color: map-get($colors, orangeD);
+  }
 }
-
-.index-links p {
-  padding: 0 2vw;
-  text-decoration: none;
-  color: map-get($colors, purpleD);
-  font-size: 2.5vh;
+/* ============================================= BoardCard ===================================================== */
+#boardCard-wrapper {
+  color: map-get($colors, orangeD);
 }
-
-/* ========================================== Login Page ====================================================== */
-
-/* ========================================= Signup Page ====================================================== */
-
 /* ============================================= Questions ===================================================== */
-
 .questions {
   position: absolute;
   top: 50%;
@@ -146,6 +386,7 @@ html {
     font-size: 1.7em;
     text-align: center;
 
+    /* ========================================== Skala Page ====================================================== */
     span {
       color: rgba(0, 0, 0, 0.4);
       opacity: 0;
@@ -207,182 +448,61 @@ html {
   }
 }
 
-/* =========================================== Index Screen ================================================= */
-.home {
-  width: 100%;
-  height: auto;
+/* ========================================== PopUpWindow ====================================================== */
+.Modal {
+  top: "50%";
+  left: "50%";
+  width: "50%";
+  height: "50%";
+  right: "auto";
+  bottom: "auto";
+  margin-right: "-50%";
+  transform: "translate(-50%, -50%)";
 }
-
-#home-bar-wrapper {
-  height: 12vh;
+#close {
   display: flex;
-  flex-direction: row;
-  margin: 10vh 0;
-  padding: 0;
-  justify-content: space-between;
-
-  .bars {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    left: -20vw;
-  }
-
-  .bar {
-    width: 40vw;
-    left: -10vw;
-    height: 0.5vh;
-    background-color: map-get($colors, orangeD);
-    margin: 1vh 0vh 1vh 0vh;
-    padding: 0;
-  }
-
-  @keyframes homeBar {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(20vw);
-    }
-  }
-
-  .marglas {
-    color: map-get($colors, purpleD);
-    font-family: "Intro Inline";
-    font-size: 200%;
-    padding-top: 10vh;
-  }
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white;
 }
-
-.home-header {
-  font-size: 100%;
-  height: auto;
-  color: map-get($colors, orangeD);
+#formBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#questionStyle {
   font-family: "Intro Inline";
+  font-size: 200;
+  color: #690833;
+}
+#comment {
+  font-family: Helvetica;
+  font-size: 15px;
+}
+#answerSubmitButton {
+  border: 2px solid #f37400;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+#answerSubmitButton:hover {
+  color: #f37400;
 }
 
-#boards {
-  margin: 0 2% 0 2%;
-
-  .home-header {
-    font-size: 100%;
-    height: auto;
-    color: map-get($colors, orangeD);
-    font-family: "Intro Inline";
-  }
-
-  .home-carousel {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    margin-left: 1vw;
-    justify-content: flex-start;
-    align-items: space-between;
-  }
-
-  .carousel-box {
-    margin: 1vh 0.5vh;
-  }
-
-  .rectangle {
-    border: 0.5vh solid map-get($colors, purpleD);
-    background-color: map-get($colors, orangeL);
-    height: 10vh;
-    width: 30vw;
-    text-align: center;
-    object-fit: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-bottom: 1vh;
-  }
-
-  .boardHeader {
-    font-size: 100%;
-    color: map-get($colors, purpleD);
-    margin: 0;
-    padding: 0;
-  }
-
-  .bar {
-    width: 30vw;
-    height: 0.5vh;
-    background-color: map-get($colors, orangeD);
-    padding: 0;
-  }
-}
-
-.tracker-wrapper {
-  margin: 1vh 1vh;
-  width: 100vw;
-
-  #tracker {
-    width: 100vw;
-    height: 20vh;
-  }
-}
-
-#facts-wrapper {
-  margin: 2vh 1vh 1vh 1vh;
-  width: 100vw;
-}
-
-#home-carousel {
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  margin-left: 1vw;
-  justify-content: flex-start;
-  align-items: space-between;
-
-  .carousel-box {
-    margin: 1vh 1vh;
-    width: 50vw;
-    height: auto;
-  }
-
-  .boardHeader {
-    font-size: 100%;
-    color: map-get($colors, purpleD);
-  }
-  .carousel-box .fact-img img {
-    object-fit: contain;
-    width: 20vw;
-    height: 20vw;
-    margin-bottom: 2vh;
-  }
-
-  img {
-    width: 70%;
-  }
-
-  .scienceDescription {
-    font-size: 80%;
-    color: map-get($colors, orangeD);
-  }
-}
-
-/* ========================================== Skala Page ====================================================== */
 /* ========================================== Mood Page ====================================================== */
 .submitDailyMood {
   background-color: #690833;
   color: white;
 }
-
 .moodTracker {
   padding: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .moodMessage {
   margin: 5%;
 }
-
 input[type="range"] {
   outline: 0;
   border: 0;
@@ -391,7 +511,6 @@ input[type="range"] {
   max-width: 100%;
   margin: 24px 0;
   transition: box-shadow 0.2s ease-in-out;
-
   // Chrome
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     & {
@@ -439,9 +558,7 @@ input[type="range"] {
     background-color: #9a905d;
   }
 }
-
 /* ========================================== Tracker Page ====================================================== */
-
 .trackerGraph {
   display: flex;
   padding: 5%;

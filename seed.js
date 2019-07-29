@@ -6,28 +6,48 @@ mongoose.connect("mongodb://localhost/project3", {
 
 const QuestionsInput = [
   {
-    question: "Question Energie 1",
-    category: "Energy"
+    question: "The last time I felt joy, I was",
+    peerQuestion: "seems to be happy when she is",
+    category: "Happiness",
+    prompt1: "You should be",
+    prompt2: ". This makes you happy!"
   },
   {
-    question: "Question Energie 2",
-    category: "Energy"
+    question: "The last time I felt energetic I was",
+    peerQuestion: "seems to be energetic when she is",
+    category: "Energy",
+    prompt1: "You should be",
+    prompt2: ". This brings you energy!"
   },
   {
-    question: "Question Love 1",
-    category: "Love"
+    question: "Today, I am grateful for",
+    peerQuestion: "can be grateful for",
+    category: "Gratefulness",
+    prompt1: "You're life is full of amazing things! Aren't you grateful for",
+    prompt2: ". We think you should and can be!"
   },
   {
-    question: "Question Love 2",
-    category: "Love"
+    question: "The last time I accomplished something I was",
+    peerQuestion: "was successful when she was",
+    category: "Accomplishments",
+    prompt1:
+      "You have already accomplished a lot of nice things. Remember when you were",
+    prompt2: ""
   },
   {
-    question: "Question Gratitude 1",
-    category: "Gratitude"
+    question: "I feel that someday I could be good in",
+    peerQuestion: "could be good in",
+    category: "Potential",
+    prompt1:
+      "You still have a lot of potential in you! You could be amazing in",
+    prompt2: ". Maybe you should try it out!"
   },
   {
-    question: "Question Gratitude 1",
-    category: "Gratitude"
+    question: "I feel like I am good in",
+    peerQuestion: "is good in",
+    category: "Strengths",
+    prompt1: "We think you are better! You are amazing in",
+    prompt2: ". Don't forget it. Maybe check out your strengths again!"
   }
 ];
 

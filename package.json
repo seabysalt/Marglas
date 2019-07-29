@@ -12,6 +12,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
+    "chart.js": "^2.8.0",
     "connect-mongo": "^3.0.0",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",

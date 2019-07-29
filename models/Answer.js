@@ -3,11 +3,16 @@ const Schema = mongoose.Schema;
 
 const answerSchema = new Schema({
   // ObjectId: String,
-  userId: String,
-  username: { type: String, required: true },
+  _user: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   date: { type: Date, required: true, default: Date.now },
-  category: { type: String, enum: ["energy", "grateful", "loved"] },
-  question: { type: String },
+  category: { type: String },
+  _question: {
+    type: Schema.Types.ObjectId,
+    ref: "Question"
+  },
   answer: { type: String, maxlength: 50 }
 });
 

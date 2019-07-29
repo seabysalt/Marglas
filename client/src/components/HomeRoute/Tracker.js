@@ -70,16 +70,13 @@ import { Line } from "react-chartjs-2";
     }
   ]
 }; */
-
 export class Tracker extends Component {
   state = {
     trackers: []
   };
-
   componentDidMount() {
     this.getMoodInfo();
   }
-
   getMoodInfo = e => {
     axios
       .get("/tracker")
@@ -90,7 +87,6 @@ export class Tracker extends Component {
         console.log("Error is: ", err);
       });
   };
-
   render() {
     let array = ["energyMood", "loveMood", "gratefulMood"].map(el => {
       return {
@@ -130,5 +126,4 @@ export class Tracker extends Component {
     );
   }
 }
-
 export default Tracker;
