@@ -58,9 +58,9 @@ class MoodPopup extends React.Component {
         const message = res.data.message;
         console.log(message);
         this.setState({
-          energyMood: 0,
-          loveMood: 0,
-          gratefulMood: 0,
+          // energyMood: 0,
+          // loveMood: 0,
+          // gratefulMood: 0,
           message:
             message || `Thanks for sharing your mood, ${res.data.username}!`
         });
