@@ -44,7 +44,7 @@ class QuestionPopup extends React.Component {
     const newAnswer = {
       _user: this.props.user._id,
       _question: this.props.pending[0]._id,
-      category: this.props.pending[0].category,
+      category: this.props.pending[0].id.category,
       answer: this.state.answer
     };
     console.log(newAnswer);
@@ -83,7 +83,6 @@ class QuestionPopup extends React.Component {
     return (
       <div className="Modal">
         <Modal
-          className="Modal"
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
