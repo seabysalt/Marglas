@@ -8,6 +8,14 @@ import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 import Aboutus from "../components/Aboutus";
 import Mood from "../components/Mood";
+import { logout } from "../services/api";
+
+const handleLogout = props => {
+  // logout().then(() => {
+  //   props.setUser(null);
+  // });
+};
+
 
 export class Home extends Component {
   state = {
@@ -27,6 +35,7 @@ export class Home extends Component {
       "Why Bibi loves animals"
     ]
   };
+
   handleClick() {
     if (
       [...document.querySelector(".bar-pre-move1").classList].includes(
@@ -54,6 +63,7 @@ export class Home extends Component {
       }
     });
   }
+  
   stateUp = () => {
     axios.get("/question/pending").then(response => {
       this.setState({ pending: response.data });
@@ -61,10 +71,12 @@ export class Home extends Component {
   };
   componentDidMount() {
     this.stateUp();
-  }
+  };
+
   render() {
     const myCategories = this.state.categories;
     const myScience = this.state.science;
+  
     return (
       <div className="home">
         <div
@@ -87,7 +99,7 @@ export class Home extends Component {
             </div>
             <div className="bar-pre-move3">
               <div className="bar3" />
-              <Link to="/logout" className="menu-link">
+              <Link onClick={() => handleLogout(this.props)} to="/" className="menu-link">
                 sign out
               </Link>
             </div>
