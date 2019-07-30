@@ -12,9 +12,9 @@ import Mood from "../components/MoodTwo";
 import MoodPopup from "../components/MoodTwo";
 
 const handleLogout = props => {
-  // logout().then(() => {
-  //   props.setUser(null);
-  // });
+  logout().then(() => {
+    props.setUser(null);
+  });
 };
 
 export class Home extends Component {

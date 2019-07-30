@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-// import { Carousel } from "react-responsive-carousel";
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-// import 'pure-react-carousel/dist/react-carousel.es.css';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import { Link } from "react-router-dom";
+import Home from '../../containers/Home';
 
 
 export default class Welcome extends Component {
@@ -130,8 +128,9 @@ export default class Welcome extends Component {
     </div>
     <div className="product" product-id="5" product-color="#C4C8CB">
       <div className="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/Rabbit.svg"/></div>
-      <h1 className="title">Get start</h1>
+      <h1 className="title">Get started</h1>
       <p className="description">Start the journey to a more happy, productive & creative life!</p>
+      <p><Link className="getStarted" to="/home" component={Home}>Start filling your marglas!</Link></p>
     </div>
   </div>
   <div className="footer"><a className="btn" id="prev" href="#" ripple="" ripple-color="#666666">Prev</a><a class="btn" id="next" href="#" ripple="" ripple-color="#666666">Next</a></div>
