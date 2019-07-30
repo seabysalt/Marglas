@@ -1,8 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Index from "./containers/Index";
-import "bootstrap/dist/css/bootstrap.css";
+import Protected from "./components/Protected";
 import "./App.scss";
+
+import Index from "./containers/Index";
 import Signup from "./components/SignupRoute/Signup";
 import Login from "./components/Login";
 import Home from "./containers/Home";
@@ -13,6 +14,7 @@ import BoardCard from "./components/HomeRoute/BoardCard";
 import Profile from "./components/HomeRoute/Profile";
 import FactsCard from "./components/HomeRoute/FactsCard";
 import Aboutus from "./components/Aboutus";
+import Navbar from "./components/Navbar";
 
 class App extends React.Component {
   state = {
@@ -24,47 +26,84 @@ class App extends React.Component {
     });
   };
   render() {
+    console.log(this.state.user);
     return (
       <div className="App">
         <Switch>
           <Route exact path="/" component={Index} />
-          <Route
+          <Protected
             exact
             path="/signup"
-            render={props => {
-              return <Signup setUser={this.setUser} {...props} />;
-            }}
+            redirectPath="/welcome"
+            setUser={this.setUser}
+            user={!this.state.user}
+            component={Signup}
           />
-          <Route
+          <Protected
             exact
             path="/login"
-            render={props => {
-              return <Login setUser={this.setUser} {...props} />;
-            }}
+            redirectPath="/home"
+            setUser={this.setUser}
+            user={!this.state.user}
+            component={Login}
           />
-          <Route exact path="/welcome" component={Welcome} />
-          <Route
+          <Protected
+            exact
+            path="/welcome"
+            component={Welcome}
+            user={this.state.user}
+          />
+          <Protected
             exact
             path="/home"
-            render={() => <Home user={this.state.user} />}
+            component={Home}
+            user={this.state.user}
+            setUser={this.setUser}
           />
-          <Route exact path="/mood" component={Mood} />
-          <Route exact path="/tracker" component={Tracker} />
-          <Route exact path="/boardCard/:category" component={BoardCard} />
-          <Route exact path="/factsCard/:fact" component={FactsCard} />
-          <Route exact path="/tracker" component={Tracker} />
-          <Route
+
+          <Protected
+            exact
+            path="/mood"
+            component={Mood}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
+          <Protected
+            exact
+            path="/tracker"
+            component={Tracker}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
+          <Protected
+            exact
+            path="/boardCard/:category"
+            component={BoardCard}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
+          <Protected
             exact
             path="/profile"
-            render={props => (
-              <Profile
-                {...props}
-                user={this.state.user}
-                setUser={this.setUser}
-              />
-            )}
+            component={Profile}
+            user={this.state.user}
+            setUser={this.setUser}
+            navbar={Navbar}
           />
-          <Route exact path="/aboutus" component={Aboutus} />
+          {/* <Protected
+            exact
+            path="/navbar"
+            component={Navbar}
+            user={this.state.user}
+            setUser={this.setUser}
+          /> */}
+          <Protected
+            exact
+            path="/aboutus"
+            component={Aboutus}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
         </Switch>
       </div>
     );

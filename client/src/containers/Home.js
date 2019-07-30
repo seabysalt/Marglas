@@ -10,30 +10,38 @@ import Aboutus from "../components/Aboutus";
 import { logout } from "../services/api";
 import Mood from "../components/MoodTwo";
 import MoodPopup from "../components/MoodTwo";
+// import { url } from "inspector";
 
 const handleLogout = props => {
-  // logout().then(() => {
-  //   props.setUser(null);
-  // });
+  logout().then(() => {
+    props.setUser(null);
+  });
 };
 
 export class Home extends Component {
   state = {
     pending: [],
     categories: [
-      "Happiness",
+        "Happiness",
       "Gratefulness",
       "Strengths",
       "Potential",
       "Energy",
-      "Accomplishments"
-    ],
+      "Accomplishments"],
     science: [
       "Positive Psychology",
       "Psychological Capital",
       "Why gratefulness works",
       "Why Bibi loves animals"
-    ]
+    ],
+    img: [
+      "/img/blue.png",
+      "/img/yellow.png",
+      "/img/green.png",
+      "/img/orange.png",
+      "/img/blueLight.png",
+      "/img/rosa.png",
+    ],
   };
 
   handleClick() {
@@ -77,6 +85,7 @@ export class Home extends Component {
   render() {
     const myCategories = this.state.categories;
     const myScience = this.state.science;
+    const categoryImg = this.state.img;
 
     return (
       <div className="home">
@@ -118,11 +127,13 @@ export class Home extends Component {
           <h2 className="home-header">my boards</h2>
           <div className="home-carousel">
             {myCategories.length &&
-              myCategories.map(eachCategory => {
+              myCategories.map((eachCategory,i) => {
                 return (
                   <Link to={"/boardCard/" + eachCategory}>
                     <div className="carousel-box">
-                      <div className="rectangle">
+                    {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
+                    <div >
+                        <img src={categoryImg[i]} alt="some graphic" className="rectangle"/>
                         <h3 className="boardHeader">{eachCategory}</h3>
                       </div>
                     </div>
@@ -142,12 +153,12 @@ export class Home extends Component {
             <h2 className="home-header">my science</h2>
           </div>
           <div id="home-carousel">
-            {myScience.map(eachScience => {
+            {myScience.map((eachScience, i) => {
               return (
                 <div className="carousel-box">
-                  <div className="fact-img">
-                    <img src="/img/img1.png" alt="some graphic" />
-                  </div>
+                  {/* <div className="fact-img">
+                    <img src={categoryImg[i]} alt="some graphic" />
+                  </div> */}
                   <div>
                     <h3 className="boardHeader">{eachScience}</h3>
                     <p className="scienceDescription">
