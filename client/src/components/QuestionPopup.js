@@ -68,9 +68,9 @@ class QuestionPopup extends React.Component {
 
   render() {
     return (
-      <div class="Modal">
+      <div className="Modal">
         <Modal
-          class="Modal"
+          className="Modal"
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
@@ -86,7 +86,7 @@ class QuestionPopup extends React.Component {
               {this.props.pending.length > 0 && this.props.pending[0].question}
             </h3>
 
-            <form class="answerForm" onSubmit={this.handleSubmit}>
+            <form className="answerForm" onSubmit={this.handleSubmit}>
               <input
                 onChange={this.handleInputChange}
                 type="text"

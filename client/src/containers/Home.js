@@ -100,17 +100,18 @@ export class Home extends Component {
         <div id="boards">
           <h2 className="home-header">my boards</h2>
           <div className="home-carousel">
-            {myCategories.map(eachCategory => {
-              return (
-                <Link to={"/boardCard/" + eachCategory}>
-                  <div className="carousel-box">
-                    <div className="rectangle">
-                      <h3 className="boardHeader">{eachCategory}</h3>
+            {myCategories.length &&
+              myCategories.map(eachCategory => {
+                return (
+                  <Link to={"/boardCard/" + eachCategory}>
+                    <div className="carousel-box">
+                      <div className="rectangle">
+                        <h3 className="boardHeader">{eachCategory}</h3>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
           </div>
         </div>
         <Link to="/tracker" component={Tracker}>

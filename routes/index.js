@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require("../models/User");
 const Question = require("../models/Question");
 const Answer = require("../models/Answer");
-
 const Tracker = require("../models/Tracker");
 
 router.get("/question/pending", (req, res, next) => {
@@ -41,7 +40,6 @@ router.post("/question/pending", (req, res, next) => {
 /* POST route => to create a new mood tracking */
 router.post("/mood", (req, res, next) => {
   const { energyMood, loveMood, gratefulMood } = req.body;
-  console.log("iiiiii", energyMood, loveMood, gratefulMood);
   const user = req.user._id;
   Tracker.create({
     user: user,
@@ -75,6 +73,20 @@ router.post("/answer", (req, res, next) => {
     console.log(data);
     res.json(data);
   });
+});
+
+// boardCard/Happiness
+router.get("/boardCard/:category", (req, res) => {
+  console.log("bla" + req.params.category, req.user._id);
+  Answer.find({ category: req.params.category, _user: req.user._id })
+    .then(boardCard => {
+      console.log("here");
+      console.log(boardCard);
+      res.json(boardCard);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 module.exports = router;

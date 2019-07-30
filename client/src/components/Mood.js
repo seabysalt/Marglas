@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export class Mood extends Component {
+  state = {};
+
   handleChange = event => {
     const { name, value } = event.target;
 
