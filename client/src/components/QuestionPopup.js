@@ -43,7 +43,7 @@ class QuestionPopup extends React.Component {
     event.preventDefault();
     const newAnswer = {
       _user: this.props.user._id,
-      _question: this.props.pending[0]._id,
+      _question: this.props.pending[0].id._id,
       category: this.props.pending[0].id.category,
       answer: this.state.answer
     };

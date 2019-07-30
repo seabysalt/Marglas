@@ -27,7 +27,7 @@ router.post("/question/pending", (req, res, next) => {
     User.findById(req.user._id).then(user => {
       console.log(user.pending);
       let filteredArray = user.pending.filter(question => {
-        if (question._id != id) return true;
+        if (question.id != id) return true;
       });
       filteredArray.push({ id: newId, date });
 
@@ -89,8 +89,49 @@ router.post("/mood", (req, res, next) => {
     gratefulMood: gratefulMood
   })
     .then(newTracker => {
-      newTracker.username = req.user.username;
-      res.json(newTracker);
+      console.log(req.body);
+      console.log(Math.min(...Object.values(req.body)));
+      let index = Object.values(req.body).indexOf(
+        `${Math.min(...Object.values(req.body))}`
+      );
+      console.log(index);
+
+      let categoryInfo = Object.keys(req.body)[index];
+      console.log(categoryInfo);
+
+      let assignArray = [];
+      if (categoryInfo == "energyMood") {
+        assignArray.push("Energy", "Strengths");
+      } else if (categoryInfo == "loveMood") {
+        assignArray.push("Gratefulness", "Happiness");
+      } else if (categoryInfo == "gratefulMood") {
+        assignArray.push("Accomplishments", "Gratefulness", "Potential");
+      }
+
+      console.log(assignArray, "hiiiiin");
+
+      Answer.aggregate([
+        {
+          $match: {
+            category: { $in: assignArray },
+            _user: req.user._id
+          }
+        },
+        { $sample: { size: 1 } }
+      ]).then(([answers]) => {
+        Question.findById(answers._question).then(question => {
+          console.log(question);
+
+          const response = { ...newTracker };
+          let randomAnswer = `${question.prompt1} ${answers.answer}${
+            question.prompt2
+          }`;
+          // if (Math.min(...Object.values(req.body)) < 5)
+          response.message = randomAnswer;
+          response.username = req.user.username;
+          res.json(response);
+        });
+      });
     })
     .catch(err => {
       res.json(err);
@@ -117,7 +158,7 @@ router.post("/answer", (req, res, next) => {
 // boardCard/Happiness
 router.get("/boardCard/:category", (req, res) => {
   console.log("bla" + req.params.category, req.user._id);
-  Answer.find({ category: req.params.category, _user: req.user._id })
+  Answer.find({ category: req.params.category, _user: req.user._id }) //gives me array // pick a random one & assign it to an array
     .then(boardCard => {
       console.log("here");
       console.log(boardCard);
