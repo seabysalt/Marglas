@@ -7,8 +7,8 @@ import Signup from "./components/SignupRoute/Signup";
 import Login from "./components/Login";
 import Home from "./containers/Home";
 import Welcome from "./components/SignupRoute/Welcome";
-import Mood from "./components/Mood";
 import Tracker from "./components/HomeRoute/Tracker";
+import Mood from "./components/MoodTwo";
 import BoardCard from "./components/HomeRoute/BoardCard";
 import Profile from "./components/HomeRoute/Profile";
 import FactsCard from "./components/HomeRoute/FactsCard";
@@ -53,7 +53,12 @@ class App extends React.Component {
           <Route exact path="/boardCard/:category" component={BoardCard} />
           <Route exact path="/factsCard/:fact" component={FactsCard} />
           <Route exact path="/tracker" component={Tracker} />
-          <Route exact path="/profile" component={Profile} user={this.state.user}/>
+          <Route
+            exact
+            path="/profile"
+            component={Profile}
+            user={this.state.user}
+          />
           <Route exact path="/aboutus" component={Aboutus} />
         </Switch>
       </div>

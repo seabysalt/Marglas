@@ -22,8 +22,11 @@ const userSchema = new Schema({
   ],
   pending: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Question"
+      id: {
+        type: Schema.Types.ObjectId,
+        ref: "Question"
+      },
+      date: { type: Date, default: Date.now }
     }
   ]
 });

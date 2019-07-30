@@ -7,7 +7,7 @@ const Tracker = require("../models/Tracker");
 
 router.get("/question/pending", (req, res, next) => {
   User.findById(req.user._id)
-    .populate("pending")
+    .populate("pending.id")
     .then(user => {
       res.json(user.pending);
     });
@@ -16,16 +16,23 @@ router.get("/question/pending", (req, res, next) => {
 router.post("/question/pending", (req, res, next) => {
   // create var with id of current pending question
   let id = req.body._question;
+  console.log(id);
   Question.aggregate([
     { $match: { _id: { $ne: id } } },
     { $sample: { size: 1 } }
   ]).then(questions => {
     let newId = questions[0]._id;
-    User.findByIdAndUpdate(req.user._id, {
-      $pull: { pending: id }
-    }).then(() => {
+    let date = new Date(Date.now() + 1000 * 3600 * 24);
+    //date for the next day
+    User.findById(req.user._id).then(user => {
+      console.log(user.pending);
+      let filteredArray = user.pending.filter(question => {
+        if (question._id != id) return true;
+      });
+      filteredArray.push({ id: newId, date });
+
       User.findByIdAndUpdate(req.user._id, {
-        $push: { pending: newId }
+        $set: { pending: filteredArray } //and date
       }).then(response => {
         res.json();
       });
@@ -68,9 +75,7 @@ router.get("/tracker", (req, res) => {
 
 router.post("/answer", (req, res, next) => {
   const { _user, _question, category, answer } = req.body;
-  console.log(req.body);
-  Answer.create({ _user, _question, category, answer }).then(data => {
-    console.log(data);
+  Answer.create({ _user, category, _question, answer }).then(data => {
     res.json(data);
   });
 });

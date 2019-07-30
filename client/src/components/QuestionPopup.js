@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import axios from "axios";
+// import Question from "../../../models/Question";
 
 // const customStyles = {
 //   content: {
@@ -30,9 +31,6 @@ class QuestionPopup extends React.Component {
       modalIsOpen: true,
       answer: ""
     };
-
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
   }
 
   handleInputChange = event => {
@@ -50,21 +48,36 @@ class QuestionPopup extends React.Component {
       answer: this.state.answer
     };
     console.log(newAnswer);
-    axios.post("/answer", newAnswer).then(() => console.log("posted"));
+    axios.post("/answer", newAnswer).then(() => this.closeModal());
     axios.post("/question/pending", newAnswer).then(response => {
       console.log(response);
       this.props.stateUp();
     });
   };
 
-  afterOpenModal() {
+  afterOpenModal = () => {
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = "#f00";
-  }
+  };
 
-  closeModal() {
+  closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
+  };
+
+  // skipModal = event => {
+  //   event.preventDefault();
+  //   Question.aggregate([
+  //     { $match: { _id: { $ne: id } } },
+  //     { $sample: { size: 1 } }
+  //   ]).then(questions => {
+  //     let newId = questions[0]._id;
+
+  //   axios.get("/question/pending");
+  // };
+
+  //   Question.aggregate([{ $sample: { size: 1 } }]).then(randomQuestion => {
+  //     return ({User.pending: [{ id: randomQuestion[0]._id, date: Date.now() }]})
+  // };
 
   render() {
     return (
@@ -83,7 +96,8 @@ class QuestionPopup extends React.Component {
           </div>
           <div id="formBody">
             <h3 id="questionStyle" ref={subtitle => (this.subtitle = subtitle)}>
-              {this.props.pending.length > 0 && this.props.pending[0].question}
+              {this.props.pending.length > 0 &&
+                this.props.pending[0].id.question}
             </h3>
 
             <form className="answerForm" onSubmit={this.handleSubmit}>
@@ -100,6 +114,8 @@ class QuestionPopup extends React.Component {
 
               <p id="comment">(small moments are those that count!)</p>
             </form>
+
+            {/* <button onClick={this.skipModal}>skip</button> */}
           </div>
         </Modal>
       </div>
