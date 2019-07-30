@@ -112,7 +112,9 @@ export class Tracker extends Component {
       };
     });
     let data = {
-      labels: this.state.trackers.map(el => el.date),
+      labels: this.state.trackers.map(el =>
+        new Date(el.date).toLocaleDateString()
+      ),
       datasets: array
     };
     return (

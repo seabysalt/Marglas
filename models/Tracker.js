@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const trackerSchema = new Schema({
-  id: String,
   date: { type: Date, required: true, default: Date.now },
-  username: { type: String, required: true },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   energyMood: Number,
   loveMood: Number,
   gratefulMood: Number

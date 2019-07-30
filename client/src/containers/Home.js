@@ -7,8 +7,15 @@ import Tracker from "../components/HomeRoute/Tracker";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 import Aboutus from "../components/Aboutus";
+import { logout } from "../services/api";
 import Mood from "../components/MoodTwo";
 import MoodPopup from "../components/MoodTwo";
+
+const handleLogout = props => {
+  // logout().then(() => {
+  //   props.setUser(null);
+  // });
+};
 
 export class Home extends Component {
   state = {
@@ -28,6 +35,7 @@ export class Home extends Component {
       "Why Bibi loves animals"
     ]
   };
+
   handleClick() {
     if (
       [...document.querySelector(".bar-pre-move1").classList].includes(
@@ -55,6 +63,7 @@ export class Home extends Component {
       }
     });
   }
+
   stateUp = () => {
     axios.get("/question/pending").then(response => {
       console.log(response.data);
@@ -64,9 +73,11 @@ export class Home extends Component {
   componentDidMount() {
     this.stateUp();
   }
+
   render() {
     const myCategories = this.state.categories;
     const myScience = this.state.science;
+
     return (
       <div className="home">
         <div
@@ -89,7 +100,11 @@ export class Home extends Component {
             </div>
             <div className="bar-pre-move3">
               <div className="bar3" />
-              <Link to="/logout" className="menu-link">
+              <Link
+                onClick={() => handleLogout(this.props)}
+                to="/"
+                className="menu-link"
+              >
                 sign out
               </Link>
             </div>
@@ -102,17 +117,18 @@ export class Home extends Component {
         <div id="boards">
           <h2 className="home-header">my boards</h2>
           <div className="home-carousel">
-            {myCategories.map(eachCategory => {
-              return (
-                <Link to={"/boardCard/" + eachCategory}>
-                  <div className="carousel-box">
-                    <div className="rectangle">
-                      <h3 className="boardHeader">{eachCategory}</h3>
+            {myCategories.length &&
+              myCategories.map(eachCategory => {
+                return (
+                  <Link to={"/boardCard/" + eachCategory}>
+                    <div className="carousel-box">
+                      <div className="rectangle">
+                        <h3 className="boardHeader">{eachCategory}</h3>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
           </div>
         </div>
         <Link to="/tracker" component={Tracker}>
