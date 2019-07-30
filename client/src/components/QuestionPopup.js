@@ -44,10 +44,11 @@ class QuestionPopup extends React.Component {
     const newAnswer = {
       _user: this.props.user._id,
       _question: this.props.pending[0]._id,
-      category: this.props.pending[0].category,
+      category: this.props.pending[0].id.category,
       answer: this.state.answer
     };
-    console.log(newAnswer);
+    console.log(this.props.pending);
+    console.log(newAnswer, "hiiii");
     axios.post("/answer", newAnswer).then(() => this.closeModal());
     axios.post("/question/pending", newAnswer).then(response => {
       console.log(response);
@@ -66,17 +67,17 @@ class QuestionPopup extends React.Component {
 
   // skipModal = event => {
   //   event.preventDefault();
-  //   Question.aggregate([
-  //     { $match: { _id: { $ne: id } } },
-  //     { $sample: { size: 1 } }
-  //   ]).then(questions => {
-  //     let newId = questions[0]._id;
-
-  //   axios.get("/question/pending");
-  // };
-
-  //   Question.aggregate([{ $sample: { size: 1 } }]).then(randomQuestion => {
-  //     return ({User.pending: [{ id: randomQuestion[0]._id, date: Date.now() }]})
+  //   const newAnswer = {
+  //     _user: this.props.user._id,
+  //     _question: this.props.pending[0]._id,
+  //     category: this.props.pending[0].category,
+  //     answer: this.state.answer
+  //   };
+  //   axios.post("/answer", newAnswer).then(() => this.closeModal());
+  //   axios.post("/question/pending", newAnswer).then(response => {
+  //     console.log(response);
+  //     this.props.stateUp();
+  //   });
   // };
 
   render() {
@@ -115,7 +116,7 @@ class QuestionPopup extends React.Component {
               <p id="comment">(small moments are those that count!)</p>
             </form>
 
-            {/* <button onClick={this.skipModal}>skip</button> */}
+            <button onClick={this.skipModal}>skip</button>
           </div>
         </Modal>
       </div>

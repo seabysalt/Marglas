@@ -45,6 +45,40 @@ router.post("/question/pending", (req, res, next) => {
   //return new pending array and call it in QuestionPopup
 });
 
+// router.get("/question/skip", (req, res, next) => {
+//   User.findById(req.user._id)
+//     .populate("pending.id")
+//     .then(user => {
+//       res.json(user.pending);
+//     });
+// });
+
+// router.post("/question/skip", (req, res, next) => {
+//   // create var with id of current pending question
+//   let id = req.body._question;
+//   console.log(id);
+//   Question.aggregate([
+//     { $match: { _id: { $ne: id } } },
+//     { $sample: { size: 1 } }
+//   ]).then(questions => {
+//     let newId = questions[0]._id;
+//     let date = new Date(Date.now() + 1000 * 3600 * 24);
+//     User.findById(req.user._id).then(user => {
+//       console.log(user.pending);
+//       let filteredArray = user.pending.filter(question => {
+//         if (question._id != id) return true;
+//       });
+//       filteredArray.push({ id: newId, date });
+
+//       User.findByIdAndUpdate(req.user._id, {
+//         $set: { pending: filteredArray } //and date
+//       }).then(response => {
+//         res.json();
+//       });
+//     });
+//   });
+// });
+
 /* POST route => to create a new mood tracking */
 router.post("/mood", (req, res, next) => {
   const { energyMood, loveMood, gratefulMood } = req.body;
