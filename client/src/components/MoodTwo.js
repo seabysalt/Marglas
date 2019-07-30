@@ -51,15 +51,20 @@ class MoodPopup extends React.Component {
         gratefulMood: this.state.gratefulMood
       })
       .then(res => {
-        console.log("axios ant", res);
-        this.setState({
-          energyMood: 0,
-          loveMood: 0,
-          gratefulMood: 0,
-          message: `Thanks for sharing your mood, ${res.data.username}!`
+        // if(this.energyMood < 5) message: `${}
+        //if req.body <5 prompt1 of that category + show answer of that category + prompt2 of that category
 
-          //if req.body <5 prompt1 of that category + show answer of that category + prompt2 of that category
+        console.log("axios ant", res);
+        const message = res.data.message;
+        console.log(message);
+        this.setState({
+          // energyMood: 0,
+          // loveMood: 0,
+          // gratefulMood: 0,
+          message:
+            message || `Thanks for sharing your mood, ${res.data.username}!`
         });
+        this.closeModal();
       })
       .catch(err => {
         console.log(err);
@@ -72,7 +77,7 @@ class MoodPopup extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    setTimeout(() => this.setState({ modalIsOpen: false }), 5000);
   }
 
   render() {
@@ -96,7 +101,7 @@ class MoodPopup extends React.Component {
 
             <form
               className="moodTracker"
-              onSubmit={this.handleSubmit && this.closeModal}
+              onSubmit={this.handleSubmit} //&& this.closeModal//
             >
               <label className="moodTrackerQuestion" htmlFor="title">
                 How energetic do you feel today?
