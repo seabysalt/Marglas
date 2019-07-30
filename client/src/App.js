@@ -14,6 +14,7 @@ import BoardCard from "./components/HomeRoute/BoardCard";
 import Profile from "./components/HomeRoute/Profile";
 import FactsCard from "./components/HomeRoute/FactsCard";
 import Aboutus from "./components/Aboutus";
+import Navbar from "./components/Navbar";
 
 class App extends React.Component {
   state = {
@@ -61,7 +62,15 @@ class App extends React.Component {
             component={Profile}
             user={this.state.user}
             setUser={this.setUser}
+            navbar={Navbar}
           />
+          {/* <Protected
+            exact
+            path="/navbar"
+            component={Navbar}
+            user={this.state.user}
+            setUser={this.setUser}
+          /> */}
           <Protected exact path="/aboutus" component={Aboutus}  user={this.state.user} setUser={this.setUser}/>
         </Switch>
       </div>

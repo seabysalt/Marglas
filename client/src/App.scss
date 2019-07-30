@@ -19,6 +19,7 @@ $colors: (
   rosa: #ED8688,
   pink: #E4C7DF,
   orange: #DE6322,
+  lightBlue: #BEDBF3,
 );
 
 $colorsOld: (
@@ -359,7 +360,7 @@ html {
   border-radius: 3px;
   padding: 1vh 1vh;
   // border: 1px solid grey;
-  background-color: map-get($colors, rosa);
+  background-color: map-get($colors, blue);
   text-align: center;
   margin-bottom: 1vh;
 }
@@ -617,6 +618,10 @@ html {
   align-items: center;
   padding: 1vh 1vw;
   margin: 0 0 2vh 0;
+}
+
+.navbar {
+  height: 40vh;
 }
 
 .profile-heading {

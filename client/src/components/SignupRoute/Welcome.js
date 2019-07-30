@@ -121,7 +121,7 @@ export default class Welcome extends Component {
       <p className="description">Marglas makes you more happy, productive, creative, and capable of living, working, and loving a fulfilled life.</p>
     </div>
     <div className="product" product-id="2" product-color="#29336E">
-      <div className="thumbnail"><img src="/img/blue.png"/></div>
+      <div className="thumbnail"><img src="/img/blue.png" style={{width: '30vw'}}/></div>
       <h1 className="title">The HERO Resources</h1>
       <p className="description">This app is based on qualitative research results related to psychological capital. With Marglas you strengthen your HERO resources - hope, efficiency, resilience & optimism - on a daily basis.</p>
     </div>
@@ -135,8 +135,8 @@ export default class Welcome extends Component {
       <h1 className="title">Fill up your friends marglas!</h1>
       <p className="description">Even better! With Marglas you can also support your friends, colleagues & family. Usually, when somebody gives us positive feedback, we tend to forget it pretty fast. Especially in the dark moments of our life. But not with Marglas as it adds & saves your compliments to their marglas.</p>
     </div>
-    <div className="product" product-id="5" product-color="#ED8688">
-      <div className="thumbnail"><img src="/img/rosa.png"/></div>
+    <div className="product" product-id="5" product-color="#BEDBF3">
+      <div className="thumbnail"><img src="/img/marglas.png" style={{width: '35vw'}} /></div>
       <h1 className="title">Get started</h1>
       <p className="description">Start the journey to a more happy, productive & creative life!</p>
       <p><Link className="getStarted" to="/home" component={Home}>Start filling your marglas!</Link></p>

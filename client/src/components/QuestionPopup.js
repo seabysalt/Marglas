@@ -91,7 +91,7 @@ class QuestionPopup extends React.Component {
         >
           {/* this component will get the question from the props */}
           <div id="close">
-            <button onClick={this.closeModal}><img src="/img/exit.png" alt="close"/></button>
+            <button onClick={this.closeModal}><img src="/img/exitOrange.png" alt="close"/></button>
           </div>
           <div id="formBody">
             <h3 id="questionStyle" ref={subtitle => (this.subtitle = subtitle)}>

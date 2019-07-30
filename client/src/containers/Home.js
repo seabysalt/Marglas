@@ -132,8 +132,8 @@ export class Home extends Component {
                   <Link to={"/boardCard/" + eachCategory}>
                     <div className="carousel-box">
                     {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
-                    <div>
-                        <img src={categoryImg[i]} alt="some graphic"className="rectangle"/>
+                    <div >
+                        <img src={categoryImg[i]} alt="some graphic" className="rectangle"/>
                         <h3 className="boardHeader">{eachCategory}</h3>
                       </div>
                     </div>
