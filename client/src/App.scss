@@ -3,6 +3,25 @@
                                 General Design Settings
 ====================================================================================================== */
 $colors: (
+  orangeD: #F5C732,
+  orangeL: #f7924b,
+  blueD: #0e58a3,
+  blueL: #1673b7,
+  lightblueD: #a4c1d8,
+  lightblueL: #bad2e5,
+  pinkD: #bc0053,
+  pinkL: #bc0053,
+  purpleD: #29336E,
+  purpleL: #d775a1,
+  green: #22684F,
+  yellow: #F5C732,
+  blue: #29336E,
+  rosa: #ED8688,
+  pink: #E4C7DF,
+  orange: #DE6322,
+);
+
+$colorsOld: (
   orangeD: #f37400,
   orangeL: #f7924b,
   blueD: #0e58a3,
@@ -14,6 +33,7 @@ $colors: (
   purpleD: #690833,
   purpleL: #d775a1
 );
+
 /* =========================================== General Settings ================================================= */
 @font-face {
   font-family: "Intro";
@@ -36,6 +56,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  color: white;
 }
 /* =========================================== Index Screen ================================================= */
 #index {
@@ -82,6 +103,7 @@ html {
     background-color: map-get($colors, purpleD);
     margin: 3vh 0;
     padding: 0;
+    border-radius: 3px;
   }
   .index-content {
     color: map-get($colors, purpleD);
@@ -139,6 +161,7 @@ html {
     background-color: map-get($colors, purpleD);
     margin: 3vh 0;
     padding: 0;
+    border-radius: 3px;
   }
   #form-structor {
     position: relative;
@@ -199,9 +222,13 @@ html {
 }
 
 /* =========================================== Welcome Screen ================================================= */
+// body #body-slider {
+//   background-color: map-get($colors, yellow);
+//   height: 100vh;
+// }
 
 #welcome-slider {
-  background: #ffffff00;
+  background: map-get($colors, yellow);
   color: rgba(0, 0, 0, 0.6);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -210,12 +237,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   transition: 0.5s ease;
   padding: 5vw;
-
+  height: 100vh;
 
 .btn {
   border-radius: 2px;
   padding: 8px 12px;
-  color: #D18B49;
+  color: map-get($colors, yellow);
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -254,12 +281,19 @@ html {
 }
 
 .thumbnail {
-  margin: 0 0 48px;
+  // margin: 0 0 48px;
+}
+
+.thumbnail img {
+  object-fit: contain;
+  height: 20vh;
+  width: 20vw;
+  // margin: 0 0 48px;
 }
 
 .title {
   margin: 0 0 12px;
-  color: #D18B49;
+  color: map-get($colors, yellow);
   font-size: 24px;
   transition: 0.5s ease;
 }
@@ -318,9 +352,22 @@ html {
   }
 }
 
+.getStarted {
+  text-decoration: none;
+  color: white;
+  font-size: 100%;
+  border-radius: 3px;
+  padding: 1vh 1vh;
+  // border: 1px solid grey;
+  background-color: map-get($colors, rosa);
+  text-align: center;
+  margin-bottom: 1vh;
+}
+
 }
 
 /* =========================================== Home Screen ================================================= */
+
 .home {
   width: 100%;
   height: auto;
@@ -356,6 +403,7 @@ html {
     background-color: map-get($colors, orangeD);
     margin: 1vh 0vh 1vh 0vh;
     padding: 0;
+    border-radius:3px;
   }
   .bar-pre-move2 {
     display: flex;
@@ -370,6 +418,7 @@ html {
     background-color: map-get($colors, orangeD);
     margin: 1vh 0vh 1vh 0vh;
     padding: 0;
+    border-radius:3px;
   }
   .bar-pre-move3 {
     display: flex;
@@ -385,6 +434,7 @@ html {
     background-color: map-get($colors, orangeD);
     margin: 1vh 0vh 1vh 0vh;
     padding: 0;
+    border-radius:3px;
   }
   .animate-bar1 {
     animation: bar1 1s forwards;
@@ -466,11 +516,20 @@ html {
     align-items: space-between;
   }
   .carousel-box {
-    margin: 1vh 0.5vh;
+    margin: 1vh 0vh;
+  }
+
+  .board-div {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 1vh;
   }
   .rectangle {
-    border: 0.5vh solid map-get($colors, purpleD);
-    background-color: map-get($colors, orangeL);
+    // border: 0.5vh solid map-get($colors, purpleD);
+    // background-color: rgba(0, 0, 0, 0.19);
     height: 10vh;
     width: 30vw;
     text-align: center;
@@ -480,18 +539,25 @@ html {
     align-items: center;
     align-content: center;
     margin-bottom: 1vh;
+    z-index: 9;
   }
+
   .boardHeader {
     font-size: 100%;
     color: map-get($colors, purpleD);
     margin: 0;
     padding: 0;
+    z-index: 10;
+    top: -3vh;
+    text-align: left;
+    text-decoration: none;
   }
   .bar {
     width: 30vw;
     height: 0.5vh;
     background-color: map-get($colors, orangeD);
     padding: 0;
+    border-radius: 3px;
   }
 }
 .tracker-wrapper {
@@ -703,45 +769,100 @@ img {
   bottom: "auto";
   margin-right: "-50%";
   transform: "translate(-50%, -50%)";
+  border: "1px solid map-get($colors, orangeD)";
 }
+
+.modal-content {
+  border: 1px solid map-get($colors, orangeD);
+} 
+
 #close {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: white;
 }
+
+#close button {
+  color: map-get($colors, purpleD);
+}
+
+#close button img {
+  object-fit: contain;
+  height: 5vh;
+  width: 5vw;
+}
+
 #formBody {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
+
+#formBody input {
+color: map-get($colors, purpleD);
+font-size: 100%;
+padding: 1vh 1vh;
+text-align: center;
+border: 0.1px solid map-get($colors, orangeD);
+}
+
 #questionStyle {
   font-family: "Intro Inline";
-  font-size: 200;
-  color: #690833;
+  font-size: 130%;
+  color: map-get($colors, purpleD);
 }
 #comment {
   font-family: Helvetica;
   font-size: 15px;
 }
 #answerSubmitButton {
-  border: 2px solid #f37400;
-  background-color: white;
+  background-color: map-get($colors, purpleD);
+  color: white;
+  font-size: 90%;
+  padding: 1vh 1vh;
+  border-radius: 3px;
+  text-align: center;
+  margin: 3vh 0;
   transition-duration: 0.4s;
 }
+
 #answerSubmitButton:hover {
-  color: #f37400;
+  color: map-get($colors, orange);
 }
 
 #headerMood {
   font-family: "Intro Inline";
-  font-size: 200;
+  font-size: 180%;
+  color: map-get($colors, purpleD);
+  text-align: center;
 }
+
+.moodTracker label {
+  color: map-get($colors, orange);
+  text-align: center;
+}
+
+.ReactModal__Content{
+  border-radius:5px !important;
+  border: 1px solid map-get($colors, orange) !important;
+}
+
+.ReactModal__Content--after-open{
+  border-radius:5px !important;
+}
+
 /* ========================================== Mood Page ====================================================== */
 .submitDailyMood {
-  background-color: #690833;
+  background-color: map-get($colors, purpleD);
   color: white;
+  font-size: 90%;
+  padding: 1vh 1vh;
+  border-radius: 3px;
+  text-align: center;
+  margin: 3vh 0;
 }
 .moodTracker {
   padding: 5%;
@@ -784,7 +905,7 @@ input[type="range"] {
       height: 40px;
       cursor: ew-resize;
       background: #fff;
-      box-shadow: -340px 0 0 320px #f37400, inset 0 0 0 40px #0e58a3;
+      box-shadow: -340px 0 0 320px map-get($colors, orangeL), inset 0 0 0 40px map-get($colors, purpleD);;
       border-radius: 50%;
       transition: box-shadow 0.2s ease-in-out;
       position: relative;

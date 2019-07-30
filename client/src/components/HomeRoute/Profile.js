@@ -5,9 +5,9 @@ import Home from '../../containers/Home';
 import Aboutus from "../Aboutus";
 
 const handleLogout = props => {
-  // logout().then(() => {
-  //   props.setUser(null);
-  // });
+  logout().then(() => {
+    props.setUser(null);
+  });
 };
 
 

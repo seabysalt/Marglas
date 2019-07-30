@@ -68,7 +68,7 @@ class MoodPopup extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
+    this.subtitle.style.color = "map-get($colors, purpleD);";
   }
 
   closeModal() {
@@ -86,7 +86,7 @@ class MoodPopup extends React.Component {
           contentLabel="Example Modal"
         >
           <div id="close">
-            <button onClick={this.closeModal}>X</button>
+            <button onClick={this.closeModal}><img src="/img/exit.png" alt="close"/></button>
           </div>
 
           <div id="formBody">
@@ -116,7 +116,7 @@ class MoodPopup extends React.Component {
                 onChange={this.handleChange}
               />
 
-              <label htmlFor="description">How grateful are today? </label>
+              <label htmlFor="description">How grateful are you today? </label>
               <input
                 name="gratefulMood"
                 type="range"
