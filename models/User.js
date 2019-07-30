@@ -4,15 +4,17 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   userId: String,
-  username: { 
-    type: String, 
-    required: true },
-  password: { 
-    type: String, 
-    required: true },
+  username: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
   img: {
     type: String,
-    default: '/images/default-icon.png'
+    default: "/images/default-icon.png"
   },
   peers: [
     {

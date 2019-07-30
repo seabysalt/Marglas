@@ -56,8 +56,13 @@ class App extends React.Component {
           <Route
             exact
             path="/profile"
-            component={Profile}
-            user={this.state.user}
+            render={props => (
+              <Profile
+                {...props}
+                user={this.state.user}
+                setUser={this.setUser}
+              />
+            )}
           />
           <Route exact path="/aboutus" component={Aboutus} />
         </Switch>

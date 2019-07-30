@@ -14,14 +14,20 @@ export default class BoardCard extends Component {
   componentDidMount() {
     console.log("Working component");
     const category = this.props.match.params.category;
+    console.log("my category" + category);
 
     console.log("/boardCard/" + category);
     axios
       .get("/boardCard/" + category) // /boardCard/Happiness
       .then(res => {
         console.log("this is our log" + res.data[0].answer);
-        const newAnswers = [...this.state.objectWithAnswers];
-        newAnswers.push(res.data[0].answer);
+        const newAnswers = [...this.state.objectWithAnswers]; // show just one
+        // for (var answer in res.data) {
+        //   var innerObj = [];
+        //   innerObj[0] = res.data[answer];
+        //   newAnswers.push(innerObj[0]);
+        // }
+        //newAnswers.forEach(res.data[0].answer) => {newAnswers} ;
         this.setState({ objectWithAnswers: newAnswers });
         console.log(this.state);
       })
