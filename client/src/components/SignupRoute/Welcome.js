@@ -153,16 +153,15 @@ export default class Welcome extends Component {
               </div>
               <h1 className="title">Fill up your friends marglas!</h1>
               <p className="description">
-                Even better! With Marglas you can also support your friends,
-                colleagues & family. Usually, when somebody gives us positive
-                feedback, we tend to forget it pretty fast. Especially in the
-                dark moments of our life. But not with Marglas as it adds &
+                With Marglas you can also support your friends,
+                colleagues & family. Especially in the
+                dark moments of our life, we tend to forget the positive things in our life. But not with Marglas as it adds &
                 saves your compliments to their marglas.
               </p>
             </div>
             <div className="product" product-id="5" product-color="#BEDBF3">
               <div className="thumbnail">
-                <img src="/img/marglas.png" style={{ width: "35vw" }} />
+                <img src="/img/marglas1.png" style={{ width: "35vw" }} />
               </div>
               <h1 className="title">Get started</h1>
               <p className="description">

@@ -14,7 +14,7 @@ const userSchema = new Schema({
   },
   img: {
     type: String,
-    default: "/images/default-icon.png"
+    default: "/images/lion.png"
   },
   peers: [
     {
