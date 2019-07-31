@@ -640,8 +640,8 @@ html {
   margin: 2vh 1vw 3vh 1vw;
 
   img {
-    width: 40vw;
-    height: 40vw;
+    width: 40vh;
+    height: 40vh;
     border-radius: 50%;
     text-align: center;
     object-fit: cover;
@@ -682,7 +682,6 @@ html {
 .menuFollow {
   display: flex;
   flex-direction: column;
-  padding: 10vh;
 
   h1 {
     font-family: "Intro Inline";
@@ -702,25 +701,38 @@ html {
   justify-content: space-around;
   align-items: center;
   padding: 2vh;
+  text-align: center;
 
   .input {
-    background-color: lightgray;
+    background-color: map-get($colors, orangeD);
+    border: 1px solid map-get($colors, orangeD);
+    border-radius: 3px;
+    color: map-get($colors, purpleD);
+    padding: 1vh 1vh;
   }
 }
 
 .peersTable {
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  padding: 0;
 
   td {
     padding: 2vh;
-    background-color: #d18b49;
+    background-color: white;
+    text-align: center;
+    color: map-get($colors,blue);
   }
 }
 .submitPeerButton {
-  background-color: #690833;
+  background-color: map-get($colors, purpleD);
   color: white;
+  border-radius: 3px;
+  border: 1px solid map-get($colors, purpleD);
+  padding: 1vh 1vh;
 }
 
 /* ============================================= BoardCard ===================================================== */
@@ -844,6 +856,7 @@ html {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  height: auto;
 }
 
 #formBody input {
@@ -897,6 +910,11 @@ html {
 
 .ReactModal__Content--after-open {
   border-radius: 5px !important;
+}
+
+.moodMessage {
+  background-color: red;
+  width: 300vw;
 }
 
 /* ========================================== Mood Page ====================================================== */

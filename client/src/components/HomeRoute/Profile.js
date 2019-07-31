@@ -6,7 +6,7 @@ import axios from "axios";
 
 export class Profile extends Component {
   state = {
-    img: this.props.user,
+    img: this.props.user.img,
     searchedFriend: "",
     error: "",
     peers: ""
@@ -47,15 +47,17 @@ export class Profile extends Component {
   };
 
   render() {
+    console.log(this.props.user.img)
+    const img = this.state.img;
     return (
       <div id="profile">
         <Navbar />
         <div className="profile-head">
           <div className="profilePic">
-            <img
+            {/* <img
               src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-              alt="you"
-            />
+            /> */}
+            <img src={{img}} alt="you"/>
           </div>
           <div className="profile-heading">
             <h1>Oh you...</h1>
