@@ -10,6 +10,7 @@
     "seed": "node seed.js"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "chart.js": "^2.8.0",
@@ -27,7 +28,9 @@
     "passport-local": "^1.0.0",
     "react-modal": "^3.9.1",
     "react-responsive-carousel": "^3.1.49",
-    "serve-favicon": "^2.5.0"
+    "react-wordcloud": "^1.0.8",
+    "serve-favicon": "^2.5.0",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

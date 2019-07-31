@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "../components/HomeRoute/Profile";
+import { Resizable } from "re-resizable";
 import BoardCard from "../components/HomeRoute/BoardCard";
 import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
@@ -22,12 +23,13 @@ export class Home extends Component {
   state = {
     pending: [],
     categories: [
-        "Happiness",
+      "Happiness",
       "Gratefulness",
       "Strengths",
       "Potential",
       "Energy",
-      "Accomplishments"],
+      "Accomplishments"
+    ],
     science: [
       "Positive Psychology",
       "Psychological Capital",
@@ -40,8 +42,8 @@ export class Home extends Component {
       "/img/green.png",
       "/img/orange.png",
       "/img/blueLight.png",
-      "/img/rosa.png",
-    ],
+      "/img/rosa.png"
+    ]
   };
 
   handleClick() {
@@ -127,13 +129,17 @@ export class Home extends Component {
           <h2 className="home-header">my boards</h2>
           <div className="home-carousel">
             {myCategories.length &&
-              myCategories.map((eachCategory,i) => {
+              myCategories.map((eachCategory, i) => {
                 return (
                   <Link to={"/boardCard/" + eachCategory}>
                     <div className="carousel-box">
-                    {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
-                    <div >
-                        <img src={categoryImg[i]} alt="some graphic" className="rectangle"/>
+                      {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
+                      <div>
+                        <img
+                          src={categoryImg[i]}
+                          alt="some graphic"
+                          className="rectangle"
+                        />
                         <h3 className="boardHeader">{eachCategory}</h3>
                       </div>
                     </div>

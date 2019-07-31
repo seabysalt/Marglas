@@ -12,14 +12,25 @@ export class Profile extends Component {
     peers: ""
   };
 
-  handleChange = event => {
+  handleChange = e => {
     this.setState({
-      searchedFriend: event.target.value
+      searchedFriend: e.target.value
     });
   };
-  componentDidMount() {
-    this.setState();
-  }
+
+  handleClick = id => {
+    axios
+      .post("/unfollow", {
+        userId: this.props.user._id,
+        idToDelete: id
+      })
+      .then(res => {
+        console.log("this is our log", res.data.user.peers);
+        this.setState({ peers: res.data.user.peers });
+      })
+      .catch(err => {});
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -62,7 +73,6 @@ export class Profile extends Component {
             <h2>You are beautiful inside and out!</h2>
           </div>
         </div>
-
         <div className="peer-heading-wrapper">
           <div className="circles">
             <div className="circle" />
@@ -102,35 +112,26 @@ export class Profile extends Component {
             </form>
             {this.state.error}
 
-            <tbody className="peersTable">
-              <tbody>
-                <tr>
-                  <th>Name</th>
-                  <th>Fill Marglas</th>
-                  <th>Unfollow</th>
-                </tr>
-                <tr>
-                  {this.props.user.peers.map((peer, i) => {
-                    return (
-                      <div key={i}>
-                        <td>{peer.username}</td>
-                        <td>
-                          <button className="submitPeerButton">
-                            {" "}
-                            Fill Marglas
-                          </button>
-                        </td>
-                        <td>
-                          <button className="submitPeerButton">unfollow</button>
-                        </td>
-                      </div>
-                    );
-                  })}
-                </tr>
-              </tbody>
-            </tbody>
+            <div className="peersTable">
+              {this.props.user.peers.map((peer, i) => {
+                console.log(peer);
+                return (
+                  <div key={i}>
+                    <p>{peer.username}</p>
+                    <button className="complimentButton"> Fill Marglas</button>
+                    <button
+                      className="unfollowButton"
+                      onClick={() => this.handleClick(peer._id)}
+                    >
+                      unfollow
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
+        ^
       </div>
     );
   }
