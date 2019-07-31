@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import PeerPopup from "../../components/PeerPopup";
-import AddImage from "../AddImage"
+import AddImage from "../AddImage";
 
 export class Profile extends Component {
   state = {
@@ -13,8 +13,8 @@ export class Profile extends Component {
     peers: "",
     modalIsOpen: false,
     peer: "",
-    user: {}
-    displayUpload: false,
+    user: {},
+    displayUpload: false
   };
 
   handleChange = event => {
@@ -38,13 +38,9 @@ export class Profile extends Component {
     setTimeout(() => this.setState({ modalIsOpen: false }), 3000);
   }
 
-  componentDidMount() {
-    this.setState();
-  }
-
-  handleImgPop=()=> {
-    this.setState({displayUpload: !this.state.displayUpload})
-  }
+  handleImgPop = () => {
+    this.setState({ displayUpload: !this.state.displayUpload });
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -73,22 +69,28 @@ export class Profile extends Component {
   };
 
   componentDidMount() {
+    this.setState();
     axios.get("/user").then(response => {
       this.setState({ user: response.data });
     });
   }
+
   render() {
-
-
     return (
       <div id="profile">
-        <Navbar />
+        <Navbar setUser={this.props.setUser} />
         <div className="profile-head">
           <div className="profilePic">
-            <img src={this.props.user.img} alt="you"/>
-            <img className="changeImg" src="/img/changeImg.png" onClick={this.handleImgPop}/>
-            <br/>
-            {this.state.displayUpload && <AddImage setUser={this.props.setUser} />}
+            <img src={this.props.user.img} alt="you" />
+            <img
+              className="changeImg"
+              src="/img/changeImg.png"
+              onClick={this.handleImgPop}
+            />
+            <br />
+            {this.state.displayUpload && (
+              <AddImage setUser={this.props.setUser} />
+            )}
           </div>
           <div className="profile-heading">
             <h1>Oh you...</h1>
@@ -116,60 +118,60 @@ export class Profile extends Component {
             <div className="circle" />
             <div className="circle" />
           </div>
-          </div>
-
-          <div className="menuFollow">
-            <h1>my friends</h1>
-            <form className="addPeer" onSubmit={this.handleSubmit}>
-              <label htmlFor="inspirations">username: </label>
-              <input
-                className="input"
-                type="text"
-                name="searchFriends"
-                id="peers"
-                value={this.state.searchedFriend}
-                onChange={this.handleChange}
-              />
-              <button className="submitPeerButton" type="submit">
-                add friend
-              </button>
-            </form>
-            {this.state.error}
-
-            {
-              <PeerPopup
-                peer={this.state.peer}
-                user={this.state.user}
-                openModal={this.state.modalIsOpen}
-                closeModal={() => this.closeModal()}
-                closeSubmit={() => this.closeSubmit()}
-              />
-            }
-          </div>
-
-          <div className="friendsList">
-            <div className="friendsHeader">
-              <h5>Name</h5>
-              <h5>Fill Marglas</h5>
-              <h5>Unfollow</h5>
-            </div>
-            {this.state.user.peers &&
-              this.state.user.peers.map((peer, i) => {
-                return (
-                  <div key={i}>
-                    <p2>{peer.username}</p2>
-                    <button
-                      onClick={() => this.openModal(peer)}
-                      className="submitPeerButton"
-                    >
-                      Fill Marglas
-                    </button>
-                    <button className="submitPeerButton">unfollow</button>
-                  </div>
-                );
-              })}
-          </div>
         </div>
+
+        <div className="menuFollow">
+          <h1>my friends</h1>
+          <form className="addPeer" onSubmit={this.handleSubmit}>
+            <label htmlFor="inspirations">username: </label>
+            <input
+              className="input"
+              type="text"
+              name="searchFriends"
+              id="peers"
+              value={this.state.searchedFriend}
+              onChange={this.handleChange}
+            />
+            <button className="submitPeerButton" type="submit">
+              add friend
+            </button>
+          </form>
+          {this.state.error}
+
+          {
+            <PeerPopup
+              peer={this.state.peer}
+              user={this.state.user}
+              openModal={this.state.modalIsOpen}
+              closeModal={() => this.closeModal()}
+              closeSubmit={() => this.closeSubmit()}
+            />
+          }
+        </div>
+
+        <div className="friendsList">
+          <div className="friendsHeader">
+            <h5>Name</h5>
+            <h5>Fill Marglas</h5>
+            <h5>Unfollow</h5>
+          </div>
+          {this.state.user.peers &&
+            this.state.user.peers.map((peer, i) => {
+              return (
+                <div key={i}>
+                  <p2>{peer.username}</p2>
+                  <button
+                    onClick={() => this.openModal(peer)}
+                    className="submitPeerButton"
+                  >
+                    Fill Marglas
+                  </button>
+                  <button className="submitPeerButton">unfollow</button>
+                </div>
+              );
+            })}
+        </div>
+      </div>
     );
   }
 }

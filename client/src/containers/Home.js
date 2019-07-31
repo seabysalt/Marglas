@@ -156,7 +156,7 @@ export class Home extends Component {
             <TrackerHome />
           </div>
         </div>
-        
+
         <Link to="/factsCard" component={FactsCard}>
           <div id="facts-wrapper">
             <h2 className="home-header">my science</h2>
@@ -181,7 +181,7 @@ export class Home extends Component {
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
 
-        {/* {
+        {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -189,7 +189,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />} */}
+        {<MoodPopup />}
       </div>
     );
   }
