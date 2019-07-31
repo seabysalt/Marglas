@@ -57,7 +57,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  color: white;
+  color: map-get($colors, blue);
 }
 /* =========================================== Index Screen ================================================= */
 #index {
@@ -175,6 +175,7 @@ html {
     font-size: 250%;
     text-align: right;
     color: map-get($colors, purpleD);
+    font-weight: 200;
   }
 
   .form-holder {
@@ -490,12 +491,14 @@ html {
   font-family: "Intro Inline";
   font-size: 200%;
   margin: 5vh 0;
+  font-weight: 100;
 }
 .home-header {
   font-size: 100%;
   height: auto;
   color: map-get($colors, orangeD);
   font-family: "Intro Inline";
+  font-weight: 200;
 }
 #boards {
   margin: 1vh 1vh;
@@ -504,6 +507,7 @@ html {
     height: auto;
     color: map-get($colors, orangeD);
     font-family: "Intro Inline";
+    font-weight: 200;
   }
   .home-carousel {
     display: flex;
@@ -624,15 +628,17 @@ html {
 .profile-heading {
   h1 {
     font-family: "Intro Inline";
-    font-size: 200%;
+    font-size: 220%;
     color: map-get($colors, purpleD);
     text-align: center;
+    font-weight: 200;
   }
 
   h2 {
     text-align: center;
     font-size: 135%;
     color: map-get($colors, purpleD);
+    font-weight: 200;
   }
 }
 
@@ -688,6 +694,7 @@ html {
     font-size: 200%;
     color: map-get($colors, purpleD);
     text-align: center;
+    font-weight: 200;
   }
   h2 {
     text-align: center;
@@ -712,7 +719,7 @@ html {
   }
 }
 
-.peersTable {
+.friendsList {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -871,6 +878,7 @@ html {
   font-family: "Intro Inline";
   font-size: 130%;
   color: map-get($colors, purpleD);
+  font-weight: 200;
 }
 #comment {
   font-family: Helvetica;
@@ -896,6 +904,11 @@ html {
   font-size: 180%;
   color: map-get($colors, purpleD);
   text-align: center;
+  font-weight: 200;
+}
+
+.moodMessage {
+  color: map-get($colors, blue);
 }
 
 .moodTracker label {
@@ -998,7 +1011,7 @@ input[type="range"] {
 /* ========================================== Tracker Page ====================================================== */
 .trackerGraph {
   display: flex;
-  padding: 5%;
+  padding: 0 0 0 0;
 }
 
 .trackerAll {

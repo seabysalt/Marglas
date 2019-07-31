@@ -4,6 +4,7 @@ import Profile from "../components/HomeRoute/Profile";
 import BoardCard from "../components/HomeRoute/BoardCard";
 import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
+import TrackerHome from "../components/HomeRoute/TrackerHome";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 import Aboutus from "../components/Aboutus";
@@ -22,12 +23,13 @@ export class Home extends Component {
   state = {
     pending: [],
     categories: [
-        "Happiness",
+      "Happiness",
       "Gratefulness",
       "Strengths",
       "Potential",
       "Energy",
-      "Accomplishments"],
+      "Accomplishments"
+    ],
     science: [
       "Positive Psychology",
       "Psychological Capital",
@@ -40,8 +42,8 @@ export class Home extends Component {
       "/img/green.png",
       "/img/orange.png",
       "/img/blueLight.png",
-      "/img/rosa.png",
-    ],
+      "/img/rosa.png"
+    ]
   };
 
   handleClick() {
@@ -127,13 +129,17 @@ export class Home extends Component {
           <h2 className="home-header">my boards</h2>
           <div className="home-carousel">
             {myCategories.length &&
-              myCategories.map((eachCategory,i) => {
+              myCategories.map((eachCategory, i) => {
                 return (
-                  <Link to={"/boardCard/" + eachCategory}>
+                  <Link to={"/boardCard/" + eachCategory} key={i}>
                     <div className="carousel-box">
-                    {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
-                    <div >
-                        <img src={categoryImg[i]} alt="some graphic" className="rectangle"/>
+                      {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
+                      <div>
+                        <img
+                          src={categoryImg[i]}
+                          alt="some graphic"
+                          className="rectangle"
+                        />
                         <h3 className="boardHeader">{eachCategory}</h3>
                       </div>
                     </div>
@@ -142,12 +148,15 @@ export class Home extends Component {
               })}
           </div>
         </div>
-        <Link to="/tracker" component={Tracker}>
-          <div className="tracker-wrapper">
+        <div className="tracker-wrapper">
+          <Link to="/tracker" component={Tracker}>
             <h2 className="home-header">my tracker</h2>
-            <div id="tracker" />
+          </Link>
+          <div id="tracker">
+            <TrackerHome />
           </div>
-        </Link>
+        </div>
+        
         <Link to="/factsCard" component={FactsCard}>
           <div id="facts-wrapper">
             <h2 className="home-header">my science</h2>
@@ -155,7 +164,7 @@ export class Home extends Component {
           <div id="home-carousel">
             {myScience.map((eachScience, i) => {
               return (
-                <div className="carousel-box">
+                <div className="carousel-box" key={i}>
                   {/* <div className="fact-img">
                     <img src={categoryImg[i]} alt="some graphic" />
                   </div> */}
@@ -172,7 +181,7 @@ export class Home extends Component {
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
 
-        {
+        {/* {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -180,7 +189,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />}
+        {<MoodPopup />} */}
       </div>
     );
   }

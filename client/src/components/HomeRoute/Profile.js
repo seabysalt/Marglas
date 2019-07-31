@@ -103,34 +103,23 @@ export class Profile extends Component {
               </button>
             </form>
             {this.state.error}
+          </div>
 
-            <tbody className="peersTable">
-              <tbody>
-                <tr>
-                  <th>Name</th>
-                  <th>Fill Marglas</th>
-                  <th>Unfollow</th>
-                </tr>
-                <tr>
-                  {this.props.user.peers.map((peer, i) => {
-                    return (
-                      <div key={i}>
-                        <td>{peer.username}</td>
-                        <td>
-                          <button className="submitPeerButton">
-                            {" "}
-                            Fill Marglas
-                          </button>
-                        </td>
-                        <td>
-                          <button className="submitPeerButton">unfollow</button>
-                        </td>
-                      </div>
-                    );
-                  })}
-                </tr>
-              </tbody>
-            </tbody>
+          <div className="friendsList">
+            <div className="friendsHeader">
+              <h5>Name</h5>
+              <h5>Fill Marglas</h5>
+              <h5>Unfollow</h5>
+            </div>
+            {this.props.user.peers.map((peer, i) => {
+              return (
+                <div key={i}>
+                  <p2>{peer.username}</p2>
+                  <button className="submitPeerButton">Fill Marglas</button>
+                  <button className="submitPeerButton">unfollow</button>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

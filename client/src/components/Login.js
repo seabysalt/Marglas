@@ -36,32 +36,43 @@ export default class Login extends Component {
 
   render() {
     return (
-
-    <div id ="signup-body">
-
-    <div className="bars">
-    <Link to="/" component={Index} className="menu-link">
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+      <div id="signup-body">
+        <div className="bars">
+          <Link to="/" component={Index} className="menu-link">
+            <div className="bar" />
+            <div className="bar" />
+            <div className="bar" />
           </Link>
         </div>
 
-    <div id="form-structor">
-
-        <h2 className="form-title">Log in</h2>
-        <div className="form-holder">
-          <input type="text" className="input" name="username" id="username" value={this.state.username} onChange={this.handleChange} placeholder="username" />
-          <input type="password" className="input" name="password" id="password" value={this.state.password} onChange={this.handleChange} placeholder="password" />
+        <div id="form-structor">
+          <h2 className="form-title">Log in</h2>
+          <div className="form-holder">
+            <input
+              type="text"
+              className="input"
+              name="username"
+              id="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+              placeholder="username"
+            />
+            <input
+              type="password"
+              className="input"
+              name="password"
+              id="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              placeholder="password"
+            />
+          </div>
+          {this.state.error && <p className="warning">{this.state.error} </p>}
+          <button className="submit-btn" onClick={this.handleSubmit}>
+            Log in
+          </button>
         </div>
-        {this.state.error && (
-          <p className="warning">{this.state.error} </p>
-        )}
-        <button className="submit-btn" onClick={this.handleSubmit}>Log in</button>
       </div>
-
-       </div>
-    )
+    );
   }
 }
-
