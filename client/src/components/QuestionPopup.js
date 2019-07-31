@@ -58,7 +58,7 @@ class QuestionPopup extends React.Component {
 
   afterOpenModal = () => {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "map-get($colors, orangeD);";
+    this.subtitle.style.color = "#f00";
   };
 
   closeModal = () => {
@@ -92,7 +92,7 @@ class QuestionPopup extends React.Component {
         >
           {/* this component will get the question from the props */}
           <div id="close">
-            <button onClick={this.closeModal}><img src="/img/exitOrange.png" alt="close"/></button>
+            <button onClick={this.closeModal}>X</button>
           </div>
           <div id="formBody">
             <h3 id="questionStyle" ref={subtitle => (this.subtitle = subtitle)}>
@@ -108,12 +108,11 @@ class QuestionPopup extends React.Component {
                 placeholder="answer here"
                 value={this.state.answer}
               />
-              <br/>
               <button id="answerSubmitButton" type="submit">
-                Fill my marglas!
+                submit
               </button>
 
-              <p id="comment">Sometimes tiny things count the most!</p>
+              <p id="comment">(small moments are those that count!)</p>
             </form>
 
             <button onClick={this.skipModal}>skip</button>
