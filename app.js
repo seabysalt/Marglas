@@ -8,10 +8,13 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const cors = require("cors");
 
-// WHEN INTRODUCING USERS DO THIS:
-// INSTALL THESE DEPENDENCIES: passport-local, passport, bcryptjs, express-session
-// AND UN-COMMENT OUT FOLLOWING LINES:
+const app = express();
+
+app.use(cors({
+  origin: [ "http://localhost:3000" ]
+}));
 
 const session = require("express-session");
 const passport = require("passport");
@@ -19,6 +22,7 @@ const passport = require("passport");
 require("./configs/passport");
 
 // IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
+
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/project3" || "mongodb://heroku_qhzj8zgv:6sbn1tcr5no0icklt65kaha7qa@ds353957.mlab.com:53957/heroku_qhzj8zgv" , {
@@ -38,7 +42,7 @@ const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
 );
 
-const app = express();
+// const app = express();
 
 // Middleware Setup
 app.use(logger("dev"));
@@ -89,6 +93,9 @@ app.locals.title = "Marglas";
 
 const index = require("./routes/index");
 app.use("/", index);
+
+app.use('/api', require('./routes/img-routes'));
+app.use('/api', require('./routes/file-upload-routes'));
 
 const auth = require("./routes/auth");
 app.use("/api/auth", auth);

@@ -4,6 +4,7 @@ import Profile from "../components/HomeRoute/Profile";
 import BoardCard from "../components/HomeRoute/BoardCard";
 import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
+import TrackerHome from "../components/HomeRoute/TrackerHome";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 import Aboutus from "../components/Aboutus";
@@ -147,13 +148,15 @@ export class Home extends Component {
               })}
           </div>
         </div>
-        <Link to="/tracker" component={Tracker}>
-          <div className="tracker-wrapper">
+        <div className="tracker-wrapper">
+          <Link to="/tracker" component={Tracker}>
             <h2 className="home-header">my tracker</h2>
-            <div id="tracker" />
-            <Tracker />
+          </Link>
+          <div id="tracker">
+            <TrackerHome />
           </div>
-        </Link>
+        </div>
+        
         <Link to="/factsCard" component={FactsCard}>
           <div id="facts-wrapper">
             <h2 className="home-header">my science</h2>
@@ -178,7 +181,7 @@ export class Home extends Component {
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
 
-        {
+        {/* {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -186,7 +189,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />}
+        {<MoodPopup />} */}
       </div>
     );
   }

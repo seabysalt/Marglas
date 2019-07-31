@@ -15,6 +15,7 @@ import Profile from "./components/HomeRoute/Profile";
 import FactsCard from "./components/HomeRoute/FactsCard";
 import Aboutus from "./components/Aboutus";
 import Navbar from "./components/Navbar";
+import TrackerHome from "./components/HomeRoute/TrackerHome";
 
 class App extends React.Component {
   state = {
@@ -58,6 +59,7 @@ class App extends React.Component {
             component={Home}
             user={this.state.user}
             setUser={this.setUser}
+            TrackerHome={TrackerHome}
           />
 
           <Protected

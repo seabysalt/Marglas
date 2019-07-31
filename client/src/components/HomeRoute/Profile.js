@@ -4,16 +4,17 @@ import Navbar from "../Navbar";
 import { Route } from "react-router-dom";
 import axios from "axios";
 import PeerPopup from "../../components/PeerPopup";
+import AddImage from "../AddImage"
 
 export class Profile extends Component {
   state = {
-    img: this.props.user,
     searchedFriend: "",
     error: "",
     peers: "",
     modalIsOpen: false,
     peer: "",
     user: {}
+    displayUpload: false,
   };
 
   handleChange = event => {
@@ -35,6 +36,14 @@ export class Profile extends Component {
 
   closeSubmit() {
     setTimeout(() => this.setState({ modalIsOpen: false }), 3000);
+  }
+
+  componentDidMount() {
+    this.setState();
+  }
+
+  handleImgPop=()=> {
+    this.setState({displayUpload: !this.state.displayUpload})
   }
 
   handleSubmit = e => {
@@ -69,16 +78,17 @@ export class Profile extends Component {
     });
   }
   render() {
-    console.log(this.state.user);
+
+
     return (
       <div id="profile">
         <Navbar />
         <div className="profile-head">
           <div className="profilePic">
-            <img
-              src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-              alt="you"
-            />
+            <img src={this.props.user.img} alt="you"/>
+            <img className="changeImg" src="/img/changeImg.png" onClick={this.handleImgPop}/>
+            <br/>
+            {this.state.displayUpload && <AddImage setUser={this.props.setUser} />}
           </div>
           <div className="profile-heading">
             <h1>Oh you...</h1>
@@ -105,6 +115,7 @@ export class Profile extends Component {
             <div className="circle" />
             <div className="circle" />
             <div className="circle" />
+          </div>
           </div>
 
           <div className="menuFollow">
@@ -159,7 +170,6 @@ export class Profile extends Component {
               })}
           </div>
         </div>
-      </div>
     );
   }
 }

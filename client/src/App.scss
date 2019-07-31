@@ -175,6 +175,7 @@ html {
     font-size: 250%;
     text-align: right;
     color: map-get($colors, purpleD);
+    font-weight: 200;
   }
 
   .form-holder {
@@ -490,12 +491,14 @@ html {
   font-family: "Intro Inline";
   font-size: 200%;
   margin: 5vh 0;
+  font-weight: 100;
 }
 .home-header {
   font-size: 100%;
   height: auto;
   color: map-get($colors, orangeD);
   font-family: "Intro Inline";
+  font-weight: 200;
 }
 #boards {
   margin: 1vh 1vh;
@@ -504,6 +507,7 @@ html {
     height: auto;
     color: map-get($colors, orangeD);
     font-family: "Intro Inline";
+    font-weight: 200;
   }
   .home-carousel {
     display: flex;
@@ -624,33 +628,56 @@ html {
 .profile-heading {
   h1 {
     font-family: "Intro Inline";
-    font-size: 200%;
+    font-size: 220%;
     color: map-get($colors, purpleD);
     text-align: center;
+    font-weight: 200;
+    margin: 0;
   }
 
   h2 {
     text-align: center;
     font-size: 135%;
     color: map-get($colors, purpleD);
+    font-weight: 200;
   }
 }
 
 .profilePic {
   margin: 2vh 1vw 3vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   img {
-    width: 40vw;
-    height: 40vw;
+    width: 15vh;
+    height: 15vh;
     border-radius: 50%;
     text-align: center;
     object-fit: cover;
   }
+
+  .changeImg {
+    width: 4vh;
+    height: 4vh;
+    padding-left: 30vw;
+    margin: -3vh;
+    padding-bottom: 2vh;
+  }
+}
+
+.submit-img-btn {
+  border-radius: 3px;
+  background-color: map-get($colors, orangeD);
+  color: white;
+  border: none;
+  padding: 0.5vh 0.5vh;
 }
 
 .peer-heading-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -682,13 +709,13 @@ html {
 .menuFollow {
   display: flex;
   flex-direction: column;
-  padding: 10vh;
 
   h1 {
     font-family: "Intro Inline";
     font-size: 200%;
     color: map-get($colors, purpleD);
     text-align: center;
+    font-weight: 200;
   }
   h2 {
     text-align: center;
@@ -702,23 +729,38 @@ html {
   justify-content: space-around;
   align-items: center;
   padding: 2vh;
+  text-align: center;
 
   .input {
-    background-color: lightgray;
+    background-color: map-get($colors, orangeD);
+    border: 1px solid map-get($colors, orangeD);
+    border-radius: 3px;
+    color: map-get($colors, purpleD);
+    padding: 1vh 1vh;
   }
 }
 
 .friendsList {
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  padding: 0;
 
-  .p2 {
-    color: map-get($colors, purpleD);
+  td {
+    padding: 2vh;
+    background-color: white;
+    text-align: center;
+    color: map-get($colors,blue);
   }
 }
 .submitPeerButton {
-  background-color: #690833;
+  background-color: map-get($colors, purpleD);
+  color: white;
+  border-radius: 3px;
+  border: 1px solid map-get($colors, purpleD);
+  padding: 1vh 1vh;
 }
 
 /* ============================================= BoardCard ===================================================== */
@@ -857,6 +899,7 @@ html {
   font-family: "Intro Inline";
   font-size: 130%;
   color: map-get($colors, purpleD);
+  font-weight: 200;
 }
 #comment {
   font-family: Helvetica;
@@ -882,6 +925,7 @@ html {
   font-size: 180%;
   color: map-get($colors, purpleD);
   text-align: center;
+  font-weight: 200;
 }
 
 .moodMessage {
@@ -900,6 +944,11 @@ html {
 
 .ReactModal__Content--after-open {
   border-radius: 5px !important;
+}
+
+.moodMessage {
+  background-color: red;
+  width: 300vw;
 }
 
 /* ========================================== Mood Page ====================================================== */
@@ -983,7 +1032,7 @@ input[type="range"] {
 /* ========================================== Tracker Page ====================================================== */
 .trackerGraph {
   display: flex;
-  padding: 5%;
+  padding: 0 0 0 0;
 }
 
 .trackerAll {
