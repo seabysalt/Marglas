@@ -214,4 +214,18 @@ router.put("/user", (req, res, next) => {
   });
 });
 
+router.post("/unfollow", (req, res) => {
+  console.log(req.body);
+  const { userId, idToDelete } = req.body;
+
+  User.findOneAndUpdate(
+    { _id: userId },
+    { $pull: { peers: idToDelete } },
+    { new: true }
+  ).then(updatedUser => {
+    console.log(updatedUser);
+    res.json({ peers: updatedUser });
+  });
+});
+
 module.exports = router;

@@ -17,9 +17,9 @@ export class Profile extends Component {
     displayUpload: false
   };
 
-  handleChange = event => {
+  handleChange = e => {
     this.setState({
-      searchedFriend: event.target.value
+      searchedFriend: e.target.value
     });
   };
 
@@ -40,6 +40,17 @@ export class Profile extends Component {
 
   handleImgPop = () => {
     this.setState({ displayUpload: !this.state.displayUpload });
+  handleClick = id => {
+    axios
+      .post("/unfollow", {
+        userId: this.props.user._id,
+        idToDelete: id
+      })
+      .then(res => {
+        console.log("this is our log", res.data.user.peers);
+        this.setState({ peers: res.data.user.peers });
+      })
+      .catch(err => {});
   };
 
   handleSubmit = e => {
@@ -97,7 +108,6 @@ export class Profile extends Component {
             <h2>You are beautiful inside and out!</h2>
           </div>
         </div>
-
         <div className="peer-heading-wrapper">
           <div className="circles">
             <div className="circle" />
@@ -149,11 +159,23 @@ export class Profile extends Component {
           }
         </div>
 
-        <div className="friendsList">
-          <div className="friendsHeader">
-            <h5>Name</h5>
-            <h5>Fill Marglas</h5>
-            <h5>Unfollow</h5>
+            <div className="peersTable">
+              {this.props.user.peers.map((peer, i) => {
+                console.log(peer);
+                return (
+                  <div key={i}>
+                    <p>{peer.username}</p>
+                    <button className="complimentButton"> Fill Marglas</button>
+                    <button
+                      className="unfollowButton"
+                      onClick={() => this.handleClick(peer._id)}
+                    >
+                      unfollow
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
           {this.state.user.peers &&
             this.state.user.peers.map((peer, i) => {
@@ -171,6 +193,7 @@ export class Profile extends Component {
               );
             })}
         </div>
+        ^
       </div>
     );
   }
