@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import { Route } from "react-router-dom";
 import axios from "axios";
+import AddImage from "../AddImage"
 
 export class Profile extends Component {
   state = {
-    img: this.props.user.img,
     searchedFriend: "",
     error: "",
-    peers: ""
+    peers: "",
+    displayUpload: false,
   };
 
   handleChange = event => {
@@ -17,9 +18,15 @@ export class Profile extends Component {
       searchedFriend: event.target.value
     });
   };
+
   componentDidMount() {
     this.setState();
   }
+
+  handleImgPop=()=> {
+    this.setState({displayUpload: !this.state.displayUpload})
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -47,17 +54,17 @@ export class Profile extends Component {
   };
 
   render() {
-    console.log(this.props.user.img)
-    const img = this.state.img;
+
+
     return (
       <div id="profile">
         <Navbar />
         <div className="profile-head">
           <div className="profilePic">
-            {/* <img
-              src="https://images.unsplash.com/photo-1499651681375-8afc5a4db253?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-            /> */}
-            <img src={{img}} alt="you"/>
+            <img src={this.props.user.img} alt="you"/>
+            <img className="changeImg" src="/img/changeImg.png" onClick={this.handleImgPop}/>
+            <br/>
+            {this.state.displayUpload && <AddImage setUser={this.props.setUser} />}
           </div>
           <div className="profile-heading">
             <h1>Oh you...</h1>
@@ -128,3 +135,7 @@ export class Profile extends Component {
 }
 
 export default Profile;
+
+{/* <input name="file" type="file"
+   class="file-upload" data-cloudinary-field="image_id"
+   data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"/> */}

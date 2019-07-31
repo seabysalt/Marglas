@@ -632,6 +632,7 @@ html {
     color: map-get($colors, purpleD);
     text-align: center;
     font-weight: 200;
+    margin: 0;
   }
 
   h2 {
@@ -644,14 +645,34 @@ html {
 
 .profilePic {
   margin: 2vh 1vw 3vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   img {
-    width: 40vh;
-    height: 40vh;
+    width: 15vh;
+    height: 15vh;
     border-radius: 50%;
     text-align: center;
     object-fit: cover;
   }
+
+  .changeImg {
+    width: 4vh;
+    height: 4vh;
+    padding-left: 30vw;
+    margin: -3vh;
+    padding-bottom: 2vh;
+  }
+}
+
+.submit-img-btn {
+  border-radius: 3px;
+  background-color: map-get($colors, orangeD);
+  color: white;
+  border: none;
+  padding: 0.5vh 0.5vh;
 }
 
 .peer-heading-wrapper {
