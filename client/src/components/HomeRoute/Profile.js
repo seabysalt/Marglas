@@ -92,6 +92,7 @@ export class Profile extends Component {
             <div className="circle" />
             <div className="circle" />
           </div>
+          </div>
 
           <div className="menuFollow">
             <h1>my friends</h1>
@@ -129,7 +130,6 @@ export class Profile extends Component {
             })}
           </div>
         </div>
-      </div>
     );
   }
 }
