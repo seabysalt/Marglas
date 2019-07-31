@@ -28,6 +28,7 @@ export class Profile extends Component {
       modalIsOpen: !this.state.modalIsOpen,
       peer: peer
     });
+    console.log(peer);
   }
 
   closeModal() {
@@ -40,6 +41,8 @@ export class Profile extends Component {
 
   handleImgPop = () => {
     this.setState({ displayUpload: !this.state.displayUpload });
+  };
+
   handleClick = id => {
     axios
       .post("/unfollow", {
@@ -47,10 +50,12 @@ export class Profile extends Component {
         idToDelete: id
       })
       .then(res => {
-        console.log("this is our log", res.data.user.peers);
-        this.setState({ peers: res.data.user.peers });
+        let user = res.data;
+        this.props.setUser(user);
       })
-      .catch(err => {});
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   handleSubmit = e => {
@@ -97,6 +102,7 @@ export class Profile extends Component {
               className="changeImg"
               src="/img/changeImg.png"
               onClick={this.handleImgPop}
+              alt="profile"
             />
             <br />
             {this.state.displayUpload && (
@@ -159,41 +165,29 @@ export class Profile extends Component {
           }
         </div>
 
-            <div className="peersTable">
-              {this.props.user.peers.map((peer, i) => {
-                console.log(peer);
-                return (
-                  <div key={i}>
-                    <p>{peer.username}</p>
-                    <button className="complimentButton"> Fill Marglas</button>
-                    <button
-                      className="unfollowButton"
-                      onClick={() => this.handleClick(peer._id)}
-                    >
-                      unfollow
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-          {this.state.user.peers &&
-            this.state.user.peers.map((peer, i) => {
-              return (
-                <div key={i}>
-                  <p2>{peer.username}</p2>
-                  <button
-                    onClick={() => this.openModal(peer)}
-                    className="submitPeerButton"
-                  >
-                    Fill Marglas
-                  </button>
-                  <button className="submitPeerButton">unfollow</button>
-                </div>
-              );
-            })}
+        <div className="peersTable">
+          {this.props.user.peers.map((peer, i) => {
+            console.log(peer);
+            return (
+              <div key={i}>
+                <p>{peer.username}</p>
+                <button
+                  onClick={() => this.openModal(peer)}
+                  className="complimentButton"
+                >
+                  {" "}
+                  Fill Marglas
+                </button>
+                <button
+                  className="unfollowButton"
+                  onClick={() => this.handleClick(peer._id)}
+                >
+                  unfollow
+                </button>
+              </div>
+            );
+          })}
         </div>
-        ^
       </div>
     );
   }

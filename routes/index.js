@@ -222,10 +222,12 @@ router.post("/unfollow", (req, res) => {
     { _id: userId },
     { $pull: { peers: idToDelete } },
     { new: true }
-  ).then(updatedUser => {
-    console.log(updatedUser);
-    res.json({ peers: updatedUser });
-  });
+  )
+    .populate("peers")
+    .then(updatedUser => {
+      console.log(updatedUser);
+      res.json(updatedUser);
+    });
 });
 
 module.exports = router;

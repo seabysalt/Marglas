@@ -12,7 +12,8 @@ class PeerPopup extends React.Component {
 
     this.state = {
       answer: "",
-      question: {}
+      question: {},
+      message: ""
     };
   }
 
@@ -30,10 +31,14 @@ class PeerPopup extends React.Component {
       category: this.state.question.category,
       answer: this.state.answer
     };
-    axios.post("/answer", newAnswer).then(() =>
-      //`Thank you for filling up ${this.props.peer.username}'s Marglas!`,
-      this.props.closeSubmit()
-    );
+    axios.post("/answer", newAnswer).then(() => {
+      this.setState({
+        message: `Thank you for filling up ${
+          this.props.peer.username
+        }'s Marglas!`
+      });
+      this.props.closeSubmit();
+    });
   };
 
   afterOpenModal = () => {
@@ -85,7 +90,7 @@ class PeerPopup extends React.Component {
                   </button>
 
                   <p id="comment">(small moments are those that count!)</p>
-                  {/* <p id="message">{this.state.message}</p> */}
+                  <p id="message">{this.state.message}</p>
                 </form>
                 <button onClick={this.skipPeer}>skip</button>
               </div>
