@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "../components/HomeRoute/Profile";
+// import { Resizable } from "re-resizable";
 import BoardCard from "../components/HomeRoute/BoardCard";
 import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
@@ -156,7 +157,7 @@ export class Home extends Component {
             <TrackerHome />
           </div>
         </div>
-        
+
         <Link to="/factsCard" component={FactsCard}>
           <div id="facts-wrapper">
             <h2 className="home-header">my science</h2>
@@ -181,7 +182,7 @@ export class Home extends Component {
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
 
-        {/* {
+        {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -189,7 +190,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />} */}
+        {<MoodPopup />}
       </div>
     );
   }

@@ -26,8 +26,8 @@ class App extends React.Component {
       user: user
     });
   };
+
   render() {
-    console.log(this.state.user);
     return (
       <div className="App">
         <Switch>
@@ -105,6 +105,7 @@ class App extends React.Component {
             component={Aboutus}
             user={this.state.user}
             setUser={this.setUser}
+            navbar={Navbar}
           />
         </Switch>
       </div>

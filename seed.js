@@ -7,14 +7,14 @@ mongoose.connect("mongodb://localhost/project3", {
 const QuestionsInput = [
   {
     question: "The last time I felt joy, I was",
-    peerQuestion: "seems to be happy when she is",
+    peerQuestion: "seems to be happy when (s)he is",
     category: "Happiness",
     prompt1: "You should be",
     prompt2: ". This makes you happy!"
   },
   {
     question: "The last time I felt energetic I was",
-    peerQuestion: "seems to be energetic when she is",
+    peerQuestion: "seems to be energetic when (s)he is",
     category: "Energy",
     prompt1: "You should be",
     prompt2: ". This brings you energy!"
@@ -28,7 +28,7 @@ const QuestionsInput = [
   },
   {
     question: "The last time I accomplished something I was",
-    peerQuestion: "was successful when she was",
+    peerQuestion: "was successful when (s)he was",
     category: "Accomplishments",
     prompt1:
       "You have already accomplished a lot of nice things. Remember when you were",

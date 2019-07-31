@@ -5,8 +5,6 @@ const Question = require("../models/Question");
 const Answer = require("../models/Answer");
 const Tracker = require("../models/Tracker");
 
-/* ========================================== Question Popup Page ====================================================== */
-
 router.get("/question/pending", (req, res, next) => {
   User.findById(req.user._id)
     .populate("pending.id")
@@ -15,10 +13,17 @@ router.get("/question/pending", (req, res, next) => {
     });
 });
 
+router.get("/question/peer", (req, res, next) => {
+  Question.aggregate([{ $sample: { size: 1 } }]).then(([question]) => {
+    res.json(question);
+  });
+});
+
 router.post("/question/pending", (req, res, next) => {
   // create var with id of current pending question
   let id = req.body._question;
   console.log(id);
+
   Question.aggregate([
     { $match: { _id: { $ne: id } } },
     { $sample: { size: 1 } }
@@ -27,11 +32,12 @@ router.post("/question/pending", (req, res, next) => {
     let date = new Date(Date.now() + 1000 * 3600 * 24);
     //date for the next day
     User.findById(req.user._id).then(user => {
-      console.log(user.pending);
+      console.log("user.pending: ", user.pending);
       let filteredArray = user.pending.filter(question => {
         if (question.id != id) return true;
       });
       filteredArray.push({ id: newId, date });
+      console.log("filtered: ", filteredArray);
 
       User.findByIdAndUpdate(req.user._id, {
         $set: { pending: filteredArray } //and date
@@ -40,20 +46,8 @@ router.post("/question/pending", (req, res, next) => {
       });
     });
   });
-  //delete question id from pending
-
-  // push a new question into pending
-  //return new pending array and call it in QuestionPopup
 });
 
-router.post("/answer", (req, res, next) => {
-  const { _user, _question, category, answer } = req.body;
-  Answer.create({ _user, category, _question, answer }).then(data => {
-    res.json(data);
-  });
-});
-
-/* ========================================== Mood tracking  ====================================================== */
 // router.get("/question/skip", (req, res, next) => {
 //   User.findById(req.user._id)
 //     .populate("pending.id")
@@ -158,8 +152,14 @@ router.get("/tracker", (req, res) => {
     });
 });
 
-/* ========================================== boardCards Page ====================================================== */
+router.post("/answer", (req, res, next) => {
+  const { _user, _question, category, answer } = req.body;
+  Answer.create({ _user, category, _question, answer }).then(data => {
+    res.json(data);
+  });
+});
 
+// boardCard/Happiness
 router.get("/boardCard/:category", (req, res) => {
   console.log("bla" + req.params.category, req.user._id);
   Answer.find({ category: req.params.category, _user: req.user._id }) //gives me array // pick a random one & assign it to an array
@@ -173,16 +173,19 @@ router.get("/boardCard/:category", (req, res) => {
     });
 });
 
-/* ========================================== Following&Friends Page ====================================================== */
+router.get("/user", (req, res, next) => {
+  User.findById(req.user._id)
+    .populate("peers")
+    .then(user => {
+      res.json(user);
+    });
+});
 
-//finde eingeloggten user und pushe object id des gesuchten users in array
 router.put("/user", (req, res, next) => {
   const { searchedFriend } = req.body;
   //suche nach eingabe aus form & suche nach user und dessen username
-
   User.findOne({ username: searchedFriend }).then(user => {
     //finde eingeloggten user und pushe object id des gesuchten users in array
-
     User.findOne({ _id: req.user._id }).then(loggedInUser => {
       console.log("User");
       console.log(user);
@@ -211,14 +214,20 @@ router.put("/user", (req, res, next) => {
   });
 });
 
-// router.get("/unfollow/:id", (req, res) => {
-//   User.findOneAndUpdate(
-//     { _id: req.user._id },
-//     { $pull: { peers: req.params.id } },
-//     { new: true }
-//   ).then(updatedUser => {
-//     res.redirect("/following");
-//   });
-// });
+router.post("/unfollow", (req, res) => {
+  console.log(req.body);
+  const { userId, idToDelete } = req.body;
+
+  User.findOneAndUpdate(
+    { _id: userId },
+    { $pull: { peers: idToDelete } },
+    { new: true }
+  )
+    .populate("peers")
+    .then(updatedUser => {
+      console.log(updatedUser);
+      res.json(updatedUser);
+    });
+});
 
 module.exports = router;
