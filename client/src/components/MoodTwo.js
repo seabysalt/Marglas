@@ -82,7 +82,7 @@ class MoodPopup extends React.Component {
 
   render() {
     return (
-      <div class="Modal">
+      <div className="Modal">
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -91,7 +91,9 @@ class MoodPopup extends React.Component {
           contentLabel="Example Modal"
         >
           <div id="close">
-            <button onClick={this.closeModal}><img src="/img/exitOrange.png" alt="close"/></button>
+            <button onClick={this.closeModal}>
+              <img src="/img/exitOrange.png" alt="close" />
+            </button>
           </div>
 
           <div id="formBody">
@@ -103,6 +105,7 @@ class MoodPopup extends React.Component {
               className="moodTracker"
               onSubmit={this.handleSubmit} //&& this.closeModal//
             >
+              <p className="moodMessage">{this.state.message}</p>
               <label className="moodTrackerQuestion" htmlFor="title">
                 How energetic do you feel today?
               </label>
@@ -131,7 +134,6 @@ class MoodPopup extends React.Component {
               <button className="submitDailyMood" type="submit">
                 Submit
               </button>
-              <p className="moodMessage">{this.state.message}</p>
             </form>
           </div>
         </Modal>

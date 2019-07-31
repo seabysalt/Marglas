@@ -57,7 +57,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  color: white;
+  color: map-get($colors, blue);
 }
 /* =========================================== Index Screen ================================================= */
 #index {
@@ -708,19 +708,17 @@ html {
   }
 }
 
-.peersTable {
+.friendsList {
   margin: auto;
   display: flex;
   justify-content: space-between;
 
-  td {
-    padding: 2vh;
-    background-color: #d18b49;
+  .p2 {
+    color: map-get($colors, purpleD);
   }
 }
 .submitPeerButton {
   background-color: #690833;
-  color: white;
 }
 
 /* ============================================= BoardCard ===================================================== */
@@ -844,6 +842,7 @@ html {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  height: auto;
 }
 
 #formBody input {
@@ -883,6 +882,10 @@ html {
   font-size: 180%;
   color: map-get($colors, purpleD);
   text-align: center;
+}
+
+.moodMessage {
+  color: map-get($colors, blue);
 }
 
 .moodTracker label {
