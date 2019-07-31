@@ -135,7 +135,3 @@ export class Profile extends Component {
 }
 
 export default Profile;
-
-{/* <input name="file" type="file"
-   class="file-upload" data-cloudinary-field="image_id"
-   data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"/> */}
