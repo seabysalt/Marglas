@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import { Route } from "react-router-dom";
 import axios from "axios";
+import PeerPopup from "../../components/PeerPopup";
 
 export class Profile extends Component {
   state = {
     img: this.props.user,
     searchedFriend: "",
     error: "",
-    peers: ""
+    peers: "",
+    modalIsOpen: false,
+    peer: "",
+    user: {}
   };
 
   handleChange = event => {
@@ -17,9 +21,22 @@ export class Profile extends Component {
       searchedFriend: event.target.value
     });
   };
-  componentDidMount() {
-    this.setState();
+
+  openModal(peer) {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen,
+      peer: peer
+    });
   }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
+  closeSubmit() {
+    setTimeout(() => this.setState({ modalIsOpen: false }), 3000);
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     axios
@@ -46,7 +63,13 @@ export class Profile extends Component {
       });
   };
 
+  componentDidMount() {
+    axios.get("/user").then(response => {
+      this.setState({ user: response.data });
+    });
+  }
   render() {
+    console.log(this.state.user);
     return (
       <div id="profile">
         <Navbar />
@@ -101,6 +124,16 @@ export class Profile extends Component {
               </button>
             </form>
             {this.state.error}
+
+            {
+              <PeerPopup
+                peer={this.state.peer}
+                user={this.state.user}
+                openModal={this.state.modalIsOpen}
+                closeModal={() => this.closeModal()}
+                closeSubmit={() => this.closeSubmit()}
+              />
+            }
           </div>
 
           <div className="friendsList">
@@ -109,15 +142,21 @@ export class Profile extends Component {
               <h5>Fill Marglas</h5>
               <h5>Unfollow</h5>
             </div>
-            {this.props.user.peers.map((peer, i) => {
-              return (
-                <div key={i}>
-                  <p2>{peer.username}</p2>
-                  <button className="submitPeerButton">Fill Marglas</button>
-                  <button className="submitPeerButton">unfollow</button>
-                </div>
-              );
-            })}
+            {this.state.user.peers &&
+              this.state.user.peers.map((peer, i) => {
+                return (
+                  <div key={i}>
+                    <p2>{peer.username}</p2>
+                    <button
+                      onClick={() => this.openModal(peer)}
+                      className="submitPeerButton"
+                    >
+                      Fill Marglas
+                    </button>
+                    <button className="submitPeerButton">unfollow</button>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>

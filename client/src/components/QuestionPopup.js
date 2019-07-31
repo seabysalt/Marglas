@@ -65,20 +65,17 @@ class QuestionPopup extends React.Component {
     this.setState({ modalIsOpen: false });
   };
 
-  // skipModal = event => {
-  //   event.preventDefault();
-  //   const newAnswer = {
-  //     _user: this.props.user._id,
-  //     _question: this.props.pending[0]._id,
-  //     category: this.props.pending[0].category,
-  //     answer: this.state.answer
-  //   };
-  //   axios.post("/answer", newAnswer).then(() => this.closeModal());
-  //   axios.post("/question/pending", newAnswer).then(response => {
-  //     console.log(response);
-  //     this.props.stateUp();
-  //   });
-  // };
+  skipModal = event => {
+    event.preventDefault();
+    const newAnswer = {
+      _question: this.props.pending[0].id._id
+    };
+    console.log(newAnswer._question);
+    axios.post("/question/pending", newAnswer).then(response => {
+      console.log(response);
+      this.props.stateUp();
+    });
+  };
 
   render() {
     return (

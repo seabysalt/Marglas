@@ -56,7 +56,6 @@ class MoodPopup extends React.Component {
 
         console.log("axios ant", res);
         const message = res.data.message;
-        console.log(message);
         this.setState({
           // energyMood: 0,
           // loveMood: 0,
@@ -64,7 +63,7 @@ class MoodPopup extends React.Component {
           message:
             message || `Thanks for sharing your mood, ${res.data.username}!`
         });
-        this.closeModal();
+        this.closeSubmit();
       })
       .catch(err => {
         console.log(err);
@@ -77,7 +76,10 @@ class MoodPopup extends React.Component {
   }
 
   closeModal() {
-    setTimeout(() => this.setState({ modalIsOpen: false }), 5000);
+    this.setState({ modalIsOpen: false });
+  }
+  closeSubmit() {
+    setTimeout(() => this.setState({ modalIsOpen: false }), 8000);
   }
 
   render() {
@@ -92,7 +94,8 @@ class MoodPopup extends React.Component {
         >
           <div id="close">
             <button onClick={this.closeModal}>
-              <img src="/img/exitOrange.png" alt="close" />
+              NEXT
+              {/* <img src="/img/exitOrange.png" alt="close" /> */}
             </button>
           </div>
 

@@ -13,10 +13,17 @@ router.get("/question/pending", (req, res, next) => {
     });
 });
 
+router.get("/question/peer", (req, res, next) => {
+  Question.aggregate([{ $sample: { size: 1 } }]).then(([question]) => {
+    res.json(question);
+  });
+});
+
 router.post("/question/pending", (req, res, next) => {
   // create var with id of current pending question
   let id = req.body._question;
   console.log(id);
+
   Question.aggregate([
     { $match: { _id: { $ne: id } } },
     { $sample: { size: 1 } }
@@ -25,11 +32,12 @@ router.post("/question/pending", (req, res, next) => {
     let date = new Date(Date.now() + 1000 * 3600 * 24);
     //date for the next day
     User.findById(req.user._id).then(user => {
-      console.log(user.pending);
+      console.log("user.pending: ", user.pending);
       let filteredArray = user.pending.filter(question => {
         if (question.id != id) return true;
       });
       filteredArray.push({ id: newId, date });
+      console.log("filtered: ", filteredArray);
 
       User.findByIdAndUpdate(req.user._id, {
         $set: { pending: filteredArray } //and date
@@ -38,10 +46,6 @@ router.post("/question/pending", (req, res, next) => {
       });
     });
   });
-  //delete question id from pending
-
-  // push a new question into pending
-  //return new pending array and call it in QuestionPopup
 });
 
 // router.get("/question/skip", (req, res, next) => {
@@ -166,6 +170,14 @@ router.get("/boardCard/:category", (req, res) => {
     })
     .catch(err => {
       res.json(err);
+    });
+});
+
+router.get("/user", (req, res, next) => {
+  User.findById(req.user._id)
+    .populate("peers")
+    .then(user => {
+      res.json(user);
     });
 });
 
