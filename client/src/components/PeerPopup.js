@@ -68,7 +68,7 @@ class PeerPopup extends React.Component {
               contentLabel="Example Modal"
             >
               <div id="close">
-                <button onClick={this.props.closeModal}>X</button>
+                <img src="/img/exitOrange.png" onClick={this.props.closeModal} />
               </div>
               <div id="formBody">
                 <h3
@@ -89,10 +89,10 @@ class PeerPopup extends React.Component {
                     submit
                   </button>
 
-                  <p id="comment">(small moments are those that count!)</p>
+                  <p id="comment">Sometimes it's the small things that make the difference!</p>
                   <p id="message">{this.state.message}</p>
                 </form>
-                <button onClick={this.skipPeer}>skip</button>
+                <button className="skip" onClick={this.skipPeer}>skip</button>
               </div>
             </Modal>
           </>

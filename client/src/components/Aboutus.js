@@ -4,8 +4,12 @@ import Navbar from "../components/Navbar";
 export default class Aboutus extends Component {
   render() {
     return (
-      <div className="aboutUs">
-        <Navbar />
+      <div>
+        <Navbar setUser={this.props.setUser} />
+        <div className="aboutus-logo">
+        <img src="/img/marglas1.png" style={{width: "13vh"}} alt="logo"/>
+        </div>
+        <div className="aboutUs">
         <h1>About us</h1>
         <div className="aboutUsLeft">
           <h3>our expertise</h3>
@@ -31,6 +35,7 @@ export default class Aboutus extends Component {
             <li>Individual</li>
           </ul>
         </div>
+      </div>
       </div>
     );
   }

@@ -371,6 +371,11 @@ html {
   width: 100%;
   height: auto;
 }
+
+a {
+  text-decoration: none;
+}
+
 #home-bar-wrapper {
   height: 12vh;
   display: flex;
@@ -499,6 +504,7 @@ html {
   color: map-get($colors, orangeD);
   font-family: "Intro Inline";
   font-weight: 200;
+  width: 80%;
 }
 #boards {
   margin: 1vh 1vh;
@@ -518,7 +524,7 @@ html {
     align-items: space-between;
   }
   .carousel-box {
-    margin: 1vh 0vh;
+    margin: 0vh 0vh;
   }
 
   .board-div {
@@ -553,6 +559,7 @@ html {
     top: -3vh;
     text-align: left;
     text-decoration: none;
+    margin: 0;
   }
   .bar {
     width: 30vw;
@@ -564,9 +571,9 @@ html {
 }
 .tracker-wrapper {
   margin: 1vh 1vh;
-  width: 100vw;
+  width: 100%;
   #tracker {
-    width: 100vw;
+    width: 100%;
     height: 20vh;
   }
 }
@@ -582,7 +589,7 @@ html {
   justify-content: flex-start;
   align-items: space-between;
   .carousel-box {
-    margin: 1vh 1vh;
+    margin: 0vh 1vh;
     width: 50vw;
     height: auto;
   }
@@ -755,6 +762,44 @@ html {
     color: map-get($colors,blue);
   }
 }
+
+.friends-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  p {
+    color: map-get($colors, purpleD);
+    font-size: 100%;
+    width: 20vw;
+  }
+}
+
+.complimentButton, .unfollowButton {
+border-radius: 3px;
+border: 1px solid map-get($colors, orangeD);
+background-color: white;
+color: map-get($colors, purpleD);
+padding: 0.5vh 0.5vh;
+width: 20vw;
+}
+
+.complimentButton:hover, .unfollowButton:hover {
+border-radius: 3px;
+border: 1px solid map-get($colors, orangeD);
+background-color: map-get($colors, orangeD);
+color: map-get($colors, purpleD);
+padding: 0.5vh 0.5vh;
+width: 20vw;
+}
+
+.skip {
+  color: map-get($colors, purpleD);
+  background-color: white;
+  border: none;
+}
+
 .submitPeerButton {
   background-color: map-get($colors, purpleD);
   color: white;
@@ -780,6 +825,7 @@ html {
   padding: 2vh;
   margin: 2vh;
 }
+
 .answerBoardCard:nth-child(4n + 1) {
   color: map-get($colors, purpleD);
   background-color: darkmagenta;
@@ -907,7 +953,7 @@ html {
   color: map-get($colors, purpleD);
 }
 
-#close button img {
+#close img {
   object-fit: contain;
   height: 5vh;
   width: 5vw;
@@ -927,7 +973,7 @@ html {
   font-size: 100%;
   padding: 1vh 1vh;
   text-align: center;
-  border: 0.1px solid map-get($colors, orangeD);
+  border: 0.1px solid map-get($colors, orange);
 }
 
 #questionStyle {
@@ -1075,22 +1121,35 @@ input[type="range"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2%;
+  margin: 0 !important;
+  width: 95%;
 }
 
 .canvas.chartjs-render-monitor {
   display: flex;
   flex-direction: column;
   padding: 20%;
-  margin: 20%;
+  margin: 0;
 }
 
 /* ========================================== About Us Page ====================================================== */
 
 .aboutUs {
-  padding: 10%;
+  padding: 0 10%;
   display: block;
 }
+
+.aboutus-logo {
+  width: "10vh";
+  justify-content: flex-end;
+  display: flex;
+  width: 100vw;
+  margin-top: -9vh;
+  z-index: 13;
+}
+  .aboutus-logo img {
+    padding: 0 15vw 0 0;
+  }
 
 .aboutUsLeft {
   margin: 5%;
