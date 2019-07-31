@@ -58,7 +58,7 @@ export class Profile extends Component {
 
     return (
       <div id="profile">
-        <Navbar />
+        <Navbar setUser={this.props.setUser}/>
         <div className="profile-head">
           <div className="profilePic">
             <img src={this.props.user.img} alt="you"/>
