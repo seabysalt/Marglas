@@ -106,13 +106,13 @@ a {
   .bar {
     width: 50vw;
     height: 0.5vh;
-    background-color: map-get($colors, purpleD);
+    background-color: map-get($colors, pinkL);
     margin: 3vh 0;
     padding: 0;
     border-radius: 3px;
   }
   .index-content {
-    color: map-get($colors, purpleD);
+    color: map-get($colors, pinkD);
     display: flex;
     justify-content: start;
     align-items: flex-end;
@@ -532,7 +532,7 @@ a {
   .rectangle {
     // border: 0.5vh solid map-get($colors, purpleD);
     // background-color: rgba(0, 0, 0, 0.19);
-    height: 15vh;
+    height: 13vh;
     width: auto;
     font-size: auto;
     text-align: center;
@@ -543,15 +543,18 @@ a {
     align-content: center;
     margin-bottom: 1vh;
     position: absolute;
-    z-index: 2;
-    background: white;
-    opacity: 0.6;
+    // z-index: 2;
+    // background: white;
+    // opacity: 0.6;
   }
 
   .overlay:hover {
-    color: white;
     .rectangle {
-      opacity: 1;
+      background: white;
+      opacity: 0.6;
+    }
+    h2 {
+      color: white;
     }
   }
 
@@ -567,15 +570,16 @@ a {
     align-content: center;
     margin-bottom: 1vh;
     position: relative;
-    z-index: 3;
-    color: map-get($colors, purpleD);
+    // z-index: 3;
     .boardHeader {
       text-transform: lowercase;
       font-weight: 300;
       letter-spacing: 0.0005em;
       font-stretch: extra-condensed;
       margin: 0;
-      padding: 0;
+      padding-top: 25vh;
+      padding-bottom: 2vh;
+      color: map-get($colors, purpleD);
     }
   }
 
@@ -599,6 +603,9 @@ a {
   width: 96vw;
   height: 20vh;
   border: solid 1px map-get($colors, purpleD);
+  h2 {
+    width: auto;
+  }
 }
 
 #tracker {
@@ -640,7 +647,6 @@ a {
 #home-carousel {
   display: flex;
   width: auto;
-  font-size: auto;
   flex-direction: row;
   overflow-x: scroll;
   margin-left: 1vw;
@@ -650,6 +656,7 @@ a {
     margin: 1vh 1vh;
     width: auto;
     overflow-x: scroll;
+    font-size: auto;
   }
   .carousel-box .fact-img img {
     object-fit: contain;

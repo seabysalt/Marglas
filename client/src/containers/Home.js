@@ -141,7 +141,10 @@ export class Home extends Component {
                           className="rectangle"
                         />
 
-                        <h2 className="boardHeader" style={{ zIndex: 4 }}>
+                        <h2
+                          className="boardHeader"
+                          // style={{ zIndex: 4 }}
+                        >
                           {eachCategory}
                         </h2>
                       </span>
