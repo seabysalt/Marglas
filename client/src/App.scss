@@ -577,6 +577,20 @@ a {
     height: 20vh;
   }
 }
+
+.tracker-search {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.tracker-search input {
+text-align: center;
+width: 10vh;
+border: 0.5px solid map-get($colors, blue);
+}
+
 #facts-wrapper {
   margin: 2vh 1vh 1vh 1vh;
   width: 100vw;
@@ -949,6 +963,14 @@ width: 20vw;
   background-color: white;
 }
 
+.popup-marglas-img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 #close button {
   color: map-get($colors, purpleD);
 }
@@ -973,7 +995,6 @@ width: 20vw;
   font-size: 100%;
   padding: 1vh 1vh;
   text-align: center;
-  border: 0.1px solid map-get($colors, orange);
 }
 
 #questionStyle {
@@ -981,6 +1002,7 @@ width: 20vw;
   font-size: 130%;
   color: map-get($colors, purpleD);
   font-weight: 200;
+  margin-top: 5vh;
 }
 #comment {
   font-family: Helvetica;
@@ -1021,15 +1043,37 @@ width: 20vw;
 .ReactModal__Content {
   border-radius: 5px !important;
   border: 1px solid map-get($colors, orange) !important;
+  height: auto !important;
 }
 
 .ReactModal__Content--after-open {
   border-radius: 5px !important;
+  border: 1px solid map-get($colors, orange) !important;
+  height: auto !important;
 }
 
+// #question-popup .ReactModal__Content {
+//   border-radius: 5px !important;
+//   border: 1px solid map-get($colors, orange) !important;
+//   height: 50vh;
+//   align-self: center;
+//   justify-content: center;
+// }
+
+// #question-popup .ReactModal__Content--after-open {
+//   border-radius: 5px !important;
+//   border: 1px solid map-get($colors, orange) !important;
+//   height: 50vh;
+// }
+
 .moodMessage {
-  background-color: red;
-  width: 300vw;
+  background: map-get($colors, orangeD);
+  color: map-get($colors, purpleD);
+  width: 90vw;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  padding: 3vh,
 }
 
 /* ========================================== Mood Page ====================================================== */
@@ -1110,7 +1154,35 @@ input[type="range"] {
     background-color: #9a905d;
   }
 }
-/* ========================================== Tracker Page ====================================================== */
+
+/* ========================================== Tracker Full Page ====================================================== */
+.tracker-graph {
+  margin: 0 2vh;
+  height: 40vh;
+}
+
+.tracker-full {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.tracker-headline {
+  font-family: "Intro Inline";
+  font-weight: 200;
+  color: map-get($colors, purpleD);
+  font-size: 200%;
+  text-align: center;
+  width: 100vw;
+}
+
+.chartjs-size-monitor canvas {
+  height: 50vh;
+}
+/* ========================================== HomeTracker ====================================================== */
 .trackerGraph {
   display: flex;
   padding: 0 0 0 0;

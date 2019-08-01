@@ -79,7 +79,7 @@ class QuestionPopup extends React.Component {
 
   render() {
     return (
-      <div className="Modal">
+      <div id="question-popup" className="Modal">
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -90,6 +90,9 @@ class QuestionPopup extends React.Component {
           {/* this component will get the question from the props */}
           <div id="close">
             <img src="/img/exitOrange.png" onClick={this.closeModal} />
+          </div>
+          <div className="popup-marglas-img">
+          <img style={{width: "10vh"}} src="/img/marglas2.png" />
           </div>
           <div id="formBody">
             <h3 id="questionStyle" ref={subtitle => (this.subtitle = subtitle)}>
