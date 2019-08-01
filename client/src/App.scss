@@ -3,6 +3,26 @@
                                 General Design Settings
 ====================================================================================================== */
 $colors: (
+  orangeD: #f5c732,
+  orangeL: #f7924b,
+  blueD: #0e58a3,
+  blueL: #1673b7,
+  lightblueD: #a4c1d8,
+  lightblueL: #bad2e5,
+  pinkD: #bc0053,
+  pinkL: #bc0053,
+  purpleD: #29336e,
+  purpleL: #d775a1,
+  green: #22684f,
+  yellow: #f5c732,
+  blue: #29336e,
+  rosa: #ed8688,
+  pink: #e4c7df,
+  orange: #de6322,
+  lightBlue: #bedbf3
+);
+
+$colorsOld: (
   orangeD: #f37400,
   orangeL: #f7924b,
   blueD: #0e58a3,
@@ -14,6 +34,7 @@ $colors: (
   purpleD: #690833,
   purpleL: #d775a1
 );
+
 /* =========================================== General Settings ================================================= */
 @font-face {
   font-family: "Intro";
@@ -36,6 +57,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  color: map-get($colors, blue);
 }
 /* =========================================== Index Screen ================================================= */
 #index {
@@ -82,6 +104,7 @@ html {
     background-color: map-get($colors, purpleD);
     margin: 3vh 0;
     padding: 0;
+    border-radius: 3px;
   }
   .index-content {
     color: map-get($colors, purpleD);
@@ -139,6 +162,7 @@ html {
     background-color: map-get($colors, purpleD);
     margin: 3vh 0;
     padding: 0;
+    border-radius: 3px;
   }
   #form-structor {
     position: relative;
@@ -151,6 +175,7 @@ html {
     font-size: 250%;
     text-align: right;
     color: map-get($colors, purpleD);
+    font-weight: 200;
   }
 
   .form-holder {
@@ -199,9 +224,13 @@ html {
 }
 
 /* =========================================== Welcome Screen ================================================= */
+// body #body-slider {
+//   background-color: map-get($colors, yellow);
+//   height: 100vh;
+// }
 
 #welcome-slider {
-  background: #ffffff00;
+  background: map-get($colors, yellow);
   color: rgba(0, 0, 0, 0.6);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -210,133 +239,136 @@ html {
   -moz-osx-font-smoothing: grayscale;
   transition: 0.5s ease;
   padding: 5vw;
+  height: 100vh;
 
-
-.btn {
-  border-radius: 2px;
-  padding: 8px 12px;
-  color: #D18B49;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.5s ease;
-}
-
-.card {
-  background: #FFFFFF;
-  max-width: 400px;
-  margin: 15vh auto;
-  border-radius: 5px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  box-sizing: border-box;
-  padding: 7vw;
-  text-align: center;
-}
-
-.products {
-  position: relative;
-  overflow: hidden;
-  transition: 0.5s ease;
-}
-
-.product {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.5s ease;
-}
-.product.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.thumbnail {
-  margin: 0 0 48px;
-}
-
-.title {
-  margin: 0 0 12px;
-  color: #D18B49;
-  font-size: 24px;
-  transition: 0.5s ease;
-}
-
-.description {
-  margin: 0 0 48px;
-}
-
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 -12px -12px;
-}
-
-[ripple] {
-  z-index: 1;
-  position: relative;
-  overflow: hidden;
-}
-[ripple] .ripple {
-  position: absolute;
-  background: #FFFFFF;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-animation: ripple 2s;
-          animation: ripple 2s;
-}
-
-@-webkit-keyframes ripple {
-  0% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 0.2;
+  .btn {
+    border-radius: 2px;
+    padding: 8px 12px;
+    color: map-get($colors, yellow);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s ease;
   }
-  100% {
-    -webkit-transform: scale(20);
-            transform: scale(20);
+
+  .card {
+    background: #ffffff;
+    max-width: 400px;
+    margin: 15vh auto;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-sizing: border-box;
+    padding: 7vw;
+    text-align: center;
+  }
+
+  .products {
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s ease;
+  }
+
+  .product {
+    position: absolute;
+    top: 0;
+    left: 0;
     opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease;
   }
-}
+  .product.active {
+    opacity: 1;
+    visibility: visible;
+  }
 
-@keyframes ripple {
-  0% {
+  .thumbnail {
+    // margin: 0 0 48px;
+  }
+
+  .thumbnail img {
+    object-fit: contain;
+    height: 20vh;
+    width: 20vw;
+    // margin: 0 0 48px;
+  }
+
+  .title {
+    margin: 0 0 12px;
+    color: map-get($colors, yellow);
+    font-size: 24px;
+    transition: 0.5s ease;
+  }
+
+  .thumbnail {
+    margin: 0 0 48px;
+  }
+
+  .description {
+    margin: 0 0 48px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 -12px -12px;
+  }
+
+  [ripple] {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  [ripple] .ripple {
+    position: absolute;
+    background: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
     -webkit-transform: scale(0);
-            transform: scale(0);
-    opacity: 0.2;
+    transform: scale(0);
+    -webkit-animation: ripple 2s;
+    animation: ripple 2s;
   }
-  100% {
-    -webkit-transform: scale(20);
-            transform: scale(20);
-    opacity: 0;
+
+  @-webkit-keyframes ripple {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 0.2;
+    }
+    100% {
+      -webkit-transform: scale(20);
+      transform: scale(20);
+      opacity: 0;
+    }
   }
-}
 
-.getStarted {
-  text-decoration: none;
-  color: white;
-  font-size: 100%;
-  border-radius: 3px;
-  padding: 1vh 1vh;
-  border: 1px solid grey;
-  background-color: grey;
-  text-align: center;
-  margin-bottom: 1vh;
-}
-
+  .getStarted {
+    text-decoration: none;
+    color: white;
+    font-size: 100%;
+    border-radius: 3px;
+    padding: 1vh 1vh;
+    // border: 1px solid grey;
+    background-color: map-get($colors, blue);
+    text-align: center;
+    margin-bottom: 1vh;
+  }
 }
 
 /* =========================================== Home Screen ================================================= */
+
 .home {
   width: 100%;
   height: auto;
 }
+
+a {
+  text-decoration: none;
+}
+
 #home-bar-wrapper {
   height: 12vh;
   display: flex;
@@ -368,7 +400,7 @@ html {
     background-color: map-get($colors, orangeD);
     margin: 1vh 0vh 1vh 0vh;
     padding: 0;
-    // border-radius:3px;
+    border-radius: 3px;
   }
   .bar-pre-move2 {
     display: flex;
@@ -383,6 +415,7 @@ html {
     background-color: map-get($colors, orangeD);
     margin: 1vh 0vh 1vh 0vh;
     padding: 0;
+    border-radius: 3px;
   }
   .bar-pre-move3 {
     display: flex;
@@ -398,6 +431,7 @@ html {
     background-color: map-get($colors, orangeD);
     margin: 1vh 0vh 1vh 0vh;
     padding: 0;
+    border-radius: 3px;
   }
   .animate-bar1 {
     animation: bar1 1s forwards;
@@ -455,12 +489,15 @@ html {
   font-family: "Intro Inline";
   font-size: 200%;
   margin: 5vh 0;
+  font-weight: 100;
 }
 .home-header {
   font-size: 100%;
   height: auto;
   color: map-get($colors, orangeD);
   font-family: "Intro Inline";
+  font-weight: 200;
+  width: 80%;
 }
 #boards {
   margin: 1vh 1vh;
@@ -469,6 +506,7 @@ html {
     height: auto;
     color: map-get($colors, orangeD);
     font-family: "Intro Inline";
+    font-weight: 200;
   }
   .home-carousel {
     display: flex;
@@ -479,11 +517,20 @@ html {
     align-items: space-between;
   }
   .carousel-box {
-    margin: 1vh 0.5vh;
+    margin: 0vh 0vh;
+  }
+
+  .board-div {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 1vh;
   }
   .rectangle {
-    border: 0.5vh solid map-get($colors, purpleD);
-    background-color: map-get($colors, orangeL);
+    // border: 0.5vh solid map-get($colors, purpleD);
+    // background-color: rgba(0, 0, 0, 0.19);
     height: 10vh;
     width: 30vw;
     text-align: center;
@@ -493,28 +540,50 @@ html {
     align-items: center;
     align-content: center;
     margin-bottom: 1vh;
+    z-index: 9;
   }
+
   .boardHeader {
     font-size: 100%;
     color: map-get($colors, purpleD);
     margin: 0;
     padding: 0;
+    z-index: 10;
+    top: -3vh;
+    text-align: left;
+    text-decoration: none;
+    margin: 0;
   }
   .bar {
     width: 30vw;
     height: 0.5vh;
     background-color: map-get($colors, orangeD);
     padding: 0;
+    border-radius: 3px;
   }
 }
 .tracker-wrapper {
   margin: 1vh 1vh;
-  width: 100vw;
+  width: 100%;
   #tracker {
-    width: 100vw;
+    width: 100%;
     height: 20vh;
   }
 }
+
+.tracker-search {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.tracker-search input {
+text-align: center;
+width: 10vh;
+border: 0.5px solid map-get($colors, blue);
+}
+
 #facts-wrapper {
   margin: 2vh 1vh 1vh 1vh;
   width: 100vw;
@@ -527,7 +596,7 @@ html {
   justify-content: flex-start;
   align-items: space-between;
   .carousel-box {
-    margin: 1vh 1vh;
+    margin: 0vh 1vh;
     width: 50vw;
     height: auto;
   }
@@ -566,36 +635,70 @@ html {
   margin: 0 0 2vh 0;
 }
 
-.profile-heading {
+.peerPicture {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 3px;
+  margin: 2%;
+}
 
-h1 {
+.navbar {
+  height: 40vh;
+}
+
+.profile-heading {
+  h1 {
     font-family: "Intro Inline";
-    font-size: 200%;
+    font-size: 220%;
     color: map-get($colors, purpleD);
     text-align: center;
+    font-weight: 200;
+    margin: 0;
   }
 
- h2 {
-   text-align: center;
+  h2 {
+    text-align: center;
     font-size: 135%;
     color: map-get($colors, purpleD);
+    font-weight: 200;
   }
 }
 
 .profilePic {
   margin: 2vh 1vw 3vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-img {
-  width: 40vw;
-  height: 40vw;
-  border-radius: 50%;
-  text-align: center;
-  object-fit: cover;
+  img {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    text-align: center;
+    object-fit: cover;
+  }
+
+  .changeImg {
+    width: 4vh;
+    height: 4vh;
+    padding-left: 30vw;
+    margin: -3vh;
+    padding-bottom: 2vh;
+  }
 }
+
+.submit-img-btn {
+  border-radius: 3px;
+  background-color: map-get($colors, orangeD);
+  color: white;
+  border: none;
+  padding: 0.5vh 0.5vh;
 }
 
 .peer-heading-wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -624,11 +727,147 @@ img {
   }
 }
 
+.menuFollow {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: "Intro Inline";
+    font-size: 200%;
+    color: map-get($colors, purpleD);
+    text-align: center;
+    font-weight: 200;
+  }
+  h2 {
+    text-align: center;
+    font-size: 135%;
+    color: map-get($colors, purpleD);
+  }
+}
+
+.addPeer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2vh;
+  text-align: center;
+
+  .input {
+    background-color: map-get($colors, orangeD);
+    border: 1px solid map-get($colors, orangeD);
+    border-radius: 3px;
+    color: map-get($colors, purpleD);
+    padding: 1vh 1vh;
+  }
+}
+
+.friendsList {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  padding: 0;
+
+  td {
+    padding: 2vh;
+    background-color: white;
+    text-align: center;
+    color: map-get($colors,blue);
+  }
+}
+
+.friends-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  p {
+    color: map-get($colors, purpleD);
+    font-size: 100%;
+    width: 20vw;
+  }
+}
+
+.complimentButton, .unfollowButton {
+border-radius: 3px;
+border: 1px solid map-get($colors, orangeD);
+background-color: white;
+color: map-get($colors, purpleD);
+padding: 0.5vh 0.5vh;
+width: 20vw;
+}
+
+.complimentButton:hover, .unfollowButton:hover {
+border-radius: 3px;
+border: 1px solid map-get($colors, orangeD);
+background-color: map-get($colors, orangeD);
+color: map-get($colors, purpleD);
+padding: 0.5vh 0.5vh;
+width: 20vw;
+}
+
+.skip {
+  color: map-get($colors, purpleD);
+  background-color: white;
+  border: none;
+}
+
+.submitPeerButton {
+  background-color: map-get($colors, purpleD);
+  color: white;
+  border-radius: 3px;
+  border: 1px solid map-get($colors, purpleD);
+  padding: 1vh 1vh;
+}
 
 /* ============================================= BoardCard ===================================================== */
-#boardCard-wrapper {
-  color: map-get($colors, orangeD);
+.boardCard-wrapper {
+  margin: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  width: 80%;
+
+  h1 {
+    font-family: "Intro Inline";
+    font-weight: 200;
+    font-size: 200%;
+  }
 }
+
+.answerBoardCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2vh;
+  margin: 2vh;
+}
+
+.answerBoardCard:nth-child(4n + 1) {
+  color: map-get($colors, purpleD);
+  background-color: darkmagenta;
+  font-size: 200%;
+}
+.answerBoardCard:nth-child(4n + 2) {
+  color: map-get($colors, orangeD);
+  background-color: blue;
+  font-size: 80%;
+}
+.answerBoardCard:nth-child(4n + 3) {
+  color: map-get($colors, purpleD);
+  background-color: green;
+  font-size: 150%;
+}
+
+.answerBoardCard:nth-child(4n + 4) {
+  color: map-get($colors, red);
+  background-color: lightcoral;
+  font-size: 250%;
+}
+
 /* ============================================= Questions ===================================================== */
 .questions {
   position: absolute;
@@ -716,45 +955,141 @@ img {
   bottom: "auto";
   margin-right: "-50%";
   transform: "translate(-50%, -50%)";
+  border: "1px solid map-get($colors, orangeD)";
 }
+
+.modal-content {
+  border: 1px solid map-get($colors, orangeD);
+}
+
 #close {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: white;
 }
+
+.popup-marglas-img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#close button {
+  color: map-get($colors, purpleD);
+}
+
+#close img {
+  object-fit: contain;
+  height: 5vh;
+  width: 5vw;
+}
+
 #formBody {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
+  height: auto;
 }
+
+#formBody input {
+  color: map-get($colors, purpleD);
+  font-size: 100%;
+  padding: 1vh 1vh;
+  text-align: center;
+}
+
 #questionStyle {
   font-family: "Intro Inline";
-  font-size: 200;
-  color: #690833;
+  font-size: 130%;
+  color: map-get($colors, purpleD);
+  font-weight: 200;
+  margin-top: 5vh;
 }
 #comment {
   font-family: Helvetica;
   font-size: 15px;
 }
 #answerSubmitButton {
-  border: 2px solid #f37400;
-  background-color: white;
+  background-color: map-get($colors, purpleD);
+  color: white;
+  font-size: 90%;
+  padding: 1vh 1vh;
+  border-radius: 3px;
+  text-align: center;
+  margin: 3vh 0;
   transition-duration: 0.4s;
 }
+
 #answerSubmitButton:hover {
-  color: #f37400;
+  color: map-get($colors, orange);
 }
 
 #headerMood {
   font-family: "Intro Inline";
-  font-size: 200;
+  font-size: 180%;
+  color: map-get($colors, purpleD);
+  text-align: center;
+  font-weight: 200;
 }
+
+.moodMessage {
+  color: map-get($colors, blue);
+}
+
+.moodTracker label {
+  color: map-get($colors, orange);
+  text-align: center;
+}
+
+.ReactModal__Content {
+  border-radius: 5px !important;
+  border: 1px solid map-get($colors, orange) !important;
+  height: auto !important;
+}
+
+.ReactModal__Content--after-open {
+  border-radius: 5px !important;
+  border: 1px solid map-get($colors, orange) !important;
+  height: auto !important;
+}
+
+// #question-popup .ReactModal__Content {
+//   border-radius: 5px !important;
+//   border: 1px solid map-get($colors, orange) !important;
+//   height: 50vh;
+//   align-self: center;
+//   justify-content: center;
+// }
+
+// #question-popup .ReactModal__Content--after-open {
+//   border-radius: 5px !important;
+//   border: 1px solid map-get($colors, orange) !important;
+//   height: 50vh;
+// }
+
+.moodMessage {
+  background-color: map-get($colors, orangeD);
+  color: map-get($colors, purpleD);
+  width: auto;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
 /* ========================================== Mood Page ====================================================== */
 .submitDailyMood {
-  background-color: #690833;
+  background-color: map-get($colors, purpleD);
   color: white;
+  font-size: 90%;
+  padding: 1vh 1vh;
+  border-radius: 3px;
+  text-align: center;
+  margin: 3vh 0;
 }
 .moodTracker {
   padding: 5%;
@@ -797,7 +1132,8 @@ input[type="range"] {
       height: 40px;
       cursor: ew-resize;
       background: #fff;
-      box-shadow: -340px 0 0 320px #f37400, inset 0 0 0 40px #0e58a3;
+      box-shadow: -340px 0 0 320px map-get($colors, orangeL),
+        inset 0 0 0 40px map-get($colors, purpleD);
       border-radius: 50%;
       transition: box-shadow 0.2s ease-in-out;
       position: relative;
@@ -823,10 +1159,38 @@ input[type="range"] {
     background-color: #9a905d;
   }
 }
-/* ========================================== Tracker Page ====================================================== */
+
+/* ========================================== Tracker Full Page ====================================================== */
+.tracker-graph {
+  margin: 0 2vh;
+  height: 40vh;
+}
+
+.tracker-full {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.tracker-headline {
+  font-family: "Intro Inline";
+  font-weight: 200;
+  color: map-get($colors, purpleD);
+  font-size: 200%;
+  text-align: center;
+  width: 100vw;
+}
+
+.chartjs-size-monitor canvas {
+  height: 50vh;
+}
+/* ========================================== HomeTracker ====================================================== */
 .trackerGraph {
   display: flex;
-  padding: 5%;
+  padding: 0 0 0 0;
 }
 
 .trackerAll {
@@ -834,12 +1198,46 @@ input[type="range"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2%;
+  margin: 0 !important;
+  width: 95%;
 }
 
 .canvas.chartjs-render-monitor {
   display: flex;
   flex-direction: column;
   padding: 20%;
-  margin: 20%;
+  margin: 0;
+}
+
+/* ========================================== About Us Page ====================================================== */
+
+.aboutUs {
+  padding: 0 10%;
+  display: block;
+}
+
+.aboutus-logo {
+  width: "10vh";
+  justify-content: flex-end;
+  display: flex;
+  width: 100vw;
+  margin-top: -9vh;
+  z-index: 13;
+}
+  .aboutus-logo img {
+    padding: 0 15vw 0 0;
+  }
+
+.aboutUsLeft {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.aboutUsRight {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

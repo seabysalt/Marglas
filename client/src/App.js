@@ -14,6 +14,8 @@ import BoardCard from "./components/HomeRoute/BoardCard";
 import Profile from "./components/HomeRoute/Profile";
 import FactsCard from "./components/HomeRoute/FactsCard";
 import Aboutus from "./components/Aboutus";
+import Navbar from "./components/Navbar";
+import TrackerHome from "./components/HomeRoute/TrackerHome";
 
 class App extends React.Component {
   state = {
@@ -24,8 +26,8 @@ class App extends React.Component {
       user: user
     });
   };
+
   render() {
-    console.log(this.state.user)
     return (
       <div className="App">
         <Switch>
@@ -46,23 +48,65 @@ class App extends React.Component {
             user={!this.state.user}
             component={Login}
           />
-          <Protected exact path="/welcome" component={Welcome} user={this.state.user}/>
-          <Route
+          <Protected
+            exact
+            path="/welcome"
+            component={Welcome}
+            user={this.state.user}
+          />
+          <Protected
             exact
             path="/home"
-            render={() => <Home user={this.state.user} setUser={this.setUser}/>}
+            component={Home}
+            user={this.state.user}
+            setUser={this.setUser}
+            TrackerHome={TrackerHome}
           />
-          <Protected exact path="/mood" component={Mood}  user={this.state.user} setUser={this.setUser} />
-          <Protected exact path="/tracker" component={Tracker}  user={this.state.user} setUser={this.setUser}/>
-          <Protected exact path="/boardCard/:category" component={BoardCard}  user={this.state.user} setUser={this.setUser}/>
+
+          <Protected
+            exact
+            path="/mood"
+            component={Mood}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
+          <Protected
+            exact
+            path="/tracker"
+            component={Tracker}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
+          <Protected
+            exact
+            path="/boardCard/:category"
+            component={BoardCard}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
           <Protected
             exact
             path="/profile"
             component={Profile}
             user={this.state.user}
             setUser={this.setUser}
+            navbar={Navbar}
           />
-          <Protected exact path="/aboutus" component={Aboutus}  user={this.state.user} setUser={this.setUser}/>
+          {/* <Protected
+            exact
+            path="/navbar"
+            component={Navbar}
+            user={this.state.user}
+            setUser={this.setUser}
+          /> */}
+          <Protected
+            exact
+            path="/aboutus"
+            component={Aboutus}
+            user={this.state.user}
+            setUser={this.setUser}
+            navbar={Navbar}
+          />
         </Switch>
       </div>
     );

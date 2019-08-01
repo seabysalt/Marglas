@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "../components/HomeRoute/Profile";
+// import { Resizable } from "re-resizable";
 import BoardCard from "../components/HomeRoute/BoardCard";
 import FactsCard from "../components/HomeRoute/FactsCard";
 import Tracker from "../components/HomeRoute/Tracker";
+import TrackerHome from "../components/HomeRoute/TrackerHome";
 import QuestionPopup from "../components/QuestionPopup";
 import axios from "axios";
 import Aboutus from "../components/Aboutus";
 import { logout } from "../services/api";
 import Mood from "../components/MoodTwo";
 import MoodPopup from "../components/MoodTwo";
+// import { url } from "inspector";
 
 const handleLogout = props => {
   logout().then(() => {
@@ -33,6 +36,14 @@ export class Home extends Component {
       "Psychological Capital",
       "Why gratefulness works",
       "Why Bibi loves animals"
+    ],
+    img: [
+      "/img/blue.png",
+      "/img/yellow.png",
+      "/img/green.png",
+      "/img/orange.png",
+      "/img/blueLight.png",
+      "/img/rosa.png"
     ]
   };
 
@@ -77,6 +88,7 @@ export class Home extends Component {
   render() {
     const myCategories = this.state.categories;
     const myScience = this.state.science;
+    const categoryImg = this.state.img;
 
     return (
       <div className="home">
@@ -118,11 +130,17 @@ export class Home extends Component {
           <h2 className="home-header">my boards</h2>
           <div className="home-carousel">
             {myCategories.length &&
-              myCategories.map(eachCategory => {
+              myCategories.map((eachCategory, i) => {
                 return (
-                  <Link to={"/boardCard/" + eachCategory}>
+                  <Link to={"/boardCard/" + eachCategory} key={i}>
                     <div className="carousel-box">
-                      <div className="rectangle">
+                      {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
+                      <div>
+                        <img
+                          src={categoryImg[i]}
+                          alt="some graphic"
+                          className="rectangle"
+                        />
                         <h3 className="boardHeader">{eachCategory}</h3>
                       </div>
                     </div>
@@ -131,23 +149,26 @@ export class Home extends Component {
               })}
           </div>
         </div>
-        <Link to="/tracker" component={Tracker}>
-          <div className="tracker-wrapper">
+        <div className="tracker-wrapper">
+          <Link to="/tracker" component={Tracker}>
             <h2 className="home-header">my tracker</h2>
-            <div id="tracker" />
+          </Link>
+          <div id="tracker">
+            <TrackerHome />
           </div>
-        </Link>
+        </div>
+
         <Link to="/factsCard" component={FactsCard}>
           <div id="facts-wrapper">
             <h2 className="home-header">my science</h2>
           </div>
           <div id="home-carousel">
-            {myScience.map(eachScience => {
+            {myScience.map((eachScience, i) => {
               return (
-                <div className="carousel-box">
-                  <div className="fact-img">
-                    <img src="/img/img1.png" alt="some graphic" />
-                  </div>
+                <div className="carousel-box" key={i}>
+                  {/* <div className="fact-img">
+                    <img src={categoryImg[i]} alt="some graphic" />
+                  </div> */}
                   <div>
                     <h3 className="boardHeader">{eachScience}</h3>
                     <p className="scienceDescription">

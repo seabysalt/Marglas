@@ -51,15 +51,19 @@ class MoodPopup extends React.Component {
         gratefulMood: this.state.gratefulMood
       })
       .then(res => {
-        console.log("axios ant", res);
-        this.setState({
-          energyMood: 0,
-          loveMood: 0,
-          gratefulMood: 0,
-          message: `Thanks for sharing your mood, ${res.data.username}!`
+        // if(this.energyMood < 5) message: `${}
+        //if req.body <5 prompt1 of that category + show answer of that category + prompt2 of that category
 
-          //if req.body <5 prompt1 of that category + show answer of that category + prompt2 of that category
+        console.log("axios ant", res);
+        const message = res.data.message;
+        this.setState({
+          // energyMood: 0,
+          // loveMood: 0,
+          // gratefulMood: 0,
+          message:
+            message || `Thanks for sharing your mood, ${res.data.username}!`
         });
+        this.closeSubmit();
       })
       .catch(err => {
         console.log(err);
@@ -68,16 +72,19 @@ class MoodPopup extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
+    this.subtitle.style.color = "map-get($colors, purpleD);";
   }
 
   closeModal() {
     this.setState({ modalIsOpen: false });
   }
+  closeSubmit() {
+    setTimeout(() => this.setState({ modalIsOpen: false }), 8000);
+  }
 
   render() {
     return (
-      <div class="Modal">
+      <div className="Modal">
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -86,7 +93,10 @@ class MoodPopup extends React.Component {
           contentLabel="Example Modal"
         >
           <div id="close">
-            <button onClick={this.closeModal}>X</button>
+            <button onClick={this.closeModal}>
+              NEXT
+              {/* <img src="/img/exitOrange.png" alt="close" /> */}
+            </button>
           </div>
 
           <div id="formBody">
@@ -96,8 +106,9 @@ class MoodPopup extends React.Component {
 
             <form
               className="moodTracker"
-              onSubmit={this.handleSubmit && this.closeModal}
+              onSubmit={this.handleSubmit} //&& this.closeModal//
             >
+              <p className="moodMessage">{this.state.message}</p>
               <label className="moodTrackerQuestion" htmlFor="title">
                 How energetic do you feel today?
               </label>
@@ -116,7 +127,7 @@ class MoodPopup extends React.Component {
                 onChange={this.handleChange}
               />
 
-              <label htmlFor="description">How grateful are today? </label>
+              <label htmlFor="description">How grateful are you today? </label>
               <input
                 name="gratefulMood"
                 type="range"
@@ -126,7 +137,6 @@ class MoodPopup extends React.Component {
               <button className="submitDailyMood" type="submit">
                 Submit
               </button>
-              <p className="moodMessage">{this.state.message}</p>
             </form>
           </div>
         </Modal>

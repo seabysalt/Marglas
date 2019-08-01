@@ -43,11 +43,12 @@ class QuestionPopup extends React.Component {
     event.preventDefault();
     const newAnswer = {
       _user: this.props.user._id,
-      _question: this.props.pending[0]._id,
-      category: this.props.pending[0].category,
+      _question: this.props.pending[0].id._id,
+      category: this.props.pending[0].id.category,
       answer: this.state.answer
     };
-    console.log(newAnswer);
+    console.log(this.props.pending);
+    console.log(newAnswer, "hiiii");
     axios.post("/answer", newAnswer).then(() => this.closeModal());
     axios.post("/question/pending", newAnswer).then(response => {
       console.log(response);
@@ -57,33 +58,29 @@ class QuestionPopup extends React.Component {
 
   afterOpenModal = () => {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = "#f00";
+    this.subtitle.style.color = "#29336e";
   };
 
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };
 
-  // skipModal = event => {
-  //   event.preventDefault();
-  //   Question.aggregate([
-  //     { $match: { _id: { $ne: id } } },
-  //     { $sample: { size: 1 } }
-  //   ]).then(questions => {
-  //     let newId = questions[0]._id;
-
-  //   axios.get("/question/pending");
-  // };
-
-  //   Question.aggregate([{ $sample: { size: 1 } }]).then(randomQuestion => {
-  //     return ({User.pending: [{ id: randomQuestion[0]._id, date: Date.now() }]})
-  // };
+  skipModal = event => {
+    event.preventDefault();
+    const newAnswer = {
+      _question: this.props.pending[0].id._id
+    };
+    console.log(newAnswer._question);
+    axios.post("/question/pending", newAnswer).then(response => {
+      console.log(response);
+      this.props.stateUp();
+    });
+  };
 
   render() {
     return (
-      <div className="Modal">
+      <div id="question-popup" className="Modal">
         <Modal
-          className="Modal"
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
@@ -92,7 +89,10 @@ class QuestionPopup extends React.Component {
         >
           {/* this component will get the question from the props */}
           <div id="close">
-            <button onClick={this.closeModal}>X</button>
+            <img src="/img/exitOrange.png" onClick={this.closeModal} />
+          </div>
+          <div className="popup-marglas-img">
+          <img style={{width: "10vh"}} src="/img/marglas2.png" />
           </div>
           <div id="formBody">
             <h3 id="questionStyle" ref={subtitle => (this.subtitle = subtitle)}>
@@ -112,10 +112,10 @@ class QuestionPopup extends React.Component {
                 submit
               </button>
 
-              <p id="comment">(small moments are those that count!)</p>
+              <p id="comment">Sometimes it's the small things that make the difference!</p>
             </form>
 
-            {/* <button onClick={this.skipModal}>skip</button> */}
+            <button className="skip" onClick={this.skipModal}>skip</button>
           </div>
         </Modal>
       </div>
