@@ -1321,3 +1321,1287 @@ input[type="range"] {
   flex-direction: column;
   justify-content: flex-end;
 }
+
+
+/* ===================================== 
+
+
+
+Full Screen 
+
+
+
+================================================ */
+
+
+
+@media (min-width: 768px) {
+/* =========================================== Index Screen ================================================= */
+#index {
+  .circles {
+    position: relative;
+    top: 20vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .circle {
+    border-radius: 50%;
+    background-color: map-get($colors, orangeD);
+    width: 3vw;
+    height: 3vw;
+    position: relative;
+    z-index: 10;
+    animation: circleMove 4s;
+  }
+  @keyframes circleMove {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translate(10vw, 80vh);
+    }
+  }
+  .bars {
+    position: relative;
+    top: 20vh;
+  }
+  @keyframes barMoveIndex {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100vw);
+    }
+  }
+  .bar {
+    width: 50vw;
+    height: 0.5vh;
+    background-color: map-get($colors, purpleD);
+    margin: 3vh 0;
+    padding: 0;
+    border-radius: 3px;
+  }
+  .index-content {
+    color: map-get($colors, purpleD);
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    flex-direction: column;
+    position: relative;
+    top: 40vh;
+    padding: 0 10px 0 0;
+  }
+  .index-content h1 {
+    font-family: "Intro Inline";
+    font-size: 5vh;
+    font-weight: 100;
+  }
+  .index-links {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+  }
+  .index-links p {
+    padding: 0 2vw;
+    text-decoration: none;
+    color: map-get($colors, purpleD);
+    font-size: 2.5vh;
+  }
+}
+
+/* ========================================= Login & Signup Page ====================================================== */
+#signup-body {
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .bars {
+    position: relative;
+    left: -20vw;
+    top: 20vh;
+    animation: barMove 2s forwards;
+  }
+  @keyframes barMove {
+    from {
+      transform: translateX(-20vw);
+    }
+    to {
+      transform: translateX(20vw);
+    }
+  }
+  .bar {
+    width: 20vw;
+    height: 0.5vh;
+    background-color: map-get($colors, purpleD);
+    margin: 3vh 0;
+    padding: 0;
+    border-radius: 3px;
+  }
+  #form-structor {
+    position: relative;
+    top: 30vh;
+    width: 100vw;
+    padding: 1vh 1vh;
+  }
+  .form-title {
+    font-family: "Intro Inline";
+    font-size: 250%;
+    text-align: right;
+    color: map-get($colors, purpleD);
+    font-weight: 200;
+  }
+
+  .form-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10vh;
+  }
+
+  .form-holder input {
+    border: 1px solid map-get($colors, purpleD);
+    border-radius: 3px;
+    background-color: none;
+    color: map-get($colors, purpleD);
+    font-size: 120%;
+    padding: 1vh 1vh;
+    margin: 1vh 0;
+  }
+
+  .form-holder input:placeholder {
+    border: 1px solid map-get($colors, purpleD);
+    border-radius: 3px;
+    background-color: none;
+    color: map-get($colors, purpleD);
+    font-size: 120%;
+    padding: 1vh 1vh;
+    margin: 1vh 0;
+  }
+
+  .submit-btn {
+    background-color: map-get($colors, purpleD);
+    color: white;
+    font-size: 100%;
+    border-radius: 3px;
+    padding: 1vh 1vh;
+    margin: 1vh 0;
+  }
+
+  .warning {
+    color: map-get($colors, purpleD);
+    font-size: 100%;
+    padding: 1vh 0vh;
+    margin: 1vh 0;
+  }
+}
+
+/* =========================================== Welcome Screen ================================================= */
+// body #body-slider {
+//   background-color: map-get($colors, yellow);
+//   height: 100vh;
+// }
+
+#welcome-slider {
+  background: map-get($colors, yellow);
+  color: rgba(0, 0, 0, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.5s ease;
+  padding: 5vw;
+  height: 100vh;
+
+  .btn {
+    border-radius: 2px;
+    padding: 8px 12px;
+    color: map-get($colors, yellow);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+  }
+
+  .card {
+    background: #ffffff;
+    max-width: 400px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-sizing: border-box;
+    padding: 48px;
+    text-align: center;
+  }
+
+  .products {
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s ease;
+  }
+
+  .product {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease;
+  }
+  .product.active {
+    opacity: 1;
+    visibility: visible;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .thumbnail {
+    margin: 0 0 48px;
+  }
+
+  .thumbnail img {
+    object-fit: contain;
+    height: 20vh;
+    width: 20vw;
+    // margin: 0 0 48px;
+  }
+
+  .title {
+    margin: 0 0 12px;
+    color: map-get($colors, yellow);
+    font-size: 24px;
+    transition: 0.5s ease;
+  }
+
+  .thumbnail {
+    margin: 0 0 48px;
+  }
+
+  .description {
+    margin: 0 0 48px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 -12px -12px;
+  }
+
+  [ripple] {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  [ripple] .ripple {
+    position: absolute;
+    background: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation: ripple 2s;
+    animation: ripple 2s;
+  }
+
+  @-webkit-keyframes ripple {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 0.2;
+    }
+    100% {
+      -webkit-transform: scale(20);
+      transform: scale(20);
+      opacity: 0;
+    }
+  }
+
+  .getStarted {
+    text-decoration: none;
+    color: white;
+    font-size: 100%;
+    border-radius: 3px;
+    padding: 1vh 1vh;
+    // border: 1px solid grey;
+    background-color: map-get($colors, blue);
+    text-align: center;
+    margin-bottom: 1vh;
+  }
+}
+
+/* =========================================== Home Screen ================================================= */
+
+.home {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+#home-bar-wrapper {
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10vh;
+  padding: 0;
+  justify-content: flex-start;
+  width: 100vw;
+  .bars {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    margin-left: -20vw;
+    width: 50vw;
+  }
+  .bar-pre-move1 {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
+    left: -10vw;
+  }
+  .bar1 {
+    width: 40vw;
+    left: -10vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+    border-radius: 3px;
+  }
+  .bar-pre-move2 {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
+    left: -10vw;
+  }
+  .bar2 {
+    width: 40vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+    border-radius: 3px;
+  }
+  .bar-pre-move3 {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: flex-start;
+    left: -10vw;
+  }
+  .bar3 {
+    width: 40vw;
+    left: -10vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    margin: 1vh 0vh 1vh 0vh;
+    padding: 0;
+    border-radius: 3px;
+  }
+  .animate-bar1 {
+    animation: bar1 1s forwards;
+  }
+  .animate-bar2 {
+    animation: bar2 1s forwards;
+  }
+  .animate-bar3 {
+    animation: bar3 1s forwards;
+  }
+  @keyframes bar1 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(20vw);
+    }
+  }
+  @keyframes bar2 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(10vw);
+    }
+  }
+  @keyframes bar3 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(1vw);
+    }
+  }
+  .menu-link {
+    color: map-get($colors, purpleD);
+    font-size: 80%;
+    display: none;
+    padding-left: 1%;
+  }
+  .animate-menu-link {
+    display: flex;
+    flex-direction: column;
+    color: map-get($colors, purpleD);
+    font-size: 80%;
+  }
+}
+.home .marglas-div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1vh;
+}
+.home .marglas {
+  color: map-get($colors, purpleD);
+  font-family: "Intro Inline";
+  font-size: 200%;
+  margin: 5vh 0;
+  font-weight: 100;
+}
+.home-header {
+  font-size: 150%;
+  height: auto;
+  color: map-get($colors, orangeD);
+  font-family: "Intro Inline";
+  font-weight: 200;
+  width: 80%;
+}
+#boards {
+  margin: 1vh 1vh;
+  .home-header {
+    font-size: 150%;
+    height: auto;
+    color: map-get($colors, orangeD);
+    font-family: "Intro Inline";
+    font-weight: 200;
+  }
+  .home-carousel {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    margin-left: 1vw;
+    justify-content: flex-start;
+    align-items: space-between;
+  }
+
+.rightarrow {
+  position: absolute;
+  color: map-get($colors, purpleD);
+  font-size: 120%;
+  right: 3vh;
+  top: 53vh;
+  bottom: 0;
+  height: 1vh;
+  width: 1vh;
+}
+
+
+  .carousel-box {
+    margin: 0vh 0vh;
+  }
+
+  .overlay:hover {
+    .rectangle {
+      background: white;
+      opacity: 0.6;
+    }
+    h2 {
+      color: white;
+    }
+  }
+
+  .board-div {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 1vh;
+  }
+  .rectangle {
+    width: 20vh;
+    height: 15vw;
+    text-align: center;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    // margin-bottom: 1vh;
+    padding-right: 1vh;
+    padding-top: 1vh;
+    // margin-top: 1vh;
+  }
+
+  .boardHeader {
+    font-size: 120%;
+    color: map-get($colors, purpleD);
+    margin: 0;
+    top: -3vh;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.0005em;
+    font-stretch: extra-condensed;
+    margin: 0;
+    text-transform: lowercase;
+    padding: 0 0 1vh 20vh;
+
+      // padding-top: 25vh;
+      // padding-bottom: 2vh;
+
+  }
+  .bar {
+    width: 30vw;
+    height: 0.5vh;
+    background-color: map-get($colors, orangeD);
+    padding: 0;
+    border-radius: 3px;
+  }
+}
+.tracker-wrapper {
+  margin: 3vh 0vh 4vh 0;
+  padding: 2vh 0 2vh 1vh;
+  background-color: map-get($colors, orangeD);
+  width: 100vw;
+
+.home-header {
+ color: white;
+ }
+
+  #tracker {
+    width: 100%;
+    height: 20vh;
+  }
+}
+
+.tracker-wrapper:hover {
+  margin: 3vh 0vh 4vh 0;
+  padding: 2vh 0 2vh 1vh;
+  background-color: map-get($colors, orange);
+  width: 100vw;
+
+
+// .home-header:hover {
+//  color: map-get($colors, orangeD);
+//  }
+
+  #tracker:hover {
+    width: 100%;
+    height: 20vh;
+  }
+}
+
+.tracker-search {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 10vh;
+}
+
+.tracker-search input {
+text-align: center;
+width: 10vh;
+border: 0.5px solid map-get($colors, blue);
+border-radius: 3px;
+padding: 0.5vh 0vh;
+color: map-get($colors, blue);
+font-size: 80%;
+}
+
+#facts-wrapper {
+  margin: 2vh 1vh 1vh 1vh;
+  width: 100vw;
+}
+
+.factsCard-wrapper{
+  margin: 2vh 4vh 1vh 4vh;
+  width: 90%;
+}
+
+#home-carousel {
+  display: flex;
+  flex-direction: column;
+  // overflow-x: scroll;
+  margin-left: 1vw;
+  justify-content: flex-start;
+  align-items: space-between;
+  .carousel-box {
+    margin: 0vh 10vh;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .boardHeader {
+    font-size: 120%;
+    color: map-get($colors, purpleD);
+    font-weight: 300;
+    letter-spacing: 0.0005em;
+    font-stretch: extra-condensed;
+
+  }
+  .fact-img {
+    padding: 0 8vh 0 4vh;
+  }
+  .carousel-box .fact-img img {
+    object-fit: contain;
+  //   width: 20vw;
+  //   height: 20vw;
+  }
+  // img {
+  //   width: 70%;
+  // }
+  .scienceDescription {
+    font-size: 80%;
+    color: map-get($colors, orangeD);
+  }
+}
+
+.orange-footer {
+  background-color: map-get($colors, orangeD);
+  width: 100%;
+  height: 5vh;
+  margin-top: 2vh;
+}
+
+/* =========================================== Profile ================================================= */
+
+#profile {
+  width: 100vw;
+  height: 100vh;
+}
+
+.profile-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh 1vw;
+  margin: 0 0 2vh 0;
+}
+
+.peerPicture {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 3px;
+  margin: 2%;
+}
+
+.navbar {
+  height: 40vh;
+}
+
+.profile-heading {
+  h1 {
+    font-family: "Intro Inline";
+    font-size: 220%;
+    color: map-get($colors, purpleD);
+    text-align: center;
+    font-weight: 200;
+    margin: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 135%;
+    color: map-get($colors, purpleD);
+    font-weight: 200;
+  }
+}
+
+.profilePic {
+  margin: 2vh 1vw 3vh 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    text-align: center;
+    object-fit: cover;
+  }
+
+  .changeImg {
+    width: 4vh;
+    height: 4vh;
+    padding-left: 30vw;
+    margin: -3vh;
+    padding-bottom: 2vh;
+  }
+}
+
+.submit-img-btn {
+  border-radius: 3px;
+  background-color: map-get($colors, orangeD);
+  color: white;
+  border: none;
+  padding: 0.5vh 0.5vh;
+}
+
+.peer-heading-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 3vh 0 1vh 0;
+
+  .circles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 20vw;
+  }
+  .circle {
+    border-radius: 50%;
+    background-color: map-get($colors, orangeD);
+    width: 1vw;
+    height: 1vw;
+    position: relative;
+  }
+
+  .peer-center p {
+    text-align: center;
+    color: map-get($colors, purpleD);
+    font-size: 130%;
+    margin: 0;
+    padding: 0 2vw;
+  }
+}
+
+.menuFollow {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: "Intro Inline";
+    font-size: 200%;
+    color: map-get($colors, purpleD);
+    text-align: center;
+    font-weight: 200;
+    margin-top: 5vh;
+  }
+  h2 {
+    text-align: center;
+    font-size: 135%;
+    color: map-get($colors, purpleD);
+  }
+}
+
+.addPeer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2vh;
+  text-align: center;
+  margin-bottom: 5vh;
+
+  .input {
+    background-color: map-get($colors, orangeD);
+    border: 1px solid map-get($colors, orangeD);
+    border-radius: 3px;
+    color: map-get($colors, purpleD);
+    padding: 1vh 1vh;
+  }
+}
+
+.friendsList {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  padding: 0;
+
+  td {
+    padding: 2vh;
+    background-color: white;
+    text-align: center;
+    color: map-get($colors,blue);
+  }
+}
+
+.friends-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  p {
+    color: map-get($colors, purpleD);
+    font-size: 100%;
+    width: 20vw;
+  }
+}
+
+.complimentButton, .unfollowButton {
+border-radius: 3px;
+border: 1px solid map-get($colors, orangeD);
+background-color: white;
+color: map-get($colors, purpleD);
+padding: 0.5vh 0.5vh;
+width: 20vw;
+}
+
+.complimentButton:hover, .unfollowButton:hover {
+border-radius: 3px;
+border: 1px solid map-get($colors, orangeD);
+background-color: map-get($colors, orangeD);
+color: map-get($colors, purpleD);
+padding: 0.5vh 0.5vh;
+width: 20vw;
+}
+
+.skip {
+  color: map-get($colors, purpleD);
+  background-color: white;
+  border: none;
+}
+
+.submitPeerButton {
+  background-color: map-get($colors, purpleD);
+  color: white;
+  border-radius: 3px;
+  border: 1px solid map-get($colors, purpleD);
+  padding: 1vh 1vh;
+}
+
+/* ============================================= BoardCard ===================================================== */
+.boardCard-wrapper {
+  margin: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  width: 80%;
+
+  h1 {
+    font-family: "Intro Inline";
+    font-weight: 200;
+    font-size: 200%;
+  }
+}
+
+.answerBoardCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2vh;
+  margin: 2vh;
+}
+
+.answerBoardCard:nth-child(4n + 1) {
+  color: map-get($colors, purpleD);
+  background-color: darkmagenta;
+  font-size: 200%;
+}
+.answerBoardCard:nth-child(4n + 2) {
+  color: map-get($colors, orangeD);
+  background-color: blue;
+  font-size: 80%;
+}
+.answerBoardCard:nth-child(4n + 3) {
+  color: map-get($colors, purpleD);
+  background-color: green;
+  font-size: 150%;
+}
+
+.answerBoardCard:nth-child(4n + 4) {
+  color: map-get($colors, red);
+  background-color: lightcoral;
+  font-size: 250%;
+}
+
+/* ============================================= Questions ===================================================== */
+.questions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  width: 65%;
+  z-index: 5;
+  -webkit-transition: all 0.3s ease;
+
+  .form-title {
+    color: #382f2f;
+    font-size: 1.7em;
+    text-align: center;
+
+    /* ========================================== Skala Page ====================================================== */
+    span {
+      color: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: all 0.3s ease;
+    }
+  }
+
+  .form-holder {
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+
+    .input {
+      border: 0;
+      outline: none;
+      box-shadow: none;
+      display: block;
+      height: 40px;
+      line-height: 30px;
+      padding: 8px 15px;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      font-size: 14px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+      &::-webkit-input-placeholder {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .submit-btn {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(256, 256, 256, 0.7);
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.3s ease;
+
+    &:hover {
+      transition: all 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+/* ========================================== PopUpWindow ====================================================== */
+.Modal {
+  top: "50%";
+  left: "50%";
+  width: "50%";
+  height: "50%";
+  right: "auto";
+  bottom: "auto";
+  margin-right: "-50%";
+  transform: "translate(-50%, -50%)";
+  border: "1px solid map-get($colors, orangeD)";
+}
+
+.modal-content {
+  border: 1px solid map-get($colors, orangeD);
+}
+
+#close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: white;
+}
+
+.popup-marglas-img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#close button {
+  color: map-get($colors, purpleD);
+}
+
+#close img {
+  object-fit: contain;
+  height: 5vh;
+  width: 5vw;
+}
+
+#formBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: auto;
+}
+
+#formBody input {
+  color: map-get($colors, purpleD);
+  font-size: 100%;
+  padding: 1vh 1vh;
+  text-align: center;
+}
+
+#questionStyle {
+  font-family: "Intro Inline";
+  font-size: 130%;
+  color: map-get($colors, purpleD);
+  font-weight: 200;
+  margin-top: 5vh;
+}
+#comment {
+  font-family: Helvetica;
+  font-size: 15px;
+}
+#answerSubmitButton {
+  background-color: map-get($colors, purpleD);
+  color: white;
+  font-size: 90%;
+  padding: 1vh 1vh;
+  border-radius: 3px;
+  text-align: center;
+  margin: 3vh 0;
+  transition-duration: 0.4s;
+}
+
+#answerSubmitButton:hover {
+  color: map-get($colors, orange);
+}
+
+#headerMood {
+  font-family: "Intro Inline";
+  font-size: 180%;
+  color: map-get($colors, purpleD);
+  text-align: center;
+  font-weight: 200;
+}
+
+.moodTracker label {
+  color: map-get($colors, orange);
+  text-align: center;
+}
+
+.ReactModal__Content {
+  border-radius: 5px !important;
+  border: 1px solid map-get($colors, orange) !important;
+  height: auto !important;
+}
+
+.ReactModal__Content--after-open {
+  border-radius: 5px !important;
+  border: 1px solid map-get($colors, orange) !important;
+  height: auto !important;
+}
+
+// #question-popup .ReactModal__Content {
+//   border-radius: 5px !important;
+//   border: 1px solid map-get($colors, orange) !important;
+//   height: 50vh;
+//   align-self: center;
+//   justify-content: center;
+// }
+
+// #question-popup .ReactModal__Content--after-open {
+//   border-radius: 5px !important;
+//   border: 1px solid map-get($colors, orange) !important;
+//   height: 50vh;
+// }
+
+.moodMessage {
+  background-color: map-get($colors, orange);
+  border-radius: 3px;
+  color: white;
+  width: auto;
+  margin-bottom: 3vh;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+/* ========================================== Mood Page ====================================================== */
+.submitDailyMood {
+  background-color: map-get($colors, purpleD);
+  color: white;
+  font-size: 90%;
+  padding: 1vh 1vh;
+  border-radius: 3px;
+  text-align: center;
+  margin: 3vh 0;
+}
+.moodTracker {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0%;
+  width: 90%;
+}
+.moodMessage {
+  margin: 5%;
+}
+
+input[type="range"] {
+  outline: 0;
+  border: 0;
+  border-radius: 500px;
+  width: 80%;
+  margin: 15px 0;
+  transition: box-shadow 0.2s ease-in-out;
+  // Chrome
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    & {
+      overflow: hidden;
+      height: 40px;
+      -webkit-appearance: none;
+      background-color: #ddd;
+    }
+    &::-webkit-slider-runnable-track {
+      height: 40px;
+      -webkit-appearance: none;
+      color: #444;
+      margin-top: -1px;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    &::-webkit-slider-thumb {
+      width: 40px;
+      -webkit-appearance: none;
+      height: 40px;
+      cursor: ew-resize;
+      background: #fff;
+      box-shadow: -340px 0 0 320px map-get($colors, orangeL),
+        inset 0 0 0 40px map-get($colors, purpleD);
+      border-radius: 50%;
+      transition: box-shadow 0.2s ease-in-out;
+      position: relative;
+      // top: 1px;
+    }
+    &:active::-webkit-slider-thumb {
+      background: #fff;
+      box-shadow: -340px 0 0 320px #bc0053, inset 0 0 0 3px #d775a1;
+    }
+  }
+  // Firefox
+  &::-moz-range-progress {
+    background-color: #43e5f7;
+  }
+  &::-moz-range-track {
+    background-color: #9a905d;
+  }
+  // IE
+  &::-ms-fill-lower {
+    background-color: #43e5f7;
+  }
+  &::-ms-fill-upper {
+    background-color: #9a905d;
+  }
+}
+
+/* ========================================== Tracker Full Page ====================================================== */
+.tracker-graph {
+  margin: 0 2vh;
+  height: 40vh;
+}
+
+.tracker-full {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.tracker-headline {
+  font-family: "Intro Inline";
+  font-weight: 200;
+  color: map-get($colors, purpleD);
+  font-size: 200%;
+  text-align: center;
+  width: 100vw;
+}
+
+.chartjs-size-monitor canvas {
+  height: 50vh;
+}
+/* ========================================== HomeTracker ====================================================== */
+.trackerGraph {
+  display: flex;
+  padding: 0 0 0 0;
+}
+
+.trackerAll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+  width: 95%;
+}
+
+.canvas.chartjs-render-monitor {
+  display: flex;
+  flex-direction: column;
+  padding: 20%;
+  margin: 0;
+}
+
+/* ========================================== About Us Page ====================================================== */
+
+.aboutUs {
+  padding: 0 10%;
+  display: block;
+}
+
+.aboutus-logo {
+  width: "10vh";
+  justify-content: flex-end;
+  display: flex;
+  width: 100vw;
+  margin-top: -9vh;
+  z-index: 13;
+}
+  .aboutus-logo img {
+    padding: 0 15vw 0 0;
+  }
+
+.aboutUsLeft {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.aboutUsRight {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+}
