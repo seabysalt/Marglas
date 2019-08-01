@@ -72,6 +72,13 @@ class App extends React.Component {
           />
           <Protected
             exact
+            path="/factsCard"
+            component={FactsCard}
+            user={this.state.user}
+            setUser={this.setUser}
+          />
+          <Protected
+            exact
             path="/tracker"
             component={Tracker}
             user={this.state.user}

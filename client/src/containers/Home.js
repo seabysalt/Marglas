@@ -24,12 +24,12 @@ export class Home extends Component {
   state = {
     pending: [],
     categories: [
-      "Happiness",
-      "Gratefulness",
-      "Strengths",
-      "Potential",
-      "Energy",
-      "Accomplishments"
+      "happiness",
+      "gratefulness",
+      "strengths",
+      "potential",
+      "energy",
+      "accomplishments"
     ],
     science: [
       "Positive Psychology",
@@ -135,7 +135,7 @@ export class Home extends Component {
                   <Link to={"/boardCard/" + eachCategory} key={i}>
                     <div className="carousel-box">
                       {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
-                      <div>
+                      <div className="overlay">
                         <img
                           src={categoryImg[i]}
                           alt="some graphic"
@@ -153,9 +153,6 @@ export class Home extends Component {
           <Link to="/tracker" component={Tracker}>
             <h2 className="home-header">my tracker</h2>
           </Link>
-          <div id="tracker">
-            <TrackerHome />
-          </div>
         </div>
 
         <Link to="/factsCard" component={FactsCard}>
@@ -182,7 +179,7 @@ export class Home extends Component {
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
 
-        {
+{/*         {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -190,7 +187,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />}
+        {<MoodPopup />} */}
       </div>
     );
   }
