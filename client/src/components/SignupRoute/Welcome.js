@@ -111,7 +111,7 @@ export default class Welcome extends Component {
             <div
               className="product active"
               product-id="1"
-              product-color="#F5C732"
+              product-color="#f5c732"
             >
               <div className="thumbnail">
                 <img src="/img/yellow.png" />

@@ -25,7 +25,7 @@ require("./configs/passport");
 
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/project3" || "mongodb://heroku_qhzj8zgv:6sbn1tcr5no0icklt65kaha7qa@ds353957.mlab.com:53957/heroku_qhzj8zgv" , {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/project3" , {
     useNewUrlParser: true
   })
   .then(x => {

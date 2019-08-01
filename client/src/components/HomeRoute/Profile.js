@@ -169,7 +169,12 @@ export class Profile extends Component {
           {this.props.user.peers.map((peer, i) => {
             console.log(peer);
             return (
-              <div key={i}>
+              <div key={i} className="friends-list">
+                <img
+                  className="peer"
+                  src={peer.img}
+                  alt="peerProfilePic"
+                />
                 <p>{peer.username}</p>
                 <button
                   onClick={() => this.openModal(peer)}
