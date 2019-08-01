@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Question = require("./models/Question");
-mongoose.connect("mongodb://localhost/project3", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project3", {
   useNewUrlParser: true
 });
 
