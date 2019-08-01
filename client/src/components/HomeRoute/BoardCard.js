@@ -11,7 +11,7 @@ export default class BoardCard extends Component {
     slogan: {
       Happiness: "This sparks joy in you...",
       Gratefulness: "You can be thankful for...",
-      Strengths: "You are power in...",
+      Strengths: "You are powerful in...",
       Potential: "Hey Rockstar, you have big potential in... ",
       Energy: "This gives you an energy-push...",
       Accomplishments: "Be proud of..."
@@ -38,8 +38,17 @@ export default class BoardCard extends Component {
   }
   render() {
     const options = {
-      fontFamily: "impact",
-      colors: ["#22684f", "#f5c732", "#29336e", "#e4c7df", "#de6322", "#bedbf3"]
+      fontFamily: "roboto",
+      colors: ["#22684f", "#f5c732", "#29336e", "#e4c7df", "#de6322", "#bedbf3"],
+      fontSizes: [5, 60],
+fontStyle: "normal",
+fontWeight: "normal",
+padding: 1,
+rotations: 3,
+rotationAngles: [0, 90],
+scale: "sqrt",
+spiral: "archimedean",
+transitionDuration: 1000,
     };
     const myAnswers = this.state.objectWithAnswers.map((el, i) => ({
       text: el.answer,

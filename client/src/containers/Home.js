@@ -24,24 +24,24 @@ export class Home extends Component {
   state = {
     pending: [],
     categories: [
-      "happiness",
-      "gratefulness",
-      "strengths",
-      "potential",
-      "energy",
-      "accomplishments"
+      "Happiness",
+      "Gratefulness",
+      "Strengths",
+      "Potential",
+      "Energy",
+      "Accomplishments"
     ],
     science: [
-      "Positive Psychology",
-      "Psychological Capital",
-      "Why gratefulness works",
-      "Why Bibi loves animals"
+      "Psychological Capital & Entrepreneurship",
+      "What is Positive Psychology?",
+      "Why Gratefulness Works",
+      "How Resilience can Boost your Performance"
     ],
     img: [
       "/img/blue.png",
       "/img/yellow.png",
       "/img/green.png",
-      "/img/orange.png",
+      "/img/orange2.png",
       "/img/blueLight.png",
       "/img/rosa.png"
     ]
@@ -138,7 +138,7 @@ export class Home extends Component {
                       <div className="overlay">
                         <img
                           src={categoryImg[i]}
-                          alt="some graphic"
+                          alt="graphic"
                           className="rectangle"
                         />
                         <h3 className="boardHeader">{eachCategory}</h3>
@@ -147,6 +147,7 @@ export class Home extends Component {
                   </Link>
                 );
               })}
+               <span class="rightarrow">></span>
           </div>
         </div>
         <div className="tracker-wrapper">
@@ -163,23 +164,22 @@ export class Home extends Component {
             {myScience.map((eachScience, i) => {
               return (
                 <div className="carousel-box" key={i}>
-                  {/* <div className="fact-img">
-                    <img src={categoryImg[i]} alt="some graphic" />
-                  </div> */}
+                  <div className="fact-img">
+                    <img src="/img/marglas1.png" style={{width: "4vh"}}alt="some graphic" />
+                  </div>
                   <div>
                     <h3 className="boardHeader">{eachScience}</h3>
-                    <p className="scienceDescription">
-                      this is a short description about the article
-                    </p>
                   </div>
                 </div>
               );
             })}
           </div>
         </Link>
+
+        <div className="orange-footer"></div>
         {/* if there is a pending question, show the popup component with the question */}
 
-{/*         {
+       {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -187,7 +187,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />} */}
+        {<MoodPopup />} 
       </div>
     );
   }
