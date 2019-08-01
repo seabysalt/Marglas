@@ -59,6 +59,11 @@ html {
   font-family: "Roboto", sans-serif;
   color: map-get($colors, blue);
 }
+
+a {
+  text-decoration: none;
+}
+
 /* =========================================== Index Screen ================================================= */
 #index {
   .circles {
@@ -494,7 +499,7 @@ html {
   font-weight: 100;
 }
 .home-header {
-  font-size: 100%;
+  font-size: 150%;
   height: auto;
   color: map-get($colors, orangeD);
   font-family: "Intro Inline";
@@ -502,13 +507,6 @@ html {
 }
 #boards {
   margin: 1vh 1vh;
-  .home-header {
-    font-size: 100%;
-    height: auto;
-    color: map-get($colors, orangeD);
-    font-family: "Intro Inline";
-    font-weight: 200;
-  }
   .home-carousel {
     display: flex;
     flex-direction: row;
@@ -519,6 +517,8 @@ html {
   }
   .carousel-box {
     margin: 1vh 0vh;
+    padding-left: 15vw;
+    padding-right: 15vw;
   }
 
   .board-div {
@@ -529,11 +529,13 @@ html {
     align-content: center;
     margin-bottom: 1vh;
   }
+
   .rectangle {
     // border: 0.5vh solid map-get($colors, purpleD);
     // background-color: rgba(0, 0, 0, 0.19);
-    height: 10vh;
-    width: 30vw;
+    height: 20vh;
+    width: auto;
+    font-size: auto;
     text-align: center;
     object-fit: contain;
     display: flex;
@@ -541,19 +543,41 @@ html {
     align-items: center;
     align-content: center;
     margin-bottom: 1vh;
-    z-index: 9;
+    position: absolute;
+    z-index: 2;
+    background: white;
+    opacity: 0.6;
   }
 
-  .boardHeader {
-    font-size: 100%;
-    color: map-get($colors, purpleD);
-    margin: 0;
-    padding: 0;
-    z-index: 10;
-    top: -3vh;
-    text-align: left;
-    text-decoration: none;
+  .overlay:hover {
+    color: white;
+    .rectangle {
+      opacity: 1;
+    }
   }
+
+  .overlay {
+    height: 25vh;
+    width: 30vw;
+    font-weight: 100;
+    text-align: center;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 1vh;
+    position: relative;
+    z-index: 3;
+    color: map-get($colors, purpleD);
+    .boardHeader {
+      text-transform: lowercase;
+      font-weight: 300;
+      letter-spacing: 0.0005em;
+      font-stretch: extra-condensed;
+    }
+  }
+
   .bar {
     width: 30vw;
     height: 0.5vh;
@@ -562,20 +586,47 @@ html {
     border-radius: 3px;
   }
 }
+
 .tracker-wrapper {
-  margin: 1vh 1vh;
-  width: 100vw;
-  #tracker {
-    width: 100vw;
-    height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 5vw;
+  margin-bottom: 10vw;
+  width: 96vw;
+  height: 20vh;
+  border: solid 1px map-get($colors, purpleD);
+}
+
+#tracker {
+  font-size: 100%;
+  font-family: "Roboto", sans-serif;
+  color: map-get($colors, purpleD);
+  margin: 0;
+  padding: 0;
+  top: -3vh;
+  text-align: left;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+.tracker-wrapper:hover {
+  background-color: map-get($colors, orangeD);
+  h2 {
+    color: white;
   }
 }
+
 #facts-wrapper {
   margin: 2vh 1vh 1vh 1vh;
   width: 100vw;
 }
 #home-carousel {
   display: flex;
+  width: auto;
+  font-size: auto;
   flex-direction: row;
   overflow-x: scroll;
   margin-left: 1vw;
@@ -583,22 +634,15 @@ html {
   align-items: space-between;
   .carousel-box {
     margin: 1vh 1vh;
-    width: 50vw;
-    height: auto;
-  }
-  .boardHeader {
-    font-size: 100%;
-    color: map-get($colors, purpleD);
+    width: auto;
+    overflow-x: scroll;
   }
   .carousel-box .fact-img img {
     object-fit: contain;
-    width: 20vw;
-    height: 20vw;
+    width: auto;
     margin-bottom: 2vh;
   }
-  img {
-    width: 70%;
-  }
+
   .scienceDescription {
     font-size: 80%;
     color: map-get($colors, orangeD);
@@ -752,7 +796,7 @@ html {
     padding: 2vh;
     background-color: white;
     text-align: center;
-    color: map-get($colors,blue);
+    color: map-get($colors, blue);
   }
 }
 .submitPeerButton {
@@ -937,7 +981,7 @@ html {
   font-weight: 200;
 }
 #comment {
-  font-family: Helvetica;
+  font-family: "Roboto", sans-serif;
   font-size: 15px;
 }
 #answerSubmitButton {
@@ -957,7 +1001,7 @@ html {
 
 #headerMood {
   font-family: "Intro Inline";
-  font-size: 180%;
+  font-size: 140%;
   color: map-get($colors, purpleD);
   text-align: center;
   font-weight: 200;

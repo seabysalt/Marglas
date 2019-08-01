@@ -41,7 +41,7 @@ export class Home extends Component {
       "/img/blue.png",
       "/img/yellow.png",
       "/img/green.png",
-      "/img/orange.png",
+      "/img/orange2.png",
       "/img/blueLight.png",
       "/img/rosa.png"
     ]
@@ -134,27 +134,33 @@ export class Home extends Component {
                 return (
                   <Link to={"/boardCard/" + eachCategory} key={i}>
                     <div className="carousel-box">
-                      {/* <div style={{backgroundImage:`url(${categoryImg[i]})` , backgroundPosition: 'center', backgroundSize:'70%', backgroundRepeat: 'no-repeat', height: '10vh', width: '30vw',}} className="board-div"> */}
-                      <div>
+                      <span className="overlay">
                         <img
                           src={categoryImg[i]}
                           alt="some graphic"
                           className="rectangle"
                         />
-                        <h3 className="boardHeader">{eachCategory}</h3>
-                      </div>
+
+                        <h2 className="boardHeader" style={{ zIndex: 4 }}>
+                          {eachCategory}
+                        </h2>
+                      </span>
                     </div>
                   </Link>
                 );
               })}
           </div>
         </div>
-        <div className="tracker-wrapper">
-          <Link to="/tracker" component={Tracker}>
-            <h2 className="home-header">my tracker</h2>
-          </Link>
-          <div id="tracker">
-            <TrackerHome />
+
+        <div id="boards">
+          <div id="trackerDIV">
+            {/* <h2 className="home-header">my tracker</h2> */}
+
+            <Link to="/tracker" component={Tracker}>
+              <div className="tracker-wrapper">
+                <h2 className="home-header">Your Tracker</h2>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -166,9 +172,6 @@ export class Home extends Component {
             {myScience.map((eachScience, i) => {
               return (
                 <div className="carousel-box" key={i}>
-                  {/* <div className="fact-img">
-                    <img src={categoryImg[i]} alt="some graphic" />
-                  </div> */}
                   <div>
                     <h3 className="boardHeader">{eachScience}</h3>
                     <p className="scienceDescription">
@@ -182,7 +185,7 @@ export class Home extends Component {
         </Link>
         {/* if there is a pending question, show the popup component with the question */}
 
-        {
+        {/* {
           <QuestionPopup
             stateUp={this.stateUp}
             pending={this.state.pending}
@@ -190,7 +193,7 @@ export class Home extends Component {
           />
         }
 
-        {<MoodPopup />}
+        {<MoodPopup />} */}
       </div>
     );
   }
