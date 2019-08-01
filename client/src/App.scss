@@ -304,13 +304,6 @@ html {
     margin: 0 0 48px;
   }
 
-  .title {
-    margin: 0 0 12px;
-    color: #d18b49;
-    font-size: 24px;
-    transition: 0.5s ease;
-  }
-
   .description {
     margin: 0 0 48px;
   }
@@ -642,6 +635,13 @@ border: 0.5px solid map-get($colors, blue);
   margin: 0 0 2vh 0;
 }
 
+.peerPicture {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 3px;
+  margin: 2%;
+}
+
 .navbar {
   height: 40vh;
 }
@@ -830,6 +830,12 @@ width: 20vw;
   justify-content: center;
   height: 60%;
   width: 80%;
+
+  h1 {
+    font-family: "Intro Inline";
+    font-weight: 200;
+    font-size: 200%;
+  }
 }
 
 .answerBoardCard {
@@ -1067,13 +1073,12 @@ width: 20vw;
 // }
 
 .moodMessage {
-  background: map-get($colors, orangeD);
+  background-color: map-get($colors, orangeD);
   color: map-get($colors, purpleD);
-  width: 90vw;
+  width: auto;
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  padding: 3vh,
 }
 
 /* ========================================== Mood Page ====================================================== */

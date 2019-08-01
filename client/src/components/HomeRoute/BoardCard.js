@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-// import ReactWordcloud from "react-wordcloud";
-// import { Resizable } from "re-resizable";
+import ReactWordcloud from "react-wordcloud";
+import { Resizable } from "re-resizable";
 import axios from "axios";
 import Navbar from "../Navbar";
 
@@ -9,33 +9,19 @@ export default class BoardCard extends Component {
   state = {
     objectWithAnswers: [],
     slogan: {
-      Happiness: "This sparkles joy...",
+      Happiness: "This sparks joy in you...",
       Gratefulness: "You can be thankful for...",
-      Strengths: "Your strong in...",
+      Strengths: "You are power in...",
       Potential: "Hey Rockstar, you have big potential in... ",
       Energy: "This gives you an energy-push...",
       Accomplishments: "Be proud of..."
     }
   };
 
-  resizeStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "solid 1px #ddd",
-    background: "#f0f0f0"
-  };
-
-  /* how to access my category:
-  this.props.category.match 
-  = category --> wiki countries 
-  */
-
   componentDidMount() {
     console.log("Working component");
     const category = this.props.match.params.category;
     console.log("my category" + category);
-
     console.log("/boardCard/" + category);
     axios
       .get("/boardCard/" + category) // /boardCard/Happiness
@@ -50,43 +36,47 @@ export default class BoardCard extends Component {
         console.log("Error is: ", err);
       });
   }
-
   render() {
-    console.log(this.state.objectWithAnswers);
+    const options = {
+      fontFamily: "impact",
+      colors: ["#22684f", "#f5c732", "#29336e", "#e4c7df", "#de6322", "#bedbf3"]
+    };
+    const myAnswers = this.state.objectWithAnswers.map((el, i) => ({
+      text: el.answer,
+      // value: 80
+      // fontSize: 50,
+      // fontFamily: "impact",
+      value: 1500
+    }));
     return (
-      <div class="boardCard-wrapper">
-        <Navbar />
-        <h1> {this.state.slogan[this.props.match.params.category]} </h1>
-        {this.state.objectWithAnswers.length &&
-          this.state.objectWithAnswers.map(el => (
-            <div class="answerBoardCard">{el.answer}</div>
-          ))}
-        {/* <p>Resize the container!</p>
-        <Resizable
-          defaultSize={{
-            width: 600,
-            height: 300
-          }}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "solid 1px #ddd",
-            background: "#f0f0f0"
-          }}
-        >
-          {this.state.objectWithAnswers.length &&
-            this.state.objectWithAnswers.map((el, i) => (
-              <div key={i} style={{ width: "100%", height: "100%" }}>
-                <ReactWordcloud
-                  words={{
-                    text: `${el.answer}`,
-                    value: Math.floor(Math.random() * 100)
-                  }}
-                />
-              </div>
-            ))}
-        </Resizable> */}
+      <div>
+        <Navbar setUser={this.props.setUser} />
+        <div className="aboutus-logo">
+        <img src="/img/marglas1.png" style={{width: "13vh"}} alt="logo"/>
+        </div>
+        <div className="boardCard-wrapper">
+          <h1> {this.state.slogan[this.props.match.params.category]} </h1>
+          <div>
+            <Resizable
+              // defaultSize={{
+              //   width: 100%,
+              //   height: 400
+              // }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#fff"
+              }}
+            >
+              <ReactWordcloud
+                className="wordCloud"
+                options={options}
+                words={myAnswers}
+              />
+            </Resizable>
+          </div>
+        </div>
       </div>
     );
   }

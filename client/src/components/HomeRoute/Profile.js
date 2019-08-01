@@ -170,6 +170,11 @@ export class Profile extends Component {
             console.log(peer);
             return (
               <div key={i} className="friends-list">
+                <img
+                  className="peer"
+                  src={peer.img}
+                  alt="peerProfilePic"
+                />
                 <p>{peer.username}</p>
                 <button
                   onClick={() => this.openModal(peer)}

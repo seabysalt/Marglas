@@ -70,6 +70,9 @@ class PeerPopup extends React.Component {
               <div id="close">
                 <img src="/img/exitOrange.png" onClick={this.props.closeModal} />
               </div>
+              <div className="popup-marglas-img">
+          <img style={{width: "10vh"}} src="/img/marglas2.png" />
+          </div>
               <div id="formBody">
                 <h3
                   id="questionStyle"
