@@ -7,7 +7,7 @@ export default class Aboutus extends Component {
       <div>
         <Navbar setUser={this.props.setUser} />
         <div className="aboutus-logo">
-        <img src="/img/marglas1.png" style={{width: "13vh"}} alt="logo"/>
+        <img src="/img/marglas1.png" style={{width: "13vh", height: "20vw"}} alt="logo"/>
         </div>
         <div className="aboutUs">
         <h1>About us</h1>

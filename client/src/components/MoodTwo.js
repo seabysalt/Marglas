@@ -93,7 +93,7 @@ class MoodPopup extends React.Component {
           contentLabel="Example Modal"
         >
           <div id="close">
-            <button onClick={this.closeModal}>
+            <button className="next" onClick={this.closeModal}>
               NEXT
               {/* <img src="/img/exitOrange.png" alt="close" /> */}
             </button>

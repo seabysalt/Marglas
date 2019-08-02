@@ -77,7 +77,7 @@ export class Tracker extends Component {
       <div>
       <Navbar />
       <div className="aboutus-logo">
-        <img src="/img/marglas1.png" style={{width: "13vh"}} alt="logo"/>
+        <img src="/img/marglas1.png" style={{width: "13vh", height: "20vw"}} alt="logo"/>
       </div>
       <div className="tracker-full">
         {console.log(data)}

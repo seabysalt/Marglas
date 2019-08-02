@@ -61,7 +61,7 @@ transitionDuration: 1000,
       <div>
         <Navbar setUser={this.props.setUser} />
         <div className="aboutus-logo">
-        <img src="/img/marglas1.png" style={{width: "13vh"}} alt="logo"/>
+        <img src="/img/marglas1.png" style={{width: "13vh", height: "20vw"}} alt="logo"/>
         </div>
         <div className="boardCard-wrapper">
           <h1> {this.state.slogan[this.props.match.params.category]} </h1>

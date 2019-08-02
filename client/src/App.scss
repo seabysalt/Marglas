@@ -717,10 +717,10 @@ font-size: 80%;
   margin: 0 0 2vh 0;
 }
 
-.peerPicture {
+.peer {
   width: 5vh;
   height: 5vh;
-  border-radius: 3px;
+  border-radius: 50%;
   margin: 2%;
 }
 
@@ -1038,6 +1038,12 @@ width: 20vw;
   margin-right: "-50%";
   transform: "translate(-50%, -50%)";
   border: "1px solid map-get($colors, orangeD)";
+}
+
+.next {
+  background-color: white;
+  border-radius: 3px;
+  border: none;
 }
 
 .modal-content {
