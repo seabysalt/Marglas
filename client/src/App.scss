@@ -593,6 +593,12 @@ a {
     border-radius: 3px;
   }
 }
+
+.messed-up-image {
+  width: 13vh;
+  height: 20vw;
+}
+
 .tracker-wrapper {
   margin: 3vh 0vh 4vh 0;
   padding: 2vh 0 2vh 1vh;
@@ -2183,6 +2189,11 @@ width: 20vw;
   color: map-get($colors, purpleD);
   background-color: white;
   border: none;
+}
+
+.messed-up-image {
+  width: 20vh;
+  height: auto;
 }
 
 .submitPeerButton {
